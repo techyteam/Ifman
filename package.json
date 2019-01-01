@@ -42,7 +42,6 @@
     "@babel/runtime": "^7.6.2",
     "@hapi/joi": "^15.1.0",
     "@hapi/joi-date": "^2.0.1",
-    "@sendgrid/mail": "^6.4.0",
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
