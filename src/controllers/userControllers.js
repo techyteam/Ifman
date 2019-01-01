@@ -1,6 +1,7 @@
 import Utils from '../utils';
 import UserServices from '../services/userServices';
 import ResponseMsg from '../utils/response';
+import { transporter, mailOptions } from '../utils/sendmail';
 
 const { resLong, resErr } = ResponseMsg;
 
@@ -26,6 +27,15 @@ class UserController {
       const user = await UserServices.createUser({ email, password });
       const token = Utils.generateToken({ email });
       res.set('Authorization', `Bearer ${token}`);
+      const mailHtmlContent = `
+          <h2>Your account has been created succesfully</h2>
+          <p>You can now login and start watching our amazing courses</p>
+      `;
+      const mailDetails = mailOptions(email, 'Account created successfully', mailHtmlContent);
+      transporter.sendMail(mailDetails, (err, info) => {
+        if (err) console.log(err);
+        else console.log(info);
+      });
       return resLong(res, 201, { ...user, token });
     } catch (error) {
       return resErr(res, 500, error.message);
