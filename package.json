@@ -1,0 +1,50 @@
+{
+  "name": "ifman",
+  "version": "1.0.0",
+  "description": "facility management company",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misanj/Ifman.git"
+  },
+  "keywords": [
+    "ifma",
+    "node",
+    "express",
+    "endpoints"
+  ],
+  "author": "temisan otokuefor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misanj/Ifman/issues"
+  },
+  "homepage": "https://github.com/misanj/Ifman#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "debug": "^4.1.1",
+    "dotenv": "^7.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^6.1.4",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "coveralls": "^3.0.4",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^14.1.1"
+  }
+}
