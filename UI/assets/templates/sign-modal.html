@@ -1,0 +1,476 @@
+<style>
+    @import url(./assets/css/general.css);
+
+    :host {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        z-index: 990;
+    }
+
+    .sign-inner-container {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        position: relative;
+        width: 80%;
+        height: 85%;
+        overflow: hidden;
+        text-align: center;
+        transition: transform .5s 1s;
+    }
+
+    .sign-main,
+    .sign-sub {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .signup-main,
+    .login-main,
+    .signup-sub,
+    .login-sub {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-main, .signup-main {
+        opacity: 0;
+        z-index: -9;
+        top: -100%;
+        transition: all 1s ease;
+        /* animation: showMain 5s ease reverse both; */
+    }
+
+    .signup-sub, .login-sub {
+        opacity: 0;
+        z-index: -9;
+        transition: all .3s ease;
+        /* animation: showSub 5s ease reverse both; */
+    }
+
+    :host(.show-login) .login-main {
+        opacity: 1;
+        z-index: 0;
+        top: 0;
+        /* animation: showMain 5s ease both; */
+    }
+
+    :host(.show-login) .signup-sub {
+        opacity: 1;
+        z-index: 0;
+        /* animation: showSub 5s ease both; */
+    }
+
+    :host(.show-signup) .signup-main {
+        opacity: 1;
+        z-index: 0;
+        top: 0;        
+        /* animation: showMain 5s ease both; */
+    }
+
+    :host(.show-signup) .login-sub {
+        opacity: 1;
+        z-index: 0;
+        /* animation: showSub 5s ease both; */
+    }
+
+    @keyframes showMain {
+        0% {
+            opacity: 0;
+            z-index: -9;
+            top: -100%;
+        }
+        100% {
+            opacity: 1;
+            z-index: 0;
+            top: 0;
+        }
+    }
+    @keyframes showMainR {
+      
+        0% {
+            opacity: 1;
+            z-index: 0;
+            top: 0;
+        }
+        100% {
+            opacity: 0;
+            z-index: -9;
+            top: -100%;
+        }
+    }
+
+    @keyframes showSub {
+        0% {
+            opacity: 0;
+            z-index: -9;
+        }
+        100% {
+            opacity: 1;
+            z-index: 0;
+        }
+    }
+
+    .signup-main>div,
+    .login-main>div {
+        width: 100%;
+    }
+
+    .front-page {
+        margin: 30px 0 0 0;
+    }
+
+    .signup-main>div,
+    .login-main>div {
+        padding: 20px;
+        border-radius: 3px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    @media (max-width: 600px) {
+
+        .sign-inner-container {
+            height: 90%;
+            width: 95%;
+        }
+
+        .signup-main>div,
+        .login-main>div {
+            width: 95%;
+        }
+
+        .signup-main>div {
+            padding-bottom: 50px;
+        }
+    }
+
+    .signup-main>div,
+    .login-main>div {
+        background: #fff
+    }
+
+    .field-container {
+        position: relative;
+        height: 55px;
+        margin: 5px 0 0;
+    }
+
+    .front-page input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        border-radius: 2px;
+        border-style: none;
+        border: 1px solid var(--pry-txt-clr);
+        color: var(--pry-txt-clr);
+        line-height: 18px;
+        font-size: 16px;
+        padding: 8px 18px;
+        width: 100%;
+        background: inherit;
+        transition: all .5s;
+
+    }
+
+    .front-page input:hover,
+    .front-page input:focus {
+        box-shadow: var(--bx-shdw-1);
+    }
+
+    .front-page label {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        line-height: 18px;
+        padding: 0 2px;
+        margin: 8px 18px;
+        transform-origin: left;
+        transform: scale(1) translate(0);
+        transition: transform .4s ease;
+        background: inherit;
+        cursor: inherit;
+    }
+
+    .front-page input:focus+label {
+        transform: scale(.8) translate(-10px, -20px);
+        color: var(--pry-txt-clr);
+        text-shadow: 2px 2px 50px rgba(0, 0, 0, 1);
+        background: var(--alt-clr);
+        box-shadow: var(--alt-clr) 0px -5px 5px 2px;
+
+    }
+
+    .front-page input:valid+label {
+        transform: scale(.8) translate(-10px, -35px);
+        color: var(--pry-txt-clr);
+    }
+
+    .front-page input:focus {
+        outline: none
+    }
+
+    .radio {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 768px) {
+        .radio {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+        }
+    }
+
+    .radio input,
+    .radio label {
+        position: relative;
+        width: auto;
+    }
+
+    .account-type {
+        text-align: left;
+    }
+
+    .account-type p {
+        position: relative;
+        font-weight: 900;
+        padding: 5px 0 3px;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .buttons>div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .account-type p::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: '';
+        height: 1px;
+        width: 90%;
+        background: var(--pry-txt-clr);
+        z-index: 0;
+    }
+
+    .radio label,
+    .radio input:valid+label {
+        transform: none;
+        margin: 0;
+    }
+
+    .radio input {
+        cursor: pointer;
+    }
+
+    .radio input:hover,
+    .radio input:focus {
+        cursor: pointer;
+        box-shadow: none;
+    }
+
+    option {
+        outline: none;
+        background: rgba(0, 0, 0, .5);
+    }
+
+    option:focus,
+    option:hover {
+        outline: none;
+        background: inherit;
+    }
+
+    .submit {
+        align-self: center;
+    }
+
+    .sign-sub h4,
+    .sign-sub {
+        color: #fff;
+    }
+
+    img {
+        margin-top: -30px
+    }
+
+    .tagline {
+        margin: -30px 0 80px;
+    }
+
+    @media (max-width: 768px) {
+        img {
+            height: 80px;
+            margin-top: -8px;
+        }
+
+        .tagline {
+            margin: -15px 0 80px;
+        }
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .close-btn i {
+        font-size: 25px;
+        padding: 5px;
+        color: #fff;
+        cursor: pointer;
+        transform: rotateZ(0deg);
+        transition: all .5s ease;
+    }
+
+    .close-btn i:hover {
+        transform: rotateZ(90deg);
+    }
+
+    #signup-button, #login-button {
+        margin-top: 0;
+    }
+</style>
+
+<div class="sign-inner-container">
+    <!-- main form -->
+    <div class="sign-main">
+        <!-- sign up main -->
+        <div class="signup-main form">
+            <div>
+                <h1>SIGN UP</h1>
+                <p>register as a new memeber for free</P>
+                <form action="" class="signin-form front-page">
+                    <!-- email -->
+                    <div class="field-container">
+                        <input type="text" id="email-s" required>
+                        <label for="email-s">email</label>
+                    </div>
+                    <!-- firstname -->
+                    <div class="field-container">
+                        <input type="text" id="fname" required>
+                        <label for="fname">firstname</label>
+                    </div>
+                    <!-- lastname -->
+                    <div class="field-container">
+                        <input type="text" id="lname" required>
+                        <label for="lname">lastname</label>
+                    </div>
+                    <!-- password -->
+                    <div class="field-container">
+                        <input type="password" id="password-s" required>
+                        <label for="password-s">password</label>
+                    </div>
+                    <!-- retype password -->
+                    <div class="field-container">
+                        <input type="password" id="password-s2" required>
+                        <label for="password-s2">confirm password</label>
+                    </div>
+
+                    <!-- account type -->
+                    <div class="field-container radio">
+                        <div class="account-type">
+                            <p>Account Type</p>
+                            <div class="buttons">
+                                <!-- user -->
+                                <div>
+                                    <label for="password-s2">User</label>
+                                    <input type="radio" name="type" required>
+                                </div>
+                                <!-- agent -->
+                                <div>
+                                    <label for="password-s2">Agent</label>
+                                    <input type="radio" name="type" required>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- submit -->
+                        <div class="submit">
+                            <button class="btn1 two" id="signup-button">sign up</button>
+                        </div>
+
+
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+        <!-- login main -->
+        <div class="login-main form">
+            <div>
+                <h1>LOG IN</h1>
+                <p>log in to gain access</p>
+                <form action="" class="login-form front-page">
+                    <!-- firstname -->
+                    <div class="field-container">
+                        <input type="text" id="email" required>
+                        <label for="email-f">email</label>
+                    </div>
+                    <!-- password -->
+                    <div class="field-container">
+                        <input type="password" id="password" required>
+                        <label for="password">password</label>
+                    </div>
+                    <!-- submit -->
+                    <button class="btn1" id="login-button">sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- sub form -->
+    <div class="sign-sub">
+
+        <!-- signup sub -->
+        <div class="signup-sub">
+            <div>
+                <img src="./assets/images/logo.png" alt="">
+                <p class='tagline'>Helping you find the property of your dreams.</p>
+                <h4>Don't have an account yet?</h4>
+                <p>register here for free</p>
+                <button class="show-signin btn2">sign up</button>
+            </div>
+        </div>
+
+        <!-- login sub -->
+        <div class="login-sub">
+            <div>
+                <img src="./assets/images/logo.png" alt="">
+                <p class='tagline'>Helping you find the property of your dreams.</p>
+                <h4>already have an account?</h4>
+                <p>sign in instead</p>
+                <button class="show-login btn2 ">sign in</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- close button -->
+    <div class="close-btn">
+        <i class="fas fa-window-close"></i>
+    </div>
+
+</div>

@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('fontawesome/css/all.css');
+
+:root {
+    /* --pry-clr: rgb(22, 17, 17); */
+    --pry-clr: rgb(10, 46, 75);
+    --pry-txt-clr: rgba(10, 46, 75, 0.856);
+    --sc-clr: rgb(109, 13, 26);
+    --alt-clr: #fff;
+    --bg1: #fff;
+    --alt-bg: rgb(227, 231, 225);
+    --bx-shdw-1: 0px 0px 2px 2px rgba(0,0,0,.3);
+    --bx-shdw-1h: 0px 0px 5px 3px rgba(0,0,0,.3)
+}
+
+* {
+    /* margin: 0;
+    padding: 0; */
+    box-sizing: border-box;
+}
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+html {
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    background: var(--bg1);
+    color: var(--pry-txt-clr);
+    font-size: 14px;
+    overflow-x: hidden;
+    position: relative;
+}
+article,
+aside,
+footer,
+header,
+nav,
+section {
+    display: block;
+}
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+img {
+    border-style: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+textarea {
+    overflow: auto;
+}
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+    text-transform: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: var(--sc-clr)
+}
+h1{
+    font-size:40px;
+}
+h2{
+    font-size:30px;
+}
+h3{
+    font-size:23px;
+}
+h4 {
+    font-size: 20px;
+}
+h5 {
+    font-size: 18px;
+}
+h6{
+    font-size:16px;
+}
+p{
+    font-size:14px;
+}
+ul,li{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+a, a:hover, a:active, a:focus {
+    outline: none;
+    border: none;
+    text-decoration:none;
+    transition: all 0.3s ease 0s;
+
+}
+a:-webkit-any-link {
+    color: inherit;
+}
+a:focus, a:hover {
+    -webkit-transition: all .3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+a.btn1, .btn1 {
+    padding: 5px 35px;
+    margin-top: 30px;
+    border-radius: 5px;
+    border: 2px solid var(--sc-clr);
+    cursor: pointer;
+    color: var(--sc-clr);
+    font-weight: bolder;
+    background: transparent;
+    box-shadow: var(--bx-shdw-1);
+}
+a.btn1:hover, .btn1:hover {
+    text-decoration: none;
+    color: var(--sc-clr);
+    padding: 7px 45px;
+    border: 1px solid var(--sc-clr);
+    box-shadow: var(--bx-shdw-1h);
+}
+a.btn2, .btn2 {
+    padding: 5px 35px;
+    margin-top: 30px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: var(--alt-clr);
+    font-weight: bolder;
+    background: var(--sc-clr);
+    box-shadow: var(--bx-shdw-1);
+}
+a.btn2:hover, .btn2:hover {
+    text-decoration: none;
+    color: #fff;
+    padding: 7px 45px;
+    border: 1px solid var(--sc-clr);
+    box-shadow: var(--bx-shdw-1h);
+}
+.img-con {
+    position: relative;
+}
+.img-con::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .9));
+    z-index: -8;
+}
+.img-con.two::after {
+    background: linear-gradient(rgba(0,0,0, .8), rgba(0, 0, 0, .9));
+    z-index: 8;
+}
+.img-con img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -9;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.container1 {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+@media (max-width: 900px ) {
+    .container1 {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+.flex1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+}
+.grid1 {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+@media (max-width: 600px) {
+    .grid1 {
+        grid-template-columns: 1fr;
+    }    
+}
+.section-title {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.section-title h2 {
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--sc-clr);
+}
