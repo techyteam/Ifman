@@ -1,0 +1,135 @@
+<style>
+    @import url(./assets/css/general.css);
+
+    :host {
+        display: block;
+        padding: 50px 0 10px;
+    }
+
+    .line,
+    .line2 {
+        width: 100%;
+        height: 1px;
+        background: rgba(0, 0, 0, .3);
+        margin: 10px 0;
+    }
+
+    @media (max-width: 600px) {
+        .top {
+            text-align: center;
+        }
+    }
+
+    .bottom {
+        text-align: center;
+    }
+
+    .about-us {
+        text-align: center
+    }
+
+    .about-us img {
+        height: 70px;
+    }
+
+    .about-us p {
+        text-align: left;
+    }
+
+    @media (max-width: 600px) {
+        .about-us p {
+        text-align: center;
+    }
+    }
+    .quick-links {
+        margin-left: 20px;
+    }
+
+    .quick-links ul li {
+        list-style-type: circle;
+    }
+
+    @media (max-width: 600px) {
+        .quick-links ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .quick-links ul li {
+            width: 100px;
+        }
+    }
+
+    .contact ul {
+        display: flex;
+    }
+
+    .contact ul li {
+        margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .contact ul {
+        justify-content: center;
+    }
+    }
+
+    form {
+        margin: 5px 0;
+    }
+
+    h3 {
+        margin-bottom: 20px;
+    }
+
+    h5 {
+        margin-bottom: 10px;
+    }
+</style>
+
+<div class="top container1 grid1">
+    <!-- About us -->
+    <div class="about-us">
+        <img src="./assets/images/logo.png" alt="Property Pro">
+        <p class="description">IFMA is the world's largest and most widely recognized association for facility professionals.  </p>
+        <p class="contact">ifmanigeria@gmail.com</p>
+    </div>
+
+    <div class="quick-links">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About us</a></li>
+            <li><a href="">Membership</a></li>
+            <li><a href="">Events</a></li>
+            <li><a href="">News</a></li>
+            <li><a href="">T & C</a></li>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">FAQ</a></li>
+        </ul>
+    </div>
+
+    <div class="contact">
+        <h3>NEWSLETTER</h3>
+        <p>Sign up for our newsletter.</p>
+        <form action="">
+            <input type="email" placeholder="your email address.." name="email">
+            <input type="submit">
+        </form>
+        <div class="line"></div>
+        <h5>GET IN TOUCH</h5>
+        <ul>
+            <li><a href=""><i class="fab fa-twitter"></i></a></li>
+            <li><a href=""><i class="fab fa-instagram"></i></a></li>
+            <li><a href=""><i class="fab fa-facebook"></i></a></li>
+            <li><a href=""><i class="fab fa-vimeo"></i></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<div class="bottom container">
+   IFMA Nigeria @2019 All Rights Reserved.
+</div>
