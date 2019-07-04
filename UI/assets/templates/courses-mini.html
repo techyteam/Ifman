@@ -1,0 +1,203 @@
+<style>
+    @import url(./assets/css/general.css);
+
+    :host {
+        display: block;
+        height: 430px;
+        width: 300px;
+        box-shadow: 0 0 3px 1px var(--sc-clr);
+        border: 1px solid var(--sc-clr);
+        border-radius: 5px;
+        margin: 0 20px;
+        text-align: left;
+        overflow: hidden;
+        cursor: pointer;
+        transform: scale(1);
+        transition: all .5s ease;
+    }
+
+    :host(:hover) {
+        transform: scale(1.01);
+        box-shadow: var(--bx-shdw-1h);
+    }
+
+    slot {
+        display: block;
+        width: 100%;
+    }
+
+    .top {
+        height: 200px;
+        position: relative;
+    }
+
+    .top::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .9));
+        z-index: 0;
+    }
+
+    .top>slot,
+    .top>div {
+        position: absolute;
+        width: fit-content;
+        font-size: 12px;
+    }
+
+    ::slotted(img) {
+        z-index: -9;
+        object-fit: cover;
+        width: 100%;
+        height: 200px;
+    }
+
+    [name='status'] {
+        top: 5px;
+        left: 5px;
+        padding: 4px;
+        background: rgba(0, 0, 0, .8);
+        color: var(--alt-clr);
+        border-radius: 3px;
+        z-index: 9;
+    }
+
+    .liked {
+        top: 5px;
+        right: 5px;
+        z-index: 9;
+    }
+
+    .liked i {
+        opacity: .3;
+        font-size: 16px;
+        transition: all .5s ease;
+    }
+
+    .liked i:hover {
+        font-size: 25px;
+        opacity: .8;
+        color: red;
+    }
+
+    [name='ratings'] {
+        bottom: 5px;
+        left: 5px;
+        z-index: 9;
+        padding: 4px;
+        background: rgba(55, 139, 21, 0.8);
+        color: var(--alt-clr);
+        border-radius: 3px;
+    }
+
+    [name='reviews'] {
+        bottom: 5px;
+        right: 5px;
+        z-index: 9;
+        color: var(--alt-clr);
+    }
+
+    [name='title'] {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: var(--sc-clr);
+    }
+
+    .bottom {
+        padding: 10px;
+    }
+
+    .address {
+        font-size: 12px;
+    }
+
+    .features p {
+        color: var(--pry-clr);
+        font-weight: 600;
+    }
+
+    i {
+        margin-right: 3px;
+        /* color: var(--sc-clr); */
+    }
+
+    [name="address"] {
+        display: inline;
+    }
+
+    .line,
+    .line2 {
+        width: 100%;
+        height: 1px;
+        background: rgba(0, 0, 0, .3);
+        margin: 10px 0;
+    }
+
+    .line2 {
+        margin: 5px 0;
+    }
+
+    [name="price"] {
+        font-size: 30px;
+        font-weight: bolder;
+        margin-top: 5px;
+        color: var(--sc-clr);
+    }
+
+    .features {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+    }
+    .reg-btn {
+        display: flex;
+        justify-content: center;
+    }
+    .reg-btn a.btn2 {
+        margin-top: 10px;
+    }
+</style>
+
+
+<!-- top section -->
+<div class="top">
+    <slot name="image"></slot>
+    <slot name="status"></slot>
+    <div class="liked"><i class="fas fa-heart"></i></div>
+    <slot name="ratings"></slot>
+    <slot name="reviews"></slot>
+</div>
+
+<!-- bottom section -->
+<div class="bottom">
+    <slot name="title">Default Course title</slot>
+    <div class="line2"></div>
+    <div class="address"><i class="fas fa-calendar-alt"></i>
+        <slot name="address">Aug 15, 2019 - Dec 15, 2019</slot>
+        <slot name="duration">15 weeks</slot>
+    </div>
+    <slot name="price">N 150,000</slot>
+    <div class="reg-btn">
+        <a href="" class="btn2">Register</a>
+    </div>
+    <!-- <div class="line"></div> -->
+    <!-- <div class="features">
+        <div>
+            <p><i class="fas fa-bed"></i>Rooms</p>
+            <slot name="rooms">1</slot>
+        </div>
+        <div>
+            <p><i class="fas fa-toilet"></i>Toilets</p>
+            <slot name="toilets">2</slot>
+        </div>
+        <div>
+            <p><i class="fas fa-bath"></i>Bath</p>
+            <slot name="bath">2</slot>
+        </div>
+    </div> -->
+</div>

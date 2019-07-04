@@ -1,0 +1,297 @@
+/*
+================================================
+/* Table of Content
+================================================
+1. General styles
+2. Landing Page
+    2.1 General styles
+    2.2 Login / Signup (animations)
+    2.2 Login / Signup (input field)
+3. Dashboard Area General Styles
+4. Dashboard Account page
+    4.1. general
+    4.2.account balance
+    4.3.account details
+    4.4. balance chart
+    4.5. cards
+    4.6. create new account
+    4.7. transactions table
+    4.8. general dashboardd panel styles
+5. Dashboard New Account page
+
+/* 
+@media (max-width: 768px) {
+
+} 
+
+} */
+
+
+/*
+================================================
+1. General Styles
+================================================
+*/
+
+@import url(general.css);
+
+/*
+================================================
+2. Landing Page
+================================================
+*/
+/*---- 2.2 landing page styles ----*/
+.page-wrap {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    transition: all .5s ease;
+}
+my-header {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+}
+.show-modal .page-wrap, .show-modal my-header {
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+}
+.page-wrap::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0, 0), rgba(0, 0, 0, 0));
+    z-index: -99;
+    transition: all .5s ease;
+}
+.show-modal .page-wrap::after {
+    z-index: 0;
+    background: linear-gradient(rgba(0,0,0, .8), rgba(0, 0, 0, .9));
+}
+sign-modal {   
+    z-index: 0;
+    opacity: 0;
+}
+.show-modal sign-modal {
+    animation: show 2s ease both;
+} 
+@keyframes show {
+    0% {  
+        opacity: 0;
+        z-index: 0; 
+    }
+    100% { 
+        opacity: 1;
+        z-index: 999; 
+    }
+}
+
+button.see-all {
+    width: 200px;
+    margin-top: 30px;
+}
+/*---- 2.3 Top section ----*/
+.top-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    padding: 150px 0;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../images/slider/training-room-2.jpg') fixed;
+    background-size: cover; 
+    margin-bottom: 170px;
+}
+.top-section h2 {
+    color: var(--alt-clr);
+}
+.search {
+    text-align: center;
+    max-width: 600px;
+}
+.search h2{
+    margin-bottom: 5px;
+    font-size: 35px;
+    /* color: var(--sc-clr); */
+}
+.search p{
+    margin: 20px 0 40px;
+    color: var(--alt-clr);
+}
+.popular-categories {
+    position: absolute;
+    top: 80vh;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+}
+.popular-categories > p {
+    color: var(--alt-clr);
+    margin-bottom: 10px; 
+}
+.popular-categories ul{
+    display: grid;
+    grid-template-columns: 230px 230px;
+    grid-template-rows: 150px;
+    grid-gap: 5px;
+    padding: 10px;
+    background: var(--alt-clr);
+    border-radius: 2px;
+    width: auto;
+    text-align: center;
+    justify-content: center;
+}
+.popular-categories a {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--sc-clr);
+    border-radius: 3px;
+    box-shadow: var(--bx-shdw-1);
+    transition: all .5s ease;
+}
+.popular-categories a:hover {
+    box-shadow: 0px 0px 3px 3px var(--sc-clr);
+    text-decoration: none;
+    color: unset;
+}
+.popular-categories i {
+    font-size: 30px;
+    color: var(--sc-clr);
+    margin: 20px 0;
+}
+@media (max-width: 768px) {
+    .top-section {
+        margin-bottom: 300px;
+    }
+    .popular-categories {
+        top: 450px;
+    }
+    .popular-categories ul{
+        grid-template-columns: 230px;
+        grid-template-rows: 150px;
+
+    }
+} 
+/*---- 2.4 Featured listing ----*/
+
+/*---- 2.5 How we work ----*/
+.about-us {
+    display: flex;
+    align-items: center;
+    height: 650px;
+    position: relative;
+}
+.abt-img {
+    width: 60%; height: 650px;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../images/slider/training-room-3.jpg') fixed;
+    background-size: cover;
+}
+.abt-desc {
+    position: absolute; right: 100px;
+    height: auto; width: 40%;
+    text-align: center;
+    padding: 40px;
+    background: #fff;
+    box-shadow: rgba(0,0,0,.5) 1px 1px 15px ;
+}
+.abt-desc {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 990px) {
+    .about-us {
+        height: auto;
+        display: block;
+        margin-top: 200px;
+    }
+
+    .abt-img {
+        width: 100%;
+        height: 450px;
+    }
+
+    .abt-desc {
+        width: 80%;
+        margin: 0 auto;
+        top: -150px;
+        left: 10%;
+    }
+    span.cut {
+        display: none;
+    }
+    .services {
+        margin-bottom: 170px;
+    }
+}
+@media (max-width: 400px) {
+    .abt-desc {
+        width: 90%;
+        margin: 0 auto;
+        left: 5%;
+    }
+    span.cut2 {
+        display: none;
+    }
+}
+
+/*---- 2.6 events ----*/
+.events-inner {
+    width: 80%;
+    display: grid;
+    grid-template-areas: 
+       "one one two"
+       "three four four"
+    ;
+    grid-template-rows: 300px 300px;   
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+} 
+@media (max-width: 768px) {
+    .events-inner {
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 300px 300px 300px 300px;
+        grid-template-areas: 
+        "one"
+        "two"
+        "three"
+        "four"
+     ;
+    } 
+}
+.events-inner > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--bx-shdw-1);
+    overflow: hidden;
+    color: var(--alt-clr);
+    padding-top: 80px;
+}
+.events-inner h3 {
+    color: var(--alt-clr);
+    max-width: 300px
+}
+.events-inner div:nth-child(1) {
+    grid-area: one;
+}
+.events-inner div:nth-child(2) {
+    grid-area: two;
+}
+.events-inner div:nth-child(3) {
+    grid-area: three;
+}
+.events-inner div:nth-child(4) {
+    grid-area: four;
+}
+/*---- 2. ----*/
+.popular-listing {
+    background: var(--alt-bg);
+}
+/*---- 2. ----*/
+/*---- 2. ----*/
