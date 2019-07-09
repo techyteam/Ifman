@@ -99,7 +99,7 @@ button.see-all {
     align-items: center;
     height: 90vh;
     padding: 150px 0;
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../images/slider/training-room-2.jpg') fixed;
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/slider/training-room-2.jpg') fixed;
     background-size: cover; 
     margin-bottom: 170px;
 }
@@ -187,7 +187,7 @@ button.see-all {
 }
 .abt-img {
     width: 60%; height: 650px;
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../images/slider/training-room-3.jpg') fixed;
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/slider/training-room-3.jpg') fixed;
     background-size: cover;
 }
 .abt-desc {
@@ -201,7 +201,11 @@ button.see-all {
 .abt-desc {
     margin-bottom: 20px;
 }
-
+.abt-desc p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 16px;
+}
 @media (max-width: 990px) {
     .about-us {
         height: auto;

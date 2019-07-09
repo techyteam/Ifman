@@ -30,6 +30,7 @@
         justify-content: space-between;
         align-items: center;
     }
+
     .nav-control {
         display: none;
     }
@@ -149,6 +150,10 @@
         margin-right: 30px;
     }
 
+    .logo-small img {
+        height: 45px;
+    }
+
     .signup {
         border-right: 1px solid var(--alt-clr);
     }
@@ -178,19 +183,23 @@
         :host(.show-nav) {
             padding: 10px 0 30px;
         }
+
         nav {
             flex-direction: column;
             max-height: 0px;
-            overflow: hidden;            
+            overflow: hidden;
             transition: all .5s ease;
-        } 
-        :host(.show-nav) nav{
+        }
+
+        :host(.show-nav) nav {
             max-height: 400px;
         }
 
         .nav-control {
+            align-items: center;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            flex-direction: row-reverse;
             width: 100%;
             border: none;
             transition: all .5s ease;
@@ -230,8 +239,9 @@
         }
 
         .logo {
-            margin: 0;
+            display: none;
         }
+
         .signup {
             border: none;
         }
@@ -240,6 +250,9 @@
 <div class="nav-control">
     <div>
         <i class="fa fa-bars"></i>
+    </div>
+    <div class="logo-small">
+        <a href="index.html"><img src="assets/images/logo.png" alt="Property Pro"></a>
     </div>
 </div>
 <nav class="">
