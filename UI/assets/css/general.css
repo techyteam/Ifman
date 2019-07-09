@@ -5,7 +5,8 @@
     /* --pry-clr: rgb(22, 17, 17); */
     --pry-clr: rgb(10, 46, 75);
     --pry-txt-clr: rgba(10, 46, 75, 0.856);
-    --sc-clr: rgb(109, 13, 26);
+    /* --sc-clr: rgb(109, 13, 26); */
+    --sc-clr: #1C7BB6;
     --alt-clr: #fff;
     --bg1: #fff;
     --alt-bg: rgb(227, 231, 225);
@@ -166,7 +167,7 @@ a.btn2:hover, .btn2:hover {
     content: '';
     height: 100%;
     width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .9));
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6));
     z-index: -8;
 }
 .img-con.two::after {
