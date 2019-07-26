@@ -21,6 +21,16 @@
         box-shadow: var(--bx-shdw-1h);
     }
 
+    @media (max-width: 500px) {
+        :host {
+        transform: scale(.8);
+        }
+        :host(:hover) {
+        transform: scale(.81);
+        box-shadow: var(--bx-shdw-1h);
+    }
+    }
+
     slot {
         display: block;
         width: 100%;
