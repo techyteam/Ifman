@@ -172,7 +172,7 @@ button.see-all {
     }
     .popular-categories ul{
         grid-template-columns: 230px;
-        grid-template-rows: 150px;
+        grid-template-rows: 150px 150px;
 
     }
 } 
@@ -298,4 +298,192 @@ button.see-all {
     background: var(--alt-bg);
 }
 /*---- 2. ----*/
+/*
+================================================
+3. ABOUT US
+================================================
+*/
+.abt-intro {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+    margin: 80px 0;
+}
+.what, .who {
+    padding: 20px;
+    box-shadow: var(--bx-shdw-1);
+}
+.what p, .who p {
+    font-size: 16px;
+}
+@media (max-width: 600px) {
+    .abt-intro {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+.abt-img-sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/slider/training-room-4.jpg');
+}
+.team {
+    margin: 80px 0;
+}
+.members-all {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(3, 150px);
+    grid-gap: 30px;
+}
+@media (max-width: 600px) {
+    .members-all {
+        grid-template-columns: repeat(2, 150px);
+        grid-gap: 20px;
+    }
+}
+.member {
+    text-align: center;
+}
+.member img {
+    box-shadow: var(--bx-shdw-1);
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+/*
+================================================
+3. All courses
+================================================
+*/
+
+.search {
+    text-align: center;
+}
+.search h2{
+    margin-bottom: 5px;
+    font-size: 45px;
+    /* color: var(--sc-clr); */
+}
+.search p{
+    margin-bottom: 20px;
+    color: var(--alt-clr);
+}
+.search form {
+    display: grid;
+    grid-template-columns: 1fr 1fr .6fr;
+    grid-gap: 5px;
+    margin-bottom: 80px;
+}
+.search select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--alt-clr);
+    color: var(--alt-clr);
+    padding: 10px;
+    cursor: pointer;
+}
+.search select option {
+    background: transparent;
+    color: var(--pry-clr);
+}
+.search input[type="submit"] {
+    border: 2px solid var(--sc-clr);
+    border-radius: 5px;
+    color: var(--alt-clr);
+    font-weight: 900;
+    background: var(--sc-clr);
+    margin-left: 20px;
+}
+.search input[type="text"] {
+    border: none;
+    border-bottom: 1px solid var(--alt-clr);
+    color: var(--alt-clr);
+    padding: 10px;
+    font-weight: 900;
+    background: transparent;
+    margin-left: 20px;
+    width: 400px;
+}
+.all-listing {
+    padding-top: 80px;
+}
+.listing-results {
+    display: flex;
+}
+.listing-results .sub {
+    width: 25%;
+}
+.listing-results .main {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.listing-results .main .inner {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    grid-gap: 20px;
+}
+@media (max-width: 768px) {
+    .listing-results .main .inner {
+        display: grid;
+        grid-template-columns: repeat(1, 250px);
+        grid-gap: 20px;
+    }
+    .listing-results .sub {
+        width: 30%;
+    }
+    .listing-results .main {
+        width: 70%;
+    }
+}
+@media (max-width: 500px) {
+    .listing-results .main .inner {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        grid-gap: 0;
+    }
+    .listing-results .sub {
+        display: none
+    }
+    .listing-results .main {
+        width: 100%;
+    }
+}
+
+.listing-results .modify-box {
+    width: 100%;
+    padding: 10px;
+    background: var(--alt-bg);
+    border-radius: 2px;
+    box-shadow: var(--bx-shdw-1);
+    margin-bottom: 20px;
+}
+.listing-results .modify-box h3 {
+    margin-bottom: 10px;
+}
+.listing-results .modify-box ul {
+    padding-left: 10px;
+    margin-bottom: 3px;
+}
+.listing-results .modify-box li {
+    display: flex;
+    justify-content: space-between;
+}
+.listing-results .navigation {
+    display: flex;
+    padding: 30px 0;
+}
+.listing-results .navigation p {
+    padding: 5px 10px;
+}
+.listing-results .navigation p:nth-child(1), .listing-results .navigation p:nth-last-child(1)  {
+    background: var(--sc-clr);
+    color: var(--alt-clr);
+}
 /*---- 2. ----*/

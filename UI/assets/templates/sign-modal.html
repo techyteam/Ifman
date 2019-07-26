@@ -31,6 +31,15 @@
         left: 0;
     }
 
+    @media (max-width: 500px) {
+        .sign-inner-container {
+        grid-template-columns: 1fr 0;
+        }
+        .sign-sub {
+            display: none;
+        }
+    } 
+
     .signup-main,
     .login-main,
     .signup-sub,
@@ -45,7 +54,8 @@
         align-items: center;
     }
 
-    .login-main, .signup-main {
+    .login-main,
+    .signup-main {
         opacity: 0;
         z-index: -9;
         top: -100%;
@@ -53,7 +63,8 @@
         /* animation: showMain 5s ease reverse both; */
     }
 
-    .signup-sub, .login-sub {
+    .signup-sub,
+    .login-sub {
         opacity: 0;
         z-index: -9;
         transition: all .3s ease;
@@ -76,7 +87,7 @@
     :host(.show-signup) .signup-main {
         opacity: 1;
         z-index: 0;
-        top: 0;        
+        top: 0;
         /* animation: showMain 5s ease both; */
     }
 
@@ -92,19 +103,22 @@
             z-index: -9;
             top: -100%;
         }
+
         100% {
             opacity: 1;
             z-index: 0;
             top: 0;
         }
     }
+
     @keyframes showMainR {
-      
+
         0% {
             opacity: 1;
             z-index: 0;
             top: 0;
         }
+
         100% {
             opacity: 0;
             z-index: -9;
@@ -117,6 +131,7 @@
             opacity: 0;
             z-index: -9;
         }
+
         100% {
             opacity: 1;
             z-index: 0;
@@ -162,10 +177,47 @@
         background: #fff
     }
 
+    /*====== progress bar =======
+    ==========================*/
+    .progress {
+        border: 1px solid black;
+        height: 50px;
+    }
+    .progress .inner {
+        display: grid;
+        grid-auto-columns: "auto 1fr auto 1fr auto";
+    }
+    /*====== form field =======
+    ==========================*/
+    fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    fieldset[name="personal-1"]
+    ,
+    fieldset[name="personal-2"]
+    ,
+    fieldset[name="personal-3"]
+    ,
+    fieldset[name="company-1"]
+    ,
+    /* fieldset[name="company-2"]
+    ,     */
+    fieldset[name="company-3"] 
+    {
+        display: none;
+    }
+
     .field-container {
         position: relative;
         height: 55px;
         margin: 5px 0 0;
+    }
+
+    .field-container.dob {
+        height: 62px;
     }
 
     .front-page input {
@@ -197,22 +249,26 @@
         top: 0;
         left: 0;
         line-height: 18px;
-        padding: 0 2px;
-        margin: 8px 18px;
+        padding: 0 40px 0 2px;
+        margin: 8px 18px 0;
         transform-origin: left;
         transform: scale(1) translate(0);
         transition: transform .4s ease;
-        background: inherit;
+        background: #fff;
         cursor: inherit;
     }
 
+    .front-page label[for="dob"] {
+        padding-bottom: 10px;
+    }
+
     .front-page input:focus+label {
+        padding-bottom: 0;
         transform: scale(.8) translate(-10px, -20px);
         color: var(--pry-txt-clr);
         text-shadow: 2px 2px 50px rgba(0, 0, 0, 1);
         background: var(--alt-clr);
         box-shadow: var(--alt-clr) 0px -5px 5px 2px;
-
     }
 
     .front-page input:valid+label {
@@ -224,44 +280,18 @@
         outline: none
     }
 
-    .radio {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
     @media (max-width: 768px) {
-        .radio {
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-gap: 20px;
-        }
-    }
-
-    .radio input,
-    .radio label {
-        position: relative;
-        width: auto;
     }
 
     .account-type {
         text-align: left;
+        margin-bottom: 15px;
     }
 
     .account-type p {
         position: relative;
         font-weight: 900;
         padding: 5px 0 3px;
-    }
-
-    .buttons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .buttons>div {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
     }
 
     .account-type p::after {
@@ -273,6 +303,25 @@
         width: 90%;
         background: var(--pry-txt-clr);
         z-index: 0;
+    }
+    .radio {
+        display: flex;
+        justify-content: space-around;
+        padding: 5px 0;
+    }
+
+    .radio>div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .radio input,
+    .radio label {
+        position: relative;
+        width: auto;
+        padding-right: 5px;
+        margin: 0;
     }
 
     .radio label,
@@ -302,6 +351,21 @@
         background: inherit;
     }
 
+    .btn-container {
+        display: flex;
+        justify-content: space-between;
+        height: 35px;
+        margin-top: 10px;
+    }
+
+    .btn-container.first {
+        justify-content: flex-end;
+    }
+
+    .btn-container>button {
+        margin: 0;
+    }
+
     .submit {
         align-self: center;
     }
@@ -312,21 +376,13 @@
     }
 
     img {
-        margin-top: -30px
-    }
-
-    .tagline {
-        margin: -30px 0 80px;
+        height: auto;
+        margin: 0 0 50px 10px;
     }
 
     @media (max-width: 768px) {
         img {
-            height: 80px;
-            margin-top: -8px;
-        }
-
-        .tagline {
-            margin: -15px 0 80px;
+            height: 50px;
         }
     }
 
@@ -349,7 +405,8 @@
         transform: rotateZ(90deg);
     }
 
-    #signup-button, #login-button {
+    #signup-button,
+    #login-button {
         margin-top: 0;
     }
 </style>
@@ -362,59 +419,226 @@
             <div>
                 <h1>SIGN UP</h1>
                 <p>register as a new memeber for free</P>
+                <div class="progress">
+                    <div class="inner">
+                        <div class="step"></div>
+                        <div class="join"></div>
+                        <div class="step"></div>
+                        <div class="join"></div>
+                        <div class="step"></div>
+                    </div>
+                    <div class="backdrop"></div>
+                </div>    
                 <form action="" class="signin-form front-page">
-                    <!-- email -->
-                    <div class="field-container">
-                        <input type="text" id="email-s" required>
-                        <label for="email-s">email</label>
-                    </div>
-                    <!-- firstname -->
-                    <div class="field-container">
-                        <input type="text" id="fname" required>
-                        <label for="fname">firstname</label>
-                    </div>
-                    <!-- lastname -->
-                    <div class="field-container">
-                        <input type="text" id="lname" required>
-                        <label for="lname">lastname</label>
-                    </div>
-                    <!-- password -->
-                    <div class="field-container">
-                        <input type="password" id="password-s" required>
-                        <label for="password-s">password</label>
-                    </div>
-                    <!-- retype password -->
-                    <div class="field-container">
-                        <input type="password" id="password-s2" required>
-                        <label for="password-s2">confirm password</label>
-                    </div>
+                    <!-- personal details -->
+                    <fieldset name="personal">
 
-                    <!-- account type -->
-                    <div class="field-container radio">
-                        <div class="account-type">
-                            <p>Account Type</p>
-                            <div class="buttons">
-                                <!-- user -->
-                                <div>
-                                    <label for="password-s2">User</label>
-                                    <input type="radio" name="type" required>
-                                </div>
-                                <!-- agent -->
-                                <div>
-                                    <label for="password-s2">Agent</label>
-                                    <input type="radio" name="type" required>
+                        <!-- personal-1 -->
+                        <fieldset name="personal-1">
+                            <!-- firstname -->
+                            <div class="field-container">
+                                <input type="text" id="fname" required>
+                                <label for="fname">firstname</label>
+                            </div>
+                            <!-- lastname -->
+                            <div class="field-container">
+                                <input type="text" id="lname" required>
+                                <label for="lname">lastname</label>
+                            </div>
+                            <!-- middlename -->
+                            <div class="field-container">
+                                <input type="text" id="mname" required>
+                                <label for="mname">middlename</label>
+                            </div>
+                            <!-- email -->
+                            <div class="field-container">
+                                <input type="email" id="email" required>
+                                <label for="email">email</label>
+                            </div>
+
+                            <!-- control button -->
+                            <div class="btn-container first">
+                                <button class="btn1 next">next</button>
+                            </div>
+                        </fieldset>
+
+                        <!-- personal-2 -->
+                        <fieldset name="personal-2">
+                            <!-- address -->
+                            <div class="field-container">
+                                <input type="text" id="address" required>
+                                <label for="">address</label>
+                            </div>
+                            <!-- city -->
+                            <div class="field-container">
+                                <input type="text" id="city" required>
+                                <label for="city">city</label>
+                            </div>
+                            <!-- state -->
+                            <div class="field-container">
+                                <input type="text" id="state" required>
+                                <label for="state">state</label>
+                            </div>
+                            <!-- phone number -->
+                            <div class="field-container">
+                                <input type="text" id="phone-number" required>
+                                <label for="phone-number">phone number</label>
+                            </div>
+
+                            <!-- account type -->
+                            <div class="account-type">
+                                <p>Account Type</p>
+                                <div class="radio">
+                                    <!-- user -->
+                                    <div>
+                                        <label for="password-s2">Corporate</label>
+                                        <input type="radio" name="type" required>
+                                    </div>
+                                    <!-- agent -->
+                                    <div>
+                                        <label for="password-s2">Individual</label>
+                                        <input type="radio" name="type" required>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- submit -->
-                        <div class="submit">
-                            <button class="btn1 two" id="signup-button">sign up</button>
-                        </div>
 
+                            <!-- control button -->
+                            <div class="btn-container">
+                                <button class="btn1 prev">prev</button>
+                                <button class="btn1 next">next</button>
+                            </div>
+                        </fieldset>
 
-                    </div>
+                        <fieldset name="personal-3">
 
+                            <!-- date of birth -->
+                            <div class="field-container dob">
+                                <input type="date" id="dob" required>
+                                <label for="dob">date of birth</label>
+                            </div>
+                            <!-- password -->
+                            <div class="field-container">
+                                <input type="password" id="password-s" required>
+                                <label for="password-s">password</label>
+                            </div>
+                            <!-- retype password -->
+                            <div class="field-container">
+                                <input type="password" id="password-s2" required>
+                                <label for="password-s2">confirm password</label>
+                            </div>
 
+                            <!-- control button -->
+                            <div class="btn-container">
+                                <button class="btn1 prev">prev</button>
+                                <button class="btn1 next">next</button>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+
+                    <!-- company details -->
+                    <fieldset name="company">
+
+                        <!-- personal-1 -->
+                        <fieldset name="company-1">
+                            <!-- firstname -->
+                            <div class="field-container">
+                                <input type="text" id="fname" required>
+                                <label for="fname">firstname</label>
+                            </div>
+                            <!-- lastname -->
+                            <div class="field-container">
+                                <input type="text" id="lname" required>
+                                <label for="lname">lastname</label>
+                            </div>
+                            <!-- middlename -->
+                            <div class="field-container">
+                                <input type="text" id="mname" required>
+                                <label for="mname">middlename</label>
+                            </div>
+                            <!-- email -->
+                            <div class="field-container">
+                                <input type="email" id="email" required>
+                                <label for="email">email</label>
+                            </div>
+
+                            <!-- control button -->
+                            <div class="btn-container first">
+                                <button class="btn1 next">next</button>
+                            </div>
+                        </fieldset>
+
+                        <!-- personal-2 -->
+                        <fieldset name="company-2">
+                            <!-- address -->
+                            <div class="field-container">
+                                <input type="text" id="address" required>
+                                <label for="">address</label>
+                            </div>
+                            <!-- city -->
+                            <div class="field-container">
+                                <input type="text" id="city" required>
+                                <label for="city">city</label>
+                            </div>
+                            <!-- state -->
+                            <div class="field-container">
+                                <input type="text" id="state" required>
+                                <label for="state">state</label>
+                            </div>
+                            <!-- phone number -->
+                            <div class="field-container">
+                                <input type="text" id="phone-number" required>
+                                <label for="phone-number">phone number</label>
+                            </div>
+
+                            <!-- account type -->
+                            <div class="account-type">
+                                <p>Account Type</p>
+                                <div class="radio">
+                                    <!-- user -->
+                                    <div>
+                                        <label for="password-s2">Corporate</label>
+                                        <input type="radio" name="type" required>
+                                    </div>
+                                    <!-- agent -->
+                                    <div>
+                                        <label for="password-s2">Individual</label>
+                                        <input type="radio" name="type" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- control button -->
+                            <div class="btn-container">
+                                <button class="btn1 prev">prev</button>
+                                <button class="btn1 next">next</button>
+                            </div>
+                        </fieldset>
+
+                        <fieldset name="company-3">
+
+                            <!-- date of birth -->
+                            <div class="field-container dob">
+                                <input type="date" id="dob" required>
+                                <label for="dob">date of birth</label>
+                            </div>
+                            <!-- password -->
+                            <div class="field-container">
+                                <input type="password" id="password-s" required>
+                                <label for="password-s">password</label>
+                            </div>
+                            <!-- retype password -->
+                            <div class="field-container">
+                                <input type="password" id="password-s2" required>
+                                <label for="password-s2">confirm password</label>
+                            </div>
+
+                            <!-- control button -->
+                            <div class="btn-container">
+                                <button class="btn1 prev">prev</button>
+                                <button class="btn1 next">next</button>
+                            </div>
+                        </fieldset>
+                    </fieldset>
                 </form>
             </div>
         </div>
@@ -447,8 +671,7 @@
         <!-- signup sub -->
         <div class="signup-sub">
             <div>
-                <img src="./assets/images/logo.png" alt="">
-                <p class='tagline'>Helping you find the property of your dreams.</p>
+                <img src="./assets/images/logo.png" alt="">                
                 <h4>Don't have an account yet?</h4>
                 <p>register here for free</p>
                 <button class="show-signin btn2">sign up</button>
@@ -458,8 +681,7 @@
         <!-- login sub -->
         <div class="login-sub">
             <div>
-                <img src="./assets/images/logo.png" alt="">
-                <p class='tagline'>Helping you find the property of your dreams.</p>
+                <img src="./assets/images/logo.png" alt="">                
                 <h4>already have an account?</h4>
                 <p>sign in instead</p>
                 <button class="show-login btn2 ">sign in</button>

@@ -1,7 +1,7 @@
 /**
  * @name courses-mini 
- * @description creates a card setup layout for listed properties with minimal information
- * @slot { name = 'one' } contains the properties' name
+ * @description creates a card setup layout for listed courses with minimal information
+ * @slot { name = 'one' } contains the courses' name
  */
 fetch("assets/templates/courses-mini.html")
     .then(response => response.text())
@@ -51,28 +51,28 @@ fetch("assets/templates/my-header.html")
                 this.shadowRoot.appendChild(template.content.cloneNode(true));
 
                 this.navControl = this.shadowRoot.querySelector('.nav-control > div');
-                this.logInBtn = this.shadowRoot.querySelector('.signin'); 
-                this.signUpBtn = this.shadowRoot.querySelector('.signup'); 
+                this.logInBtn = this.shadowRoot.querySelector('.signin');
+                this.signUpBtn = this.shadowRoot.querySelector('.signup');
 
             }
 
-            connectedCallback () {
+            connectedCallback() {
                 const body = document.body;
                 const signModal = document.querySelector('sign-modal');
 
                 this.navControl.addEventListener('click', () => {
                     this.classList.toggle('show-nav');
-                });        
+                });
 
-                this.logInBtn.addEventListener('click',(e) => {
+                this.logInBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     body.setAttribute('class', 'show-modal');
                     signModal.setAttribute('class', 'show-login');
                 });
 
-                this.signUpBtn.addEventListener('click',(e) => {
+                this.signUpBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    body.setAttribute('class', 'show-modal');                    
+                    body.setAttribute('class', 'show-modal');
                     signModal.setAttribute('class', 'show-signup');
                 });
             }
@@ -93,50 +93,50 @@ fetch("assets/templates/my-footer.html")
                 const template = document.createElement('template');
                 template.innerHTML = data;
                 this.shadowRoot.appendChild(template.content.cloneNode(true))
-            }            
+            }
         })
     )
 
-    /**
+/**
 * @name sign-modal
 * @description a parallax mini section with a button to sign up
 */
 fetch("assets/templates/sign-modal.html")
-.then(response => response.text())
-.then(data =>
-    customElements.define("sign-modal", class extends HTMLElement {
-        constructor() {
-            super()
-            this.attachShadow({ mode: 'open' });
-            const template = document.createElement('template');
-            template.innerHTML = data;
-            this.shadowRoot.appendChild(template.content.cloneNode(true));
+    .then(response => response.text())
+    .then(data =>
+        customElements.define("sign-modal", class extends HTMLElement {
+            constructor() {
+                super()
+                this.attachShadow({ mode: 'open' });
+                const template = document.createElement('template');
+                template.innerHTML = data;
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-            this.closeBtn = this.shadowRoot.querySelector('.close-btn');
-            this.logInBtn = this.shadowRoot.querySelector('.show-login'); 
-            this.signUpBtn = this.shadowRoot.querySelector('.show-signin'); 
-        }
+                this.closeBtn = this.shadowRoot.querySelector('.close-btn');
+                this.logInBtn = this.shadowRoot.querySelector('.show-login');
+                this.signUpBtn = this.shadowRoot.querySelector('.show-signin');
+            }
 
-        connectedCallback () {     
-            const body = document.body;  
-            const signModal = document.querySelector('sign-modal'); 
+            connectedCallback() {
+                const body = document.body;
+                const signModal = document.querySelector('sign-modal');
 
-            this.closeBtn.addEventListener('click',(e) => {
-                e.preventDefault();                
-                body.setAttribute('class', '');
-            });
+                this.closeBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    body.setAttribute('class', '');
+                });
 
-            this.logInBtn.addEventListener('click',(e) => {
-                e.preventDefault();
-                console.log('a');  
-                signModal.setAttribute('class', 'show-login');
-            });
+                this.logInBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    console.log('a');
+                    signModal.setAttribute('class', 'show-login');
+                });
 
-            this.signUpBtn.addEventListener('click',(e) => {
-                e.preventDefault();            
-                   
-                signModal.setAttribute('class', 'show-signup');
-            });            
-        }
-    })
-)
+                this.signUpBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    signModal.setAttribute('class', 'show-signup');
+                });
+            }
+        })
+    )
