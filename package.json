@@ -4,9 +4,13 @@
   "description": "facility management company",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run migrate && mocha server/v1/test/test.js --require @babel/register --exit",
     "dev": "set DEBUG=dev && nodemon --exec babel-node server/app.js",
-    "create": "set DEBUG=dev && cross-env NODE_ENV=test babel-node server/v1/app/database/dropTables && babel-node server/v1/app/database/createTables.js && babel-node server/v1/app/database/seed.js"
+    "migrate-test": "cross-env NODE_ENV=test npm run migrate",
+    "migrate": "set DEBUG=dev && npm run drop && npm run create && npm run seed",
+    "create": "babel-node server/v1/app/database/createTables.js",
+    "drop": "babel-node server/v1/app/database/dropTables",
+    "seed": "babel-node server/v1/app/database/seed.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +29,7 @@
   },
   "homepage": "https://github.com/misanj/Ifman#readme",
   "dependencies": {
+    "@hapi/joi": "^15.1.0",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
