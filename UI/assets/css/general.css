@@ -98,7 +98,8 @@ h6{
     font-size:16px;
 }
 p{
-    font-size:14px;
+    font-size:16px;
+    line-height: 25px;
 }
 ul,li{
     list-style:none;
@@ -156,6 +157,21 @@ a.btn2:hover, .btn2:hover {
     padding: 7px 45px;
     border: 1px solid var(--sc-clr);
     box-shadow: var(--bx-shdw-1h);
+}
+.center {
+    text-align: center;
+}
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.mb-80 {
+    margin-bottom: 80px;
+}
+.mb-30 {
+    margin-bottom: 30px;
 }
 .img-con {
     position: relative;
@@ -221,10 +237,32 @@ a.btn2:hover, .btn2:hover {
 }
 .standard.top-section {
     padding: 100px 0 0 0;
-    margin-bottom: 0;
+    margin-bottom: 80px;
     height: auto;
 }
 .standard.top-section h2 {
     font-size: 40px;
     margin-bottom: 80px;
+}
+div.line {
+    width: 100%;
+    height: 1px;
+    background: var(--sc-clr);
+    margin: 20px 0;
+    
+}
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+    margin: 80px 0;
+}
+.grid-2 > div {
+    padding: 20px;
+    box-shadow: var(--bx-shdw-1);
+}
+@media (max-width: 600px) {
+    .grid-2 {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

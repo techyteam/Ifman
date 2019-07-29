@@ -303,24 +303,6 @@ button.see-all {
 3. ABOUT US
 ================================================
 */
-.abt-intro {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 50px;
-    margin: 80px 0;
-}
-.what, .who {
-    padding: 20px;
-    box-shadow: var(--bx-shdw-1);
-}
-.what p, .who p {
-    font-size: 16px;
-}
-@media (max-width: 600px) {
-    .abt-intro {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
 .abt-img-sec {
     display: flex;
     justify-content: center;
@@ -328,6 +310,12 @@ button.see-all {
     padding: 0 50px;
     height: 500px;
     background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/slider/training-room-4.jpg');
+}
+.abt-img-sec p {
+    margin-top: 40px;
+    padding-left: 10px;
+    border-left: 2px solid var(--alt-bg);
+    color: var(--alt-clr)
 }
 .team {
     margin: 80px 0;
@@ -356,7 +344,7 @@ button.see-all {
 }
 /*
 ================================================
-3. All courses
+3. All courses Page
 ================================================
 */
 
@@ -487,3 +475,30 @@ button.see-all {
     color: var(--alt-clr);
 }
 /*---- 2. ----*/
+
+/*
+================================================
+3. Membership Page
+================================================
+*/
+.individual h3, 
+.individual p {
+    text-align: left;
+}
+.corporate .section-title, .corporate p {
+    text-align: right;
+}
+.benefits-all {
+    padding-left: 15px;
+    border-left: 1px solid var(--sc-clr);
+}
+.benefits-all li {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-bottom: .5px solid var(--pry-txt-clr);
+    padding: 10px 0;
+}
+.benefits-all li i {
+    margin-right: 15px;
+}
