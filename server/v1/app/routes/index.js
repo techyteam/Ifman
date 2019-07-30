@@ -1,5 +1,6 @@
 import express from 'express';
 import userRoutes from './users';
+import courseRoutes from './courses';
 
 const router = express.Router();
 
@@ -16,5 +17,6 @@ router.get('/', (req, res) => {
 
 // Routes
 router.use('/v1/auth', userRoutes);
+router.use('/v1', courseRoutes);
 
 export default router;

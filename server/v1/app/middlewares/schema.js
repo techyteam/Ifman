@@ -76,6 +76,23 @@ class Schema {
       };
       return schema;
     }
+
+     /**
+  * @method createCourse
+  * @description Validates the course details from a post request
+  * @param {object} course - The account object to be validated
+  * @returns {object} An object specifying weather the input was valid or not.
+  */
+  static createCourse() {
+    const schema = {
+      courseTitle: Joi.string().trim().lowercase().required(),
+      memberFee: Joi.number().min(2000).required(),
+      nonmemberFee: Joi.number().min(2000).required(),
+      startDate: Joi.date().format(['YYYY/MM/DD', 'DD-MM-YYYY']).required(),
+      endDate: Joi.date().format(['YYYY/MM/DD', 'DD-MM-YYYY']).required(),
+    };
+    return schema;
+  }
 }
   
 export default Schema;

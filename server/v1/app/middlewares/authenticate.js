@@ -27,12 +27,12 @@ class AuthenticateUser {
     
       try {
         const decoded = Auth.verifyToken(token);
-        const { rows } = await User.findById(decoded.user_id);
+        const { rows } = await User.findById(decoded.id);
         if (!rows[0]) {
           return resErr(res, 400, 'Invalid Token');
         }
-        req.body.user_id = decoded.user_id;
-        req.body.is_admin = decoded.is_admin;
+        req.body.id = decoded.id;
+        req.body.isAdmin = decoded.isAdmin;
         return next();
       } catch (error) {
         if (error) {
@@ -59,7 +59,7 @@ class AuthenticateUser {
     try {
       const decoded = Auth.verifyToken(token);
       req.user = decoded;
-      if (!req.user.is_admin) {
+      if (!req.user.isAdmin) {
         return resErr(res, 403, 'Unauthorized Access');
       }
     } catch (error) {
