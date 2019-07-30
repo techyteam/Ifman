@@ -7,28 +7,39 @@ const queryText = `
     firstName VARCHAR(50) NOT NULL,
     lastName VARCHAR(50) NOT NULL,
     password VARCHAR(200) NOT NULL,
-    type VARCHAR(7) DEFAULT 'member',
-    isAdmin BOOLEAN DEFAULT 'false'
+    registered BOOLEAN DEFAULT false,
+    isAdmin BOOLEAN DEFAULT false
   );
   CREATE TABLE IF NOT EXISTS courses(
-    Id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     courseTitle VARCHAR(150) NOT NULL,
     memberFees NUMERIC(200,2) NOT NULL,
     nonMemberFee NUMERIC(200,2) NOT NULL,
-    feesStatus VARCHAR(7) DEFAULT 'paid',
-    duration INTEGER NOT NULL,
-    venue VARCHAR(100) NOT NULL,
-    userId INTEGER REFERENCES users(id) ON DELETE CASCADE, 
-    registeredOn TIMESTAMP NOT NULL DEFAULT now(),
-    date TIMESTAMP NOT NULL
+    startDate TIMESTAMP NOT NULL,
+    endDate TIMESTAMP NOT NULL
+  );
+  CREATE TABLE IF NOT EXISTS userCourses(
+    id SERIAL PRIMARY KEY,
+    registeredOn TIMESTAMP DEFAULT now(),
+    userId INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    courseId INTEGER REFERENCES courses(id) ON DELETE CASCADE
   );
   CREATE TABLE IF NOT EXISTS dues(
-    Id SERIAL PRIMARY KEY,
-    type VARCHAR(10) DEFAULT 'anual',
-    status VARCHAR(10) DEFAULT 'unpaid',
-    userId INTEGER REFERENCES users(id) ON DELETE CASCADE, 
-    paidOn TIMESTAMP NOT NULL DEFAULT now()
-  ); 
+    id SERIAL PRIMARY KEY,
+    paidOn TIMESTAMP DEFAULT now(),
+    type VARCHAR(10) DEFAULT 'annual',
+    amount NUMERIC(200, 2) NOT NULL
+  );
+  CREATE TABLE IF NOT EXISTS userDues(
+    id SERIAL PRIMARY KEY,
+    userId INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    duesId INTEGER REFERENCES dues(id) ON DELETE CASCADE
+  );
+  CREATE TABLE IF NOT EXISTS events(
+    id SERIAL PRIMARY KEY,
+    imageUrl VARCHAR(200) NOT NULL,
+    title VARCHAR(200) not null  
+  );
 `;
 
 Pool.query(queryText);
