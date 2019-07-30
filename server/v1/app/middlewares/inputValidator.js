@@ -19,6 +19,20 @@ class InputValidator {
       const user = { ...req.body };
       return validate(user, Schema.createUserSchema(), req, res, next);
     } 
+
+    /**
+  * @method validateLogin
+  * @description Validates the login details passed in from the request body
+  * @param {object} req - The Request Object
+  * @param {object} res - The Response Object
+  * @param {function} next - The next function to point to the next middleware
+  * @returns {function} next() - The next function
+  */
+  static validateLogin(req, res, next) {
+    const login = { ...req.body };
+    return validate(login, Schema.loginSchema(), req, res, next);
+  }
+
     
   }  
 
