@@ -30,6 +30,23 @@ class CourseController {
           return resErr(res, 400, error.message);
         }
     }
+
+  /**
+    * @method GetCourses
+    * @description Fetches all courses from the database
+    * @param {object} req - The Request Object
+    * @param {object} res - The Response Object
+    * @returns {object} JSON API Response
+    */
+    static async GetCourses(req, res) {
+      try{
+        const result = await Course.getCourses();
+        return resLong(res, 200, result.rows);
+      } catch (error) {
+        if (error) 
+        return resErr(res, 400, error.message);
+      }
+    }  
      
 }
 export default CourseController;
