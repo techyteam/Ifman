@@ -6,5 +6,6 @@ import AuthenticateUser from '../middlewares/authenticate';
 const courseRoutes = express.Router();
 
 courseRoutes.post('/courses', AuthenticateUser.verifyAdmin, InputValidator.validateCourse, CourseController.CreateCourse);
+courseRoutes.get('/courses', AuthenticateUser.verifyToken, CourseController.GetCourses);
 
 export default courseRoutes;

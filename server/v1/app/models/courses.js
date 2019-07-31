@@ -22,6 +22,17 @@ class Course {
       const response = db.query(queryText, values);
       return response;
     }
+
+  /**
+   * @method getCoursess
+   * @returns {object} All courses
+   */
+  static async getCourses() {
+    const queryText = `SELECT * from courses;`;
+    const result = db.query(queryText);
+    return result;
+  }
+
 }
 export default Course;
   

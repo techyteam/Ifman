@@ -293,6 +293,7 @@ describe('Authentication Tests', () => {
           .end((err, res) => {
             res.should.have.status(201);
             res.body.should.be.a('object');
+            res.body.should.have.property('status');
             res.body.should.have.property('data');
             res.body.data.should.be.a('object');
             res.body.data.should.have.property('id');
@@ -471,6 +472,97 @@ describe('Authentication Tests', () => {
           .post(`${apiEndPoint}courses`)
           .set('Authorization', token)
           .send(course)
+          .end((err, res) => {
+            res.should.have.status(400);
+            res.body.should.be.a('object');
+            res.body.should.have.property('error');
+            done();
+          });
+        });  
+      });
+    });
+  });
+  describe('Get All Courses Test', () => {
+    describe('Get requests for both user and admin', () => {
+      it('should return 200 and get all trips', (done) => {
+        const login = {
+          email: 'temi@testmail.com',
+          password: 'password',
+        };
+        
+        chai.request(app)
+        .post(`${userEndPoint}signin`)
+        .send(login)
+        .end((loginErr, loginRes) => {
+          const token = `Bearer ${loginRes.body.data.token}`;
+          
+          chai.request(app)
+          .get(`${apiEndPoint}courses`)
+          .set('Authorization', token)
+          .send(token)
+          .end((err, res) => {
+            res.should.have.status(200);
+              res.body.should.be.an('object');
+              res.body.should.have.property('status');
+              res.body.should.have.property('data');
+              res.body.data.should.be.an('array');
+              res.body.data[0].should.have.property('id');
+              res.body.data[0].should.have.property('coursetitle');
+              res.body.data[0].should.have.property('memberfees');
+              res.body.data[0].should.have.property('nonmemberfee');
+              res.body.data[0].should.have.property('startdate');
+              res.body.data[0].should.have.property('enddate');
+              done();
+          });
+        });
+      });
+            
+      it('should return 200 and get all trips', (done) => {
+        const login = {
+          email: 'dassyakolo@gmail.com',
+          password: 'password',
+        };
+        chai.request(app)
+        .post(`${userEndPoint}signin`)
+        .send(login)
+        .end((loginErr, loginRes) => {
+          const token = `Bearer ${loginRes.body.data.token}`;
+          
+          chai.request(app)
+          .get(`${apiEndPoint}courses`)
+          .set('Authorization', token)
+          .send(token)
+          .end((err, res) => {
+            res.should.have.status(200);
+              res.body.should.be.an('object');
+              res.body.should.have.property('status');
+              res.body.should.have.property('data');
+              res.body.data.should.be.an('array');
+              res.body.data[0].should.have.property('id');
+              res.body.data[0].should.have.property('coursetitle');
+              res.body.data[0].should.have.property('memberfees');
+              res.body.data[0].should.have.property('nonmemberfee');
+              res.body.data[0].should.have.property('startdate');
+              res.body.data[0].should.have.property('enddate');
+              done();
+          });
+        });  
+      });
+      it('should return 400 if token is invalid', (done) => {
+        const login = {
+          email: 'dassyakolo@gmail.com',
+          password: 'password',
+        };
+        chai.request(app)
+        .post(`${userEndPoint}signin`)
+        .send(login)
+        .end((loginErr, loginRes) => {
+          const token = `Bearer ${loginRes.body.data.token}`;
+          
+          chai.request(app)
+          .get(`${apiEndPoint}courses`)
+          .set('Authorization', '')
+          .send(token)
           .end((err, res) => {
             res.should.have.status(400);
             res.body.should.be.a('object');
