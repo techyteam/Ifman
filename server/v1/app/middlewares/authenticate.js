@@ -32,7 +32,7 @@ class AuthenticateUser {
           return resErr(res, 400, 'Invalid Token');
         }
         req.body.id = decoded.id;
-        req.body.isAdmin = decoded.isAdmin;
+        req.body.isadmin = decoded.isadmin;
         return next();
       } catch (error) {
         if (error) {
@@ -59,7 +59,7 @@ class AuthenticateUser {
     try {
       const decoded = Auth.verifyToken(token);
       req.user = decoded;
-      if (!req.user.isAdmin) {
+      if (!req.user.isadmin) {
         return resErr(res, 403, 'Unauthorized Access');
       }
     } catch (error) {

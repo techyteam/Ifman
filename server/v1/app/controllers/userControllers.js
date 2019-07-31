@@ -24,16 +24,16 @@ class UserController {
     }
     const response = await users.create(req.body);
     const user = response.rows[0];
-    const { id, isAdmin } = user;
+    const { id, isadmin } = user;
     const token = Auth.generateToken({
-      id, isAdmin,
+      id, isadmin,
     });
     return resLong(res, 201, {
       ...user, token,
     });
     }
 
-    /**
+  /**
   * @method signIn
   * @description Logs in a user
   * @param {object} req - The Request Object
@@ -48,13 +48,13 @@ static async signIn(req, res) {
       return resErr(res, 400, 'The email and password you entered does not exist! Please check and try again.');
     }
     const {
-      id, firstName, lastName, isAdmin,
+      id, firstname, lastname, isadmin,
     } = response.rows[0];
     const token = Auth.generateToken({
-      id, isAdmin,  
+      id, isadmin,
     });
     return resLong(res, 200, {
-      id, firstName, lastName, email, isAdmin, token,
+      id, firstname, lastname, email, isadmin, token,
     });
   }
 }

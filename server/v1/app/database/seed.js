@@ -3,8 +3,8 @@ import Pool from './db';
 import Auth from '../auth/auth';
 
 const queryText = `
-  INSERT INTO users (firstName, lastName, email, password, registered, isAdmin) 
-  VALUES ('Aisha', 'Abdulkareem', 'aishabd@gmail.com', '${Auth.hashPassword('password')}', 'true', true),
+ INSERT INTO users (firstName, lastName, email, password, registered, isAdmin) 
+ VALUES ('Aisha', 'Abdulkareem', 'aishabd@gmail.com', '${Auth.hashPassword('password')}', 'true', true),
          ('Dasola', 'Akolo', 'dassyakolo@gmail.com', '${Auth.hashPassword('password')}', 'true', true),
          ('Jasmine', 'Abdul', 'jas.abdul@gmail.com', '${Auth.hashPassword('password')}', 'false', false),
          ('Halima', 'Ayo', 'halima@gmail.com', '${Auth.hashPassword('password')}', 'true', false),

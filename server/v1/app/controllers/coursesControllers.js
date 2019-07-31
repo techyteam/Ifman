@@ -20,10 +20,10 @@ class CourseController {
       try {
         const { rows } = await Course.create(req.body);
         const {
-          id, courseTitle, memberFee, nonmemberFee, startDate, endDate
+          id, coursetitle, memberfees, nonmemberfee, startdate, enddate
         } = rows[0]
         return resLong(res, 201, {
-            id, courseTitle, memberFee, nonmemberFee, startDate, endDate
+            id, coursetitle, memberfees, nonmemberfee, startdate, enddate
             });
       } catch (error) {
           if (error) 

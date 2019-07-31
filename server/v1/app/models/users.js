@@ -34,15 +34,15 @@ class User {
     return response;
   }
 
-  // /**
-  //  * @param {*} id
-  //  * @returns { object } user object
-  //  */
-  // static findById(id) {
-  //   const query = 'SELECT * FROM users WHERE id=$1';
-  //   const response = db.query(query, [id]);
-  //   return response;
-  // }
+  /**
+   * @param {*} id
+   * @returns { object } user object
+   */
+  static findById(id) {
+    const query = 'SELECT * FROM users WHERE id=$1';
+    const response = db.query(query, [id]);
+    return response;
+  }
 }
 
 export default User;

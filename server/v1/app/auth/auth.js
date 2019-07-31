@@ -51,12 +51,12 @@ const saltRounds = parseInt(process.env.SALT_ROUNDS, 10);
      * @method verifyToken
      * @description Verifies generated user token
      * @param { string } token 
-     * @returns { Object } payload - { user_id, is_admin }
+     * @returns { Object } payload - { id, isAdmin }
      */
-  static verifyToken(token){
-    const decoded = jwt.verify(token, secretKey);
-    return decoded;
-  }
+    static verifyToken(token){
+      const decoded = jwt.verify(token, secretKey);
+      return decoded;
+    }
  }
 
  export default Auth;

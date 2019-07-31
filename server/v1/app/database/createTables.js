@@ -1,5 +1,5 @@
 import Pool from './db';
-
+ 
 const queryText = `
   CREATE TABLE IF NOT EXISTS users(
     id SERIAL PRIMARY KEY,
