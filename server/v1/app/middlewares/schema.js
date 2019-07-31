@@ -86,10 +86,10 @@ class Schema {
   static createCourse() {
     const schema = {
       courseTitle: Joi.string().trim().lowercase().required(),
-      memberFee: Joi.number().min(2000).required(),
+      memberFees: Joi.number().min(2000).required(),
       nonmemberFee: Joi.number().min(2000).required(),
-      startDate: Joi.date().format(['YYYY/MM/DD', 'DD-MM-YYYY']).required(),
-      endDate: Joi.date().format(['YYYY/MM/DD', 'DD-MM-YYYY']).required(),
+      startDate: Joi.date().required(),
+      endDate: Joi.date().required(),
     };
     return schema;
   }
