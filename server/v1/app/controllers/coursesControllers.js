@@ -46,7 +46,31 @@ class CourseController {
         if (error) 
         return resErr(res, 400, error.message);
       }
-    }  
-     
+    } 
+    
+    /**
+    * @method takeCourse
+    * @description Adds a users course details to the database
+    * @param {object} req - The Request Object
+    * @param {object} res - The Response Object
+    * @returns {object} JSON API Response
+    */
+   static async takeCouse(req, res) {
+     const { body, params: { id } } = req;
+    try{
+      const existingCourse = await Course.getCourse(body.id, id); 
+
+      if (existingCourse.rowCount > 0) return resErr(res, 400, 'You can\'t register for the same course twice');
+      const { rows } = await Course.addCourse({ id, user: body.id });
+
+      const course = await Course.getCourse(rows[0].userid, rows[0].courseid);
+      return resLong(res, 201, {
+        ...course.rows[0],
+        });
+    } catch (error) {
+      if (error) 
+      return resErr(res, 400, error.message);
+    }
+  }
 }
 export default CourseController;

@@ -19,10 +19,10 @@ const queryText = `
     endDate TIMESTAMP NOT NULL
   );
   CREATE TABLE IF NOT EXISTS userCourses(
-    id SERIAL PRIMARY KEY,
     registeredOn TIMESTAMP DEFAULT now(),
     userId INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    courseId INTEGER REFERENCES courses(id) ON DELETE CASCADE
+    courseId INTEGER REFERENCES courses(id) ON DELETE CASCADE,
+    PRIMARY KEY (userId, courseId)
   );
   CREATE TABLE IF NOT EXISTS dues(
     id SERIAL PRIMARY KEY,

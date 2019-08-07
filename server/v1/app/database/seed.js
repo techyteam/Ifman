@@ -16,7 +16,7 @@ const queryText = `
         ('Facility Management Operations Training', 106500.00, 115500.00, '${moment(new Date())}', '${moment(new Date())}');
 
  INSERT INTO userCourses (registeredOn, userId, courseId) 
- VALUES ('${moment(new Date())}', 3, 1),
+ VALUES ('${moment(new Date())}', 5, 1),
         ('${moment(new Date())}', 5, 2),
         ('${moment(new Date())}', 4, 3);
        
