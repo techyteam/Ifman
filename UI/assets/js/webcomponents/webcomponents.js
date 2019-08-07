@@ -115,12 +115,15 @@ fetch("assets/templates/sign-modal.html")
                 this.closeBtn = this.shadowRoot.querySelector('.close-btn');
                 this.logInBtn = this.shadowRoot.querySelector('.show-login');
                 this.signUpBtn = this.shadowRoot.querySelector('.show-signin');
+
+                //form transition buttons
+                next1
             }
 
             connectedCallback() {
                 const body = document.body;
                 const signModal = document.querySelector('sign-modal');
-
+                
                 this.closeBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     body.setAttribute('class', '');
