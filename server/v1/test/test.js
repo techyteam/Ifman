@@ -18,6 +18,7 @@ describe('Authentication Tests', () => {
           lastName: 'otokurfor',
           email: 'temi@testmail.com',
           password: 'password',
+          phoneNumber: 123345622,
         };
         chai.request(app)
         .post(`${userEndPoint}signup`)
@@ -32,7 +33,7 @@ describe('Authentication Tests', () => {
           res.body.data.should.have.property('firstname');
           res.body.data.should.have.property('lastname');
           res.body.data.should.have.property('email');
-          res.body.data.should.have.property('registered');
+          res.body.data.should.have.property('phonenumber');
           res.body.data.should.have.property('isadmin');
           done();
         });
@@ -113,6 +114,7 @@ describe('Authentication Tests', () => {
           lastName: 'abdul',
           email: 'jas.abdul@gmail.com',
           password: 'password',
+          phoneNumber: 123456781
         };
         chai.request(app)
         .post(`${userEndPoint}signup`)
@@ -178,10 +180,9 @@ describe('Authentication Tests', () => {
         .post(`${userEndPoint}signin`)
         .send(login)
         .end((err, res) => {
-          res.should.have.status(400);
+          res.should.have.status(404);
           res.body.should.be.a('object');
           res.body.should.have.property('error');
-          res.body.error.should.equal('The email and password you entered does not exist! Please check and try again.');
           done();
         });
       });
@@ -195,10 +196,9 @@ describe('Authentication Tests', () => {
         .post(`${userEndPoint}signin`)
         .send(login)
         .end((err, res) => {
-          res.should.have.status(400);
+          res.should.have.status(401);
           res.body.should.be.a('object');
           res.body.should.have.property('error');
-          res.body.error.should.equal('The email and password you entered does not exist! Please check and try again.');
           done();
         });
       });
@@ -233,7 +233,8 @@ describe('Authentication Tests', () => {
         });
       });
     });
-  }); 
+  });
+  
   describe('Create Courses Tests', () => {
     describe('POST requests to admin protected routes', () => {
       it('Should return 403 if token is for user', (done) => {

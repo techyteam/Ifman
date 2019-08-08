@@ -4,13 +4,14 @@
   "description": "facility management company",
   "main": "app.js",
   "scripts": {
-    "test": "npm run migrate && mocha server/v1/test/test.js --require @babel/register --exit",
+    "test": "npm run migrate && mocha server/v1/test/test.js --require @babel/register --timeout 10000 --exit || true",
     "dev": "set DEBUG=dev && nodemon --exec babel-node server/app.js",
     "migrate-test": "cross-env NODE_ENV=test npm run migrate",
     "migrate": "set DEBUG=dev && npm run drop && npm run create && npm run seed",
     "create": "babel-node server/v1/app/database/createTables.js",
     "drop": "babel-node server/v1/app/database/dropTables",
-    "seed": "babel-node server/v1/app/database/seed.js"
+    "seed": "babel-node server/v1/app/database/seed.js",
+    "lint": "./node_modules/.bin/eslint ./server"
   },
   "repository": {
     "type": "git",
