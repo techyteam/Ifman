@@ -21,11 +21,11 @@ class UserController {
     try {
       const {
         firstName, lastName, email, password, phoneNumber,
-      } = req.body;      
+      } = req.body;
       const hashedPassword = Auth.hashPassword(password);
-      const user = await users.createUser(firstName, lastName, email, hashedPassword, phoneNumber);      
+      const user = await users.createUser(firstName, lastName, email, hashedPassword, phoneNumber);
       const { id, isadmin } = user;
-      const token = Auth.generateToken({ id, isadmin });            
+      const token = Auth.generateToken({ id, isadmin });
       return resLong(res, 201, { ...user, token });
     } catch (error) {
       if (error.constraint === 'users_email_key') {
@@ -34,11 +34,10 @@ class UserController {
       if (error.constraint === 'users_phonenumber_key') {
         return resErr(res, 409, 'Kindly use another phone number, this phone number has already been used');
       }
-      
-      return resErr(res, 500, "server error")
+
+      return resErr(res, 500, 'server error');
     }
-    
-    }
+  }
 
   /**
   * @method signIn
@@ -48,21 +47,20 @@ class UserController {
   * @returns {object} JSON API Response
   */
   static async signIn(req, res) {
-  try {    
-  const { email, password } = req.body;
-  const user = await users.getSingleUser(email);
-    if (Auth.verifyPassword(password, user.password)) {
-      const token = Auth.generateToken({ id: user.id, isadmin: user.isadmin });
-      return resLong(res, 200, { ...user, token });
+    try {
+      const { email, password } = req.body;
+      const user = await users.getSingleUser(email);
+      if (Auth.verifyPassword(password, user.password)) {
+        const token = Auth.generateToken({ id: user.id, isadmin: user.isadmin });
+        return resLong(res, 200, { ...user, token });
+      }
+      return resErr(res, 401, 'The password you have entered is invalid');
+    } catch (error) {
+      if (error.name === 'emailNull') {
+        return resErr(res, 404, 'no user found found for the provided email');
+      }
+      return resErr(res, 500, 'server error');
     }
-    return resErr(res, 401, 'The password you have entered is invalid')
-  } catch (error) {
-    if (error.name === 'emailNull') {
-      return resErr(res, 404, 'no user found found for the provided email');
-    }    
-    return resErr(res, 500, "server error")
   }
-}
-
 }
 export default UserController;

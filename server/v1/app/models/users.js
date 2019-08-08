@@ -20,16 +20,16 @@ class User {
   static async createUser(firstName, lastName, email, hashedPassword, phoneNumber) {
     try {
       const queryText = `INSERT INTO users (firstName, lastName, email, password, phoneNumber)
-      VALUES ($1, $2, $3, $4, $5) RETURNING id, firstName, lastName, email, phoneNumber, isAdmin;`;    
+      VALUES ($1, $2, $3, $4, $5) RETURNING id, firstName, lastName, email, phoneNumber, isAdmin;`;
       const values = [firstName, lastName, email, hashedPassword, phoneNumber];
       const { rows } = await db.query(queryText, values);
       return rows[0];
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 
-    /**
+  /**
    * @static signin
    * @description returns a single user where user id matches
    * @param { String } userId
@@ -38,7 +38,7 @@ class User {
    */
   static async getSingleUser(email) {
     try {
-      const queryText = `SELECT * FROM users WHERE email = $1;`;
+      const queryText = 'SELECT * FROM users WHERE email = $1;';
       const { rows } = await db.query(queryText, [email]);
       if (!rows[0]) {
         const error = new Error();
