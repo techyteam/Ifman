@@ -45,6 +45,7 @@ class Schema {
         email: Joi.string().trim().lowercase().email({ minDomainSegments: 2 })
           .required(),
         password: Joi.string().min(8).required(),
+        phoneNumber: Joi.number().required(),
       };
       return schema;
     }

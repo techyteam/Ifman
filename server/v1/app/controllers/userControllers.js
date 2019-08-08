@@ -18,19 +18,26 @@ class UserController {
   * @returns {object} JSON API Response
   */
   static async signUp(req, res) {
-    const findUser = await users.find(req.body.email);
-    if (findUser.rowCount > 0) {
-    return resErr(res, 409, 'email is already taken');
+    try {
+      const {
+        firstName, lastName, email, password, phoneNumber,
+      } = req.body;      
+      const hashedPassword = Auth.hashPassword(password);
+      const user = await users.createUser(firstName, lastName, email, hashedPassword, phoneNumber);      
+      const { id, isadmin } = user;
+      const token = Auth.generateToken({ id, isadmin });            
+      return resLong(res, 201, { ...user, token });
+    } catch (error) {
+      if (error.constraint === 'users_email_key') {
+        return resErr(res, 409, 'Kindly use another email, this email address has already been used');
+      }
+      if (error.constraint === 'users_phonenumber_key') {
+        return resErr(res, 409, 'Kindly use another phone number, this phone number has already been used');
+      }
+      
+      return resErr(res, 500, "server error")
     }
-    const response = await users.create(req.body);
-    const user = response.rows[0];
-    const { id, isadmin } = user;
-    const token = Auth.generateToken({
-      id, isadmin,
-    });
-    return resLong(res, 201, {
-      ...user, token,
-    });
+    
     }
 
   /**
@@ -40,22 +47,22 @@ class UserController {
   * @param {object} res - The Response Object
   * @returns {object} JSON API Response
   */
-static async signIn(req, res) {
+  static async signIn(req, res) {
+  try {    
   const { email, password } = req.body;
-  const response = await users.find(email);
-
-    if (response.rowCount < 1 || !Auth.verifyPassword(password, response.rows[0].password)) {
-      return resErr(res, 400, 'The email and password you entered does not exist! Please check and try again.');
+  const user = await users.getSingleUser(email);
+    if (Auth.verifyPassword(password, user.password)) {
+      const token = Auth.generateToken({ id: user.id, isadmin: user.isadmin });
+      return resLong(res, 200, { ...user, token });
     }
-    const {
-      id, firstname, lastname, isadmin,
-    } = response.rows[0];
-    const token = Auth.generateToken({
-      id, isadmin,
-    });
-    return resLong(res, 200, {
-      id, firstname, lastname, email, isadmin, token,
-    });
+    return resErr(res, 401, 'The password you have entered is invalid')
+  } catch (error) {
+    if (error.name === 'emailNull') {
+      return resErr(res, 404, 'no user found found for the provided email');
+    }    
+    return resErr(res, 500, "server error")
   }
+}
+
 }
 export default UserController;
