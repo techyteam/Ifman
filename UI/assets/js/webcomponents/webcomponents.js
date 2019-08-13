@@ -116,8 +116,10 @@ fetch("assets/templates/sign-modal.html")
                 this.logInBtn = this.shadowRoot.querySelector('.show-login');
                 this.signUpBtn = this.shadowRoot.querySelector('.show-signin');
 
-                //form transition buttons
-                next1
+                // form submission buttons
+                this.signUpFormBtn = this.shadowRoot.querySelector('#signup-button');
+                this.logInFormBtn = this.shadowRoot.querySelector('#login-button');
+
             }
 
             connectedCallback() {
@@ -131,15 +133,23 @@ fetch("assets/templates/sign-modal.html")
 
                 this.logInBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    console.log('a');
                     signModal.setAttribute('class', 'show-login');
                 });
 
                 this.signUpBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-
                     signModal.setAttribute('class', 'show-signup');
                 });
+
+                this.signUpFormBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'profile.html';
+                });
+                this.logInFormBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    console.log('a')
+                    window.location.href = 'profile.html';
+                });               
             }
         })
     )
