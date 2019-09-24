@@ -8,8 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     phoneNumber: DataTypes.NUMBER,
     isAdmin: DataTypes.BOOLEAN,
   }, {});
-  User.associate = function (models) {
-    // associations can be defined here
+  User.associate = (models) => {
+    User.hasMany(models.userCourses);
+    User.hasMany(models.userDues);
   };
   return User;
 };

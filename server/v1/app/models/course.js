@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     startDate: DataTypes.STRING,
     endDate: DataTypes.STRING,
   }, {});
-  course.associate = function (models) {
-    // associations can be defined here
-  };
+  // course.associate = (models) => {
+  //   // associations can be defined here
+  // };
   return course;
 };

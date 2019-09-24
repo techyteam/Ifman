@@ -1,34 +1,34 @@
-import db from '../database/db';
 import moment from 'moment';
+import db from '../database/db';
 
 /**
  * @exports Course
  * @class Course
  */
 class Course {
-    /**
+  /**
      * @param {*} data
      * @returns { object } course object
      */
-    static create(data) {
-      const queryText = `INSERT INTO courses (courseTitle, memberFees, nonmemberFee, startDate, endDate)
+  static create(data) {
+    const queryText = `INSERT INTO courses (courseTitle, memberFees, nonmemberFee, startDate, endDate)
        VALUES ($1, $2, $3, $4, $5) RETURNING id, courseTitle, memberFees, nonmemberFee, startDate, endDate;`;
-  
-      const {
-        courseTitle, memberFees, nonmemberFee,
-      } = data;
-  
-      const values = [courseTitle, memberFees, nonmemberFee, moment(new Date()), moment(new Date())];
-      const response = db.query(queryText, values);
-      return response;
-    }
+
+    const {
+      courseTitle, memberFees, nonmemberFee,
+    } = data;
+
+    const values = [courseTitle, memberFees, nonmemberFee, moment(new Date()), moment(new Date())];
+    const response = db.query(queryText, values);
+    return response;
+  }
 
   /**
    * @method getCourses
    * @returns {object} All courses
    */
   static async getCourses() {
-    const queryText = `SELECT * from courses;`;
+    const queryText = 'SELECT * from courses;';
     const result = db.query(queryText);
     return result;
   }
@@ -41,13 +41,13 @@ class Course {
     const queryText = `INSERT INTO userCourses (registeredOn, userId ,courseId)
       VALUES ($1, $2, $3) RETURNING registeredOn, userId ,courseId;`;
 
-    const date =  moment(new Date());
+    const date = moment(new Date());
     const {
       id,
-      user
+      user,
     } = data;
 
-    const values =  [date, user, id];
+    const values = [date, user, id];
     const response = db.query(queryText, values);
     return response;
   }
@@ -78,4 +78,3 @@ class Course {
   }
 }
 export default Course;
-  
