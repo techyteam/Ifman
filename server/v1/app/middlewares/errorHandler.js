@@ -20,8 +20,8 @@ class ErrorHandler {
     return res.status(err.status || 500).json({
       status: res.statusCode,
       error: err.message,
-      });
-    }
+    });
+  }
 }
-  
-  export default ErrorHandler;
+
+export default ErrorHandler;

@@ -7,7 +7,7 @@ import validate from '../helpers/validate';
  * @exports InputValidator
  */
 class InputValidator {
-    /**
+  /**
       * @method validateUser
       * @description Validates the user object passed in from the request body
       * @param {object} req - The Request Object
@@ -15,12 +15,12 @@ class InputValidator {
       * @param {function} next - The next function to point to the next middleware
       * @returns {function} next() - The next function
       */
-    static validateUser(req, res, next) {
-      const user = { ...req.body };
-      return validate(user, Schema.createUserSchema(), req, res, next);
-    } 
+  static validateUser(req, res, next) {
+    const user = { ...req.body };
+    return validate(user, Schema.createUserSchema(), req, res, next);
+  }
 
-    /**
+  /**
   * @method validateLogin
   * @description Validates the login details passed in from the request body
   * @param {object} req - The Request Object
@@ -33,7 +33,7 @@ class InputValidator {
     return validate(login, Schema.loginSchema(), req, res, next);
   }
 
-    /**
+  /**
     * @method validateCourse
     * @description Validates the course details passed in from the request body
     * @param {object} req - The Request Object
@@ -45,7 +45,6 @@ class InputValidator {
     const type = { ...req.body };
     return validate(type, Schema.createCourse(), req, res, next);
   }
-    
-}  
+}
 
 export default InputValidator;
