@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => {
     type: DataTypes.STRING,
     amount: DataTypes.INTEGER,
     for: DataTypes.STRING,
-    dueDate: DataTypes.STRING,
   }, {});
   userDues.associate = (models) => {
     userDues.belongsTo(models.User, { foreignKey: 'userId', as: 'user' });

@@ -1,33 +1,47 @@
-'use strict';
+
+
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('userCourses', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
+  up: (queryInterface, Sequelize) => queryInterface.createTable('userCourses', {
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER,
+    },
+    registeredOn: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    userId: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Users',
+        key: 'id',
       },
-      registeredOn: {
-        type: Sequelize.STRING
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+    },
+    courseId: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'courses',
+        key: 'id',
       },
-      userId: {
-        type: Sequelize.INTEGER
-      },
-      courseId: {
-        type: Sequelize.INTEGER
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
-    });
-  },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('userCourses');
-  }
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+    },
+    createdAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW,
+    },
+  }),
+  down: queryInterface => queryInterface.dropTable('userCourses'),
 };

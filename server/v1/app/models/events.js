@@ -1,13 +1,11 @@
-'use strict';
+
+
 module.exports = (sequelize, DataTypes) => {
   const events = sequelize.define('events', {
-    paidOn: DataTypes.STRING,
-    type: DataTypes.STRING,
-    amount: DataTypes.INTEGER,
-    for: DataTypes.STRING,
-    dueDate: DataTypes.STRING
+    title: DataTypes.STRING,
+    imageUrl: DataTypes.STRING,
   }, {});
-  events.associate = function(models) {
+  events.associate = () => {
     // associations can be defined here
   };
   return events;
