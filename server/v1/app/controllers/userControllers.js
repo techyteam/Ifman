@@ -1,5 +1,6 @@
-import users from '../models/users';
+import { users } from '../models';
 import Auth from '../auth/auth';
+import UserServices from '../services/userServices';
 import ResponseMsg from '../helpers/response';
 
 const { resLong, resErr } = ResponseMsg;
@@ -20,22 +21,14 @@ class UserController {
   static async signUp(req, res) {
     try {
       const {
-        firstName, lastName, email, password, phoneNumber,
+        email, password,
       } = req.body;
       const hashedPassword = Auth.hashPassword(password);
-      const user = await users.createUser(firstName, lastName, email, hashedPassword, phoneNumber);
-      const { id, isadmin } = user;
-      const token = Auth.generateToken({ id, isadmin });
+      const user = await UserServices.createUser({ email, hashedPassword });
+      const token = Auth.generateToken({ email });
       return resLong(res, 201, { ...user, token });
     } catch (error) {
-      if (error.constraint === 'users_email_key') {
-        return resErr(res, 409, 'Kindly use another email, this email address has already been used');
-      }
-      if (error.constraint === 'users_phonenumber_key') {
-        return resErr(res, 409, 'Kindly use another phone number, this phone number has already been used');
-      }
-
-      return resErr(res, 500, 'server error');
+      return resErr(res, 500, error.message);
     }
   }
 
@@ -56,10 +49,7 @@ class UserController {
       }
       return resErr(res, 401, 'The password you have entered is invalid');
     } catch (error) {
-      if (error.name === 'emailNull') {
-        return resErr(res, 404, 'no user found found for the provided email');
-      }
-      return resErr(res, 500, 'server error');
+      return resErr(res, 500, error.message);
     }
   }
 }

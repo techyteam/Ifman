@@ -1,6 +1,7 @@
+/* eslint-disable prefer-destructuring */
 import Auth from '../auth/auth';
 import ResponseMsg from '../helpers/response';
-import User from '../models/users';
+import { User } from '../models';
 
 const { resErr } = ResponseMsg;
 
@@ -18,29 +19,27 @@ class AuthenticateUser {
    * @param  {function} next - The next() Function
    * @returns {object} req.user - The payload object
    */
-    static async verifyToken(req, res, next) {
-      let token = req.headers.authorization
-      if (!token) {
-        return resErr(res, 400, 'No token Provided');
+  static async verifyToken(req, res, next) {
+    let token = req.headers.authorization;
+    if (!token) {
+      return resErr(res, 400, 'No token Provided');
+    }
+    token = token.split(' ')[1];
+
+    try {
+      const decoded = Auth.verifyToken(token);
+      const { rows } = await User.findById(decoded.id);
+      if (!rows[0]) {
+        return resErr(res, 400, 'Invalid Token');
       }
-      token = token.split(' ')[1];
-    
-      try {
-        const decoded = Auth.verifyToken(token);
-        const { rows } = await User.findById(decoded.id);
-        if (!rows[0]) {
-          return resErr(res, 400, 'Invalid Token');
-        }
-        req.body.id = decoded.id;
-        req.body.isadmin = decoded.isadmin;
-        return next();
-      } catch (error) {
-        if (error) {
-          return resErr(res, 500, error.message);
-        }          
-      }
-    }  
-  
+      req.body.id = decoded.id;
+      req.body.isadmin = decoded.isadmin;
+      return next();
+    } catch (error) {
+      return resErr(res, 500, error.message);
+    }
+  }
+
   /**
    * @method verifyAdmin
    * @description verifies the user token to determine if the user is admin or not
@@ -50,8 +49,8 @@ class AuthenticateUser {
    * @returns {object} JSON API Response
    */
   static verifyAdmin(req, res, next) {
-    let token = req.headers.authorization
-    if(!token){
+    let token = req.headers.authorization;
+    if (!token) {
       return resErr(res, 404, 'Token Not Found');
     }
     token = token.split(' ')[1];
