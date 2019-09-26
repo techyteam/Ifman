@@ -1,0 +1,35 @@
+
+
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('User', {
+    firstName: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    email: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    lastName: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    password: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    phoneNumber: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    isAdmin: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+  }, {});
+  User.associate = (models) => {
+    User.hasMany(models.userCourses);
+    User.hasMany(models.userDues);
+  };
+  return User;
+};

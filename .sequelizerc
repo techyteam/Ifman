@@ -7,16 +7,16 @@ dotenv.config();
 if(process.env.NODE_ENV != 'production'){
   require('@babel/register');
   module.exports = {
-    "config": path.resolve("./server/v1/app/database", "config.js"),
-    "models-path": path.resolve("./server/v1/app/models"),
-    "seeders-path": path.resolve("./server/v1/app/database/seeders"),
-    "migrations-path": path.resolve("./server/v1/app/database/migrations"),
+    "config": path.resolve("./src/database", "config.js"),
+    "models-path": path.resolve("./src/models"),
+    "seeders-path": path.resolve("./src/database/seeders"),
+    "migrations-path": path.resolve("./src/database/migrations"),
   };
 } else {
   module.exports = {
-    "config": path.resolve("./server/v1/dist/database", "config.js"),
-    "models-path": path.resolve("./server/v1/dist/models"),
-    "seeders-path": path.resolve("./server/v1/dist/database/seeders"),
-    "migrations-path": path.resolve("./server/v1/dist/database/migrations"),
+    "config": path.resolve("./dist/database", "config.js"),
+    "models-path": path.resolve("./dist/models"),
+    "seeders-path": path.resolve("./dist/database/seeders"),
+    "migrations-path": path.resolve("./dist/database/migrations"),
   };
 }
