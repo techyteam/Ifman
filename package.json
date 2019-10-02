@@ -36,6 +36,10 @@
   "homepage": "https://github.com/misanj/Ifman#readme",
   "dependencies": {
     "@babel/runtime": "^7.6.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/register": "^7.6.2",
     "@hapi/joi": "^15.1.0",
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
@@ -59,10 +63,6 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.6.2",
-    "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/register": "^7.6.2",
     "babel-watch": "^7.0.0",
     "coveralls": "^3.0.4",
     "eslint": "^5.16.0",
