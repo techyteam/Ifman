@@ -4,6 +4,7 @@ module.exports = {
   up: queryInterface => queryInterface.bulkInsert('Users', [
     {
       firstName: 'Romeo',
+      middleName: 'doe',
       lastName: 'Missen',
       email: 'rmissen0@adobe.com',
       password: 'Malepass',
@@ -13,6 +14,7 @@ module.exports = {
       updatedAt: new Date(),
     }, {
       firstName: 'Roberta',
+      middleName: 'doe',
       lastName: 'Corten',
       email: 'rcorten1@odnoklassniki.ru',
       password: 'Femalepass',
@@ -22,6 +24,7 @@ module.exports = {
       updatedAt: new Date(),
     }, {
       firstName: 'Johannah',
+      middleName: 'doe',
       lastName: 'Cockman',
       email: 'jcockman2@parallels.com',
       password: 'Femalepass',
@@ -31,6 +34,7 @@ module.exports = {
       updatedAt: new Date(),
     }, {
       firstName: 'Munmro',
+      middleName: 'doe',
       lastName: 'Banbury',
       email: 'mbanbury3@noaa.gov',
       password: 'Malepass',
@@ -40,6 +44,7 @@ module.exports = {
       updatedAt: new Date(),
     }, {
       firstName: 'Timofei',
+      middleName: 'doe',
       lastName: 'Farrell',
       email: 'tfarrell4@pbs.org',
       password: 'Malepass',
@@ -49,6 +54,7 @@ module.exports = {
       updatedAt: new Date(),
     }, {
       firstName: 'Celene',
+      middleName: 'doe',
       lastName: 'Lankester',
       email: 'clankester5@abc.net.au',
       password: 'Femalepass',

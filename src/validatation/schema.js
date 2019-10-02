@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import Joi from '@hapi/joi';
 
 /**
@@ -49,6 +50,63 @@ class Schema {
       nonMemberFees: Joi.number().min(2000).required(),
       startDate: Joi.date().format('YYYY-MM-DD').required(),
       endDate: Joi.date().format('YYYY-MM-DD').required(),
+    };
+    return schema;
+  }
+
+  /**
+    * @method userProfileSchema
+    * @description Validates the user object from a post request
+    * @param {object} user - The user object to be validated
+    * @returns {object} An object specifying weather the input was valid or not.
+    */
+  static userProfileSchema() {
+    const schema = {
+      firstName: Joi.string().lowercase().trim().required()
+        .regex(/^[a-zA-Z]+$/)
+        .error((errors) => {
+          errors.forEach((err) => {
+            switch (err.type) {
+              case 'string.regex.base':
+                err.message = 'first_name can only contain letters';
+                break;
+              default:
+                break;
+            }
+          });
+          return errors;
+        }),
+      middleName: Joi.string().lowercase().trim().required()
+        .regex(/^[a-zA-Z]+$/)
+        .error((errors) => {
+          errors.forEach((err) => {
+            switch (err.type) {
+              case 'string.regex.base':
+                err.message = 'last_name can only contain letters';
+                break;
+              default:
+                break;
+            }
+          });
+          return errors;
+        }),
+      lastName: Joi.string().lowercase().trim().required()
+        .regex(/^[a-zA-Z]+$/)
+        .error((errors) => {
+          errors.forEach((err) => {
+            switch (err.type) {
+              case 'string.regex.base':
+                err.message = 'last_name can only contain letters';
+                break;
+              default:
+                break;
+            }
+          });
+          return errors;
+        }),
+      birthDate: Joi.date().format('YYYY-MM-DD').required(),
+      gender: Joi.string().trim().lowercase().required(),
+      phoneNumber: Joi.string().phoneNumber({ defaultCountry: 'BE', format: 'e164' }).validate('494322456'),
     };
     return schema;
   }

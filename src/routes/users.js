@@ -2,16 +2,17 @@ import express from 'express';
 import UserController from '../controllers/userControllers';
 import UserMiddlewares from '../middlewares/userMiddleware';
 import InputValidator from '../validatation/inputValidator';
-// import Auth from '../middlewares/auth';
+import AuthenticateUser from '../middlewares/authenticate';
 
-const { signUp, signIn } = UserController;
+const { signUp, signIn, updateUserInfo } = UserController;
 const { validateUser, validateLogin } = InputValidator;
-const { checkUserExists, doesUserExist } = UserMiddlewares;
-// const { verifyToken } = Auth;
+const { checkUserExists, doesUserExist, confirmUserExists } = UserMiddlewares;
+const { verifyToken } = AuthenticateUser;
 
 const userRoutes = express.Router();
 
 userRoutes.post('/signup', validateUser, checkUserExists, signUp);
 userRoutes.post('/signin', validateLogin, doesUserExist, signIn);
+userRoutes.patch('/user/update-profile', verifyToken, confirmUserExists, updateUserInfo);
 
 export default userRoutes;
