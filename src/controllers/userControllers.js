@@ -44,6 +44,7 @@ class UserController {
       const { email, password } = req.body;
       const user = await UserServices.getUserByEmail(email);
       if (Utils.comparePassword(password, user.password)) {
+        delete user.password;
         const token = Utils.generateToken({ email });
         return resLong(res, 200, { user, token });
       }
@@ -52,6 +53,25 @@ class UserController {
       if (error.name === 'emailNull') {
         return resErr(res, 404, 'No user found for the provided email');
       }
+      return resErr(res, 500, error.message);
+    }
+  }
+
+  /**
+ * @name updateUserInfo
+ * @description Updates user profile to complete registration
+ * @param {object} req The request object
+ * @param {object} res The response object
+ * @returns {object} The API response
+ */
+  static async updateUserInfo(req, res) {
+    try {
+      const userData = { ...req.body };
+      const { user } = req;
+      userData.password = Utils.hashPassword(userData.password);
+      const data = await UserServices.updateUserInfoById({ ...userData }, user.email);
+      return resLong(res, 201, data);
+    } catch (error) {
       return resErr(res, 500, error.message);
     }
   }

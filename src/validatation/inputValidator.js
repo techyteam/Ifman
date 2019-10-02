@@ -45,6 +45,19 @@ class InputValidator {
     const type = { ...req.body };
     return validate(type, Schema.createCourse(), req, res, next);
   }
+
+  /**
+    * @method validateUserProfile
+    * @description Validates the user details passed in from the request body
+    * @param {object} req - The Request Object
+    * @param {object} res - The Response Object
+    * @param {function} next - The next function to point to the next middleware
+    * @returns {function} next() - The next function
+    */
+  static validateUserProfile(req, res, next) {
+    const type = { ...req.body };
+    return this.validateUserProfile(type, Schema.createCourse(), req, res, next);
+  }
 }
 
 export default InputValidator;

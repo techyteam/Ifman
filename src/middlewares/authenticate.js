@@ -1,7 +1,7 @@
 /* eslint-disable prefer-destructuring */
 import Utils from '../utils';
 import ResponseMsg from '../utils/response';
-import UserServices  from '../services/userServices';
+import UserServices from '../services/userServices';
 
 const { resErr } = ResponseMsg;
 
