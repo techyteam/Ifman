@@ -43,7 +43,8 @@ class UserController {
     try {
       const { email, password } = req.body;
       const user = await UserServices.getUserByEmail(email);
-      if (Utils.comparePassword(password, user.password)) {
+      const checkPassword = Utils.comparePassword(password, user.password);
+      if (checkPassword) {
         delete user.password;
         const token = Utils.generateToken({ email });
         return resLong(res, 200, { user, token });

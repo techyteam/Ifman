@@ -48,6 +48,8 @@ class Schema {
       courseTitle: Joi.string().trim().lowercase().required(),
       memberFees: Joi.number().min(2000).required(),
       nonMemberFees: Joi.number().min(2000).required(),
+      duration: Joi.string().trim().lowercase().required(),
+      venue: Joi.string().trim().lowercase().required(),
       startDate: Joi.date().format('YYYY-MM-DD').required(),
       endDate: Joi.date().format('YYYY-MM-DD').required(),
     };
