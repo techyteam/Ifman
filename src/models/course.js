@@ -13,6 +13,14 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.FLOAT,
     },
+    duration: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    venue: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     startDate: {
       allowNull: false,
       type: DataTypes.DATE,

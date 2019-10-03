@@ -21,6 +21,14 @@ module.exports = {
       type: Sequelize.FLOAT,
       allowNull: false,
     },
+    duration: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    venue: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
     startDate: {
       type: Sequelize.DATE,
       allowNull: false,

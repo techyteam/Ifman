@@ -1,4 +1,4 @@
-import { course } from '../models';
+import { course, userCourses } from '../models';
 
 const Course = course;
 
@@ -16,7 +16,6 @@ export default class CourseServices {
     const { dataValues } = await Course.create(CourseData);
     return dataValues;
   }
-
 
   /**
    * @name GetCourseById
@@ -51,6 +50,17 @@ export default class CourseServices {
     const { name, value } = attribute;
     const CourseDetails = await Course.update({ [name]: value },
       { where: { id } }, { returning: true });
+    return CourseDetails;
+  }
+
+  /**
+   * @name GetCourseByUserId
+   * @description Interacts with model to find a single Users Course
+   * @param { string } id the user id
+   * @returns {object} return the userCourses data
+   */
+  static async getCourseByUserId(userId) {
+    const CourseDetails = await userCourses.findOne({ where: { userId } });
     return CourseDetails;
   }
 }

@@ -1,4 +1,4 @@
-
+import Utils from '../../utils';
 
 module.exports = {
   up: queryInterface => queryInterface.bulkInsert('Users', [
@@ -7,7 +7,7 @@ module.exports = {
       middleName: 'doe',
       lastName: 'Missen',
       email: 'rmissen0@adobe.com',
-      password: 'Malepass',
+      password: Utils.hashPassword('Malepass'),
       phoneNumber: '586-852-6862',
       isAdmin: null,
       createdAt: new Date(),
@@ -17,7 +17,7 @@ module.exports = {
       middleName: 'doe',
       lastName: 'Corten',
       email: 'rcorten1@odnoklassniki.ru',
-      password: 'Femalepass',
+      password: Utils.hashPassword('Femalepass'),
       phoneNumber: '629-490-1902',
       isAdmin: null,
       createdAt: new Date(),
@@ -27,7 +27,7 @@ module.exports = {
       middleName: 'doe',
       lastName: 'Cockman',
       email: 'jcockman2@parallels.com',
-      password: 'Femalepass',
+      password: Utils.hashPassword('Femalepass'),
       phoneNumber: '434-538-2990',
       isAdmin: null,
       createdAt: new Date(),
@@ -37,7 +37,7 @@ module.exports = {
       middleName: 'doe',
       lastName: 'Banbury',
       email: 'mbanbury3@noaa.gov',
-      password: 'Malepass',
+      password: Utils.hashPassword('Malepass'),
       phoneNumber: '224-803-6000',
       isAdmin: null,
       createdAt: new Date(),
@@ -47,7 +47,7 @@ module.exports = {
       middleName: 'doe',
       lastName: 'Farrell',
       email: 'tfarrell4@pbs.org',
-      password: 'Malepass',
+      password: Utils.hashPassword('Malepass'),
       phoneNumber: '638-685-1138',
       isAdmin: false,
       createdAt: new Date(),
@@ -57,7 +57,7 @@ module.exports = {
       middleName: 'doe',
       lastName: 'Lankester',
       email: 'clankester5@abc.net.au',
-      password: 'Femalepass',
+      password: Utils.hashPassword('Femalepass'),
       phoneNumber: '348-524-6322',
       isAdmin: null,
       createdAt: new Date(),

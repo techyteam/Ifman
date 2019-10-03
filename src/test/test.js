@@ -1,6 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import app from '../../app';
+import app from '../app';
 
 chai.should();
 
@@ -326,7 +326,7 @@ describe('Authentication Tests', () => {
             };
             chai.request(app)
               .post(`${apiEndPoint}courses`)
-              .set('Authorization', '')
+              .set('Authorization', token)
               .send(course)
               .end((err, res) => {
                 res.should.have.status(404);

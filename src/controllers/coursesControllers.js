@@ -52,13 +52,29 @@ class CourseController {
     const { body, params: { id } } = req;
     try {
       const userCourse = await CourseServices.getCourseById(id);
-
       if (userCourse) {
         return resErr(res, 400, 'You can\'t register for the same course twice');
       }
-      const newCourse = await CourseServices.updateUserById({ id, user: body.id });
-      const course = await CourseServices.getCourse(newCourse.userid, newCourse.courseid);
+      const newCourse = await CourseServices.updateCourseById({ id, user: body.id });
+      const course = await CourseServices.getCourseById(newCourse.userId, newCourse.courseId);
       return resLong(res, 201, { ...course });
+    } catch (error) {
+      return resErr(res, 400, error.message);
+    }
+  }
+
+  /**
+    * @method getUserCourses
+    * @description Fetches all courses from the database
+    * @param {object} req - The Request Object
+    * @param {object} res - The Response Object
+    * @returns {object} JSON API Response
+    */
+  static async getUserCourses(req, res) {
+    try {
+      const { userId } = req.params;
+      const result = await CourseServices.getCourseByUserId(userId);
+      return resLong(res, 200, result);
     } catch (error) {
       return resErr(res, 400, error.message);
     }
