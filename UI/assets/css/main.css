@@ -347,7 +347,11 @@ button.see-all {
 }
 .events-inner h3 {
     color: var(--alt-clr);
-    max-width: 300px
+    max-width: 300px;
+    z-index: 9;
+}
+.events-inner a {
+    z-index: 9;
 }
 .events-inner div:nth-child(1) {
     grid-area: one;
