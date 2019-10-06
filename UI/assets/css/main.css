@@ -233,7 +233,7 @@ button.see-all {
 }
 @media (max-width: 768px) {
     .top-section {
-        margin-bottom: 300px;
+        margin-bottom: 400px;
     }
     .popular-categories {
         top: 450px;
