@@ -92,7 +92,7 @@ button.see-all {
     margin-top: 30px;
 }
 /*---- 2.3 Top section ----*/
-.top-section {
+.top-section-home {
     position: relative;
     height: 90vh;
     /* padding: 150px 0; */
@@ -375,6 +375,20 @@ button.see-all {
 3. ABOUT US
 ================================================
 */
+.top-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    padding: 150px 0;
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/slider/training-room-2.jpg') fixed;
+    background-size: cover; 
+    margin-bottom: 170px;
+}
+.top-section h2 {
+    color: var(--alt-clr);
+}
 .abt-img-sec {
     display: flex;
     justify-content: center;
