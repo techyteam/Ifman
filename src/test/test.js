@@ -9,36 +9,9 @@ chai.use(chaiHttp);
 const apiEndPoint = '/api/v1/';
 const userEndPoint = `${apiEndPoint}auth/`;
 
-describe('Authentication Tests', () => {
-  describe('User Sign Up Tests', () => {
-    describe(`POST ${userEndPoint}signup`, () => {
-      it('Should create a new user', (done) => {
-        const user = {
-          firstName: 'temi',
-          lastName: 'otokurfor',
-          email: 'temi@testmail.com',
-          password: 'password',
-          phoneNumber: 123345622,
-        };
-        chai.request(app)
-          .post(`${userEndPoint}signup`)
-          .send(user)
-          .end((err, res) => {
-            res.should.have.status(201);
-            res.body.should.be.a('object');
-            res.body.should.have.property('data');
-            res.body.data.should.be.a('object');
-            res.body.data.should.have.property('token');
-            res.body.data.should.have.property('id');
-            res.body.data.should.have.property('firstname');
-            res.body.data.should.have.property('lastname');
-            res.body.data.should.have.property('email');
-            res.body.data.should.have.property('phonenumber');
-            res.body.data.should.have.property('isadmin');
-            done();
-          });
-      });
+describe('Authentication Tests', () => {  
 
+<<<<<<< HEAD
       it('Should return 400 if firstname is ommited', (done) => {
         const user = {
           lastName: 'otokurfor',
@@ -665,4 +638,8 @@ describe('Authentication Tests', () => {
       });
     });
   });
+=======
+  
+  
+>>>>>>> (chore) - refactor test
 });

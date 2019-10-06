@@ -22,7 +22,7 @@ class AuthenticateUser {
   static async verifyToken(req, res, next) {
     let token = req.headers.authorization;
     if (!token) {
-      return resErr(res, 400, 'No token Provided');
+      return resErr(res, 401, 'Unauthorized Access');
     }
     token = token.split(' ')[1];
 
@@ -30,7 +30,7 @@ class AuthenticateUser {
       const decoded = Utils.decodeToken(token);
       const user = await UserServices.getUserByEmail(decoded.email);
       if (!user) {
-        return resErr(res, 400, 'Invalid Token');
+        return resErr(res, 401, 'Invalid Token');
       }
       req.user = user;
       return next();
@@ -49,7 +49,7 @@ class AuthenticateUser {
    */
   static verifyAdmin(req, res, next) {
     if (!req.user.isAdmin) {
-      return resErr(res, 403, 'Unauthorized Access');
+      return resErr(res, 403, 'Forbiden');
     }
     return next();
   }

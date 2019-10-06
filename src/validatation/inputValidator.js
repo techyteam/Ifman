@@ -42,8 +42,12 @@ class InputValidator {
     * @returns {function} next() - The next function
     */
   static validateCourse(req, res, next) {
-    const type = { ...req.body };
-    return validate(type, Schema.createCourse(), req, res, next);
+    try {
+      const type = { ...req.body };
+      return validate(type, Schema.createCourse(), req, res, next);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   /**
