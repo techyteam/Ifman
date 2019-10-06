@@ -47,6 +47,8 @@ describe('Create Courses Tests', () => {
       nonMemberFees: 115000,
       startDate: 10,
       endDate: 13,
+      duration: '10 weeks',
+      venue: 'illupeju',
     };
     chai.request(app)
       .post(`${apiEndPoint}courses`)
@@ -54,6 +56,7 @@ describe('Create Courses Tests', () => {
       .send(course)
       .end((err, res) => {
         if (err) done(err);
+        log(res.body);
         res.should.have.status(201);
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -62,6 +65,8 @@ describe('Create Courses Tests', () => {
         res.body.data.should.have.property('id');
         res.body.data.should.have.property('courseTitle');
         res.body.data.should.have.property('memberFees');
+        res.body.data.should.have.property('duration');
+        res.body.data.should.have.property('venue');
         res.body.data.should.have.property('nonMemberFees');
         res.body.data.should.have.property('startDate');
         res.body.data.should.have.property('endDate');

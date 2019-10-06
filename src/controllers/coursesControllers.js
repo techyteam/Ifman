@@ -1,4 +1,3 @@
-import { log } from 'debug';
 import CourseServices from '../services/courseServices';
 import ResponseMsg from '../utils/response';
 
