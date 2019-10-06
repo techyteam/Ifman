@@ -122,13 +122,13 @@ button.see-all {
 }
 @media (max-width: 400px) {
 	.carousel-item, .carousel-item img {
-		height: 60vh;
+		height: 80vh;
 	}
 	.carousel-caption {
-		bottom: 100px;
+		bottom: 150px;
 	}
 	.carousel-caption h5 {
-		font-size: 16px
+		font-size: 22px
 	}
 	.carousel-caption p {
 		font-size: 14px
@@ -203,7 +203,7 @@ button.see-all {
 }
 .popular-categories ul{
     display: grid;
-    grid-template-columns: 230px 230px;
+    grid-template-columns: repeat(3, 200px);
     grid-template-rows: 150px;
     grid-gap: 5px;
     padding: 10px;
@@ -239,8 +239,8 @@ button.see-all {
         top: 450px;
     }
     .popular-categories ul{
-        grid-template-columns: 230px;
-        grid-template-rows: 150px 150px;
+        grid-template-columns: 200px;
+        grid-template-rows: repeat(3, 150px);
 
     }
 } 
