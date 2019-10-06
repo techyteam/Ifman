@@ -10,8 +10,8 @@ let closeBtn = document.querySelector('.close-btn');
 //     signModal.classList.add('show');
 //     signModal.classList.remove('hide');
 //     pageWrap.classList.add('blur');
-//     innerContainer.classList.add('sign-up');
-//     innerContainer.classList.remove('sign-in');
+//     innercontainer1.classList.add('sign-up');
+//     innercontainer1.classList.remove('sign-in');
 
 // });
 
@@ -20,8 +20,8 @@ let closeBtn = document.querySelector('.close-btn');
 //     signModal.classList.add('show');
 //     signModal.classList.remove('hide');
 //     pageWrap.classList.add('blur');
-//     innerContainer.classList.add('sign-in');
-//     innerContainer.classList.remove('sign-up');
+//     innercontainer1.classList.add('sign-in');
+//     innercontainer1.classList.remove('sign-up');
 // });
 
 // close modal
@@ -48,8 +48,8 @@ window.addEventListener('scroll', () => {
 //         signModal.classList.remove('show');
 //         signModal.classList.add('hide');
 //         pageWrap.classList.remove('blur');
-//         innerContainer.classList.remove('left');
-//         innerContainer.classList.add('right');
+//         innercontainer1.classList.remove('left');
+//         innercontainer1.classList.add('right');
 //     }
 // });
 
@@ -67,14 +67,14 @@ window.addEventListener('scroll', () => {
 // // Animated signup form
 // let showSignIn = document.querySelector('.show-signin');
 // let showLogIn = document.querySelector('.show-login');
-// let innerContainer = document.querySelector('.form-inner-container');
+// let innercontainer1 = document.querySelector('.form-inner-container1');
 
 // showSignIn.addEventListener('click', () => {
-//     innerContainer.classList.add('left');
-//     innerContainer.classList.remove('right');
+//     innercontainer1.classList.add('left');
+//     innercontainer1.classList.remove('right');
 // });
 
 // showLogIn.addEventListener('click', () => {
-//     innerContainer.classList.add('right');
-//     innerContainer.classList.remove('left');
+//     innercontainer1.classList.add('right');
+//     innercontainer1.classList.remove('left');
 // });

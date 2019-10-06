@@ -94,14 +94,82 @@ button.see-all {
 /*---- 2.3 Top section ----*/
 .top-section {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 90vh;
-    padding: 150px 0;
-    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/slider/training-room-2.jpg') fixed;
-    background-size: cover; 
+    /* padding: 150px 0; */
     margin-bottom: 170px;
+}
+.carousel-inner > .carousel-item {
+	transition: -webkit-transform 1.2 ease-in-out;
+	transition: transform 1.2 ease-in-out;
+    transition: transform 1.2s ease-in-out,-webkit-transform 1.2s ease-in-out;
+}
+.carousel-item, .carousel-item img {
+	height: 95vh;
+	/* z-index: ; */
+}
+.carousel-item img {
+	object-fit: cover;
+}
+.carousel-caption {
+    bottom: 200px;
+}
+.carousel-caption h5 {
+    font-size: 40px;
+    font-weight: bolder;
+}
+.carousel-caption p {
+	font-size: 18px
+}
+@media (max-width: 400px) {
+	.carousel-item, .carousel-item img {
+		height: 60vh;
+	}
+	.carousel-caption {
+		bottom: 100px;
+	}
+	.carousel-caption h5 {
+		font-size: 16px
+	}
+	.carousel-caption p {
+		font-size: 14px
+	}
+}
+@media (min-width: 400px) and (max-width: 768px) {
+	.carousel-item, .carousel-item img {
+		height: 80vh;
+	}
+}
+@media (min-width: 700px) and (max-width: 1024px){
+	.carousel-item, .carousel-item img {
+		height: 90vh;
+	}
+}
+.img-con {
+	position: relative;
+}
+.img-con::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: '';
+	height: 100%;
+	width: 100%;
+	background: linear-gradient(rgba(43, 78, 74, 0.7), rgba(1, 1, 17, 0.7));
+	z-index: 0;
+}
+.img-con.two::after {
+	background: linear-gradient(rgba(0,0,0, .8), rgba(0, 0, 0, .9));
+	z-index: 0;
+	color: rgba(87, 49, 49, 0.6);
+}
+.img-con img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
 }
 .top-section h2 {
     color: var(--alt-clr);
