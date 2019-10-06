@@ -12,7 +12,7 @@
         z-index: 990;
     }
     
-    .sign-inner-container {
+    .sign-inner-container1 {
         display: grid;
         grid-template-columns: 1.5fr 1fr;
         position: relative;
@@ -31,7 +31,7 @@
     }
     
     @media (max-width: 500px) {
-        .sign-inner-container {
+        .sign-inner-container1 {
             grid-template-columns: 1fr 0;
         }
         .sign-sub {
@@ -151,7 +151,7 @@
     }
     
     @media (max-width: 700px) {
-        .sign-inner-container {
+        .sign-inner-container1 {
             height: 90%;
             width: 95%;
         }
@@ -210,13 +210,13 @@
         max-height: 900px;
     }
     
-    .field-container {
+    .field-container1 {
         position: relative;
         height: 55px;
         margin: 5px 0 0;
     }
     
-    .field-container.dob {
+    .field-container1.dob {
         height: 62px;
     }
     
@@ -350,18 +350,18 @@
         background: inherit;
     }
     
-    .btn-container {
+    .btn-container1 {
         display: flex;
         justify-content: space-between;
         height: 35px;
         margin-top: 10px;
     }
     
-    .btn-container.first {
+    .btn-container1.first {
         justify-content: flex-end;
     }
     
-    .btn-container>button {
+    .btn-container1>button {
         margin: 0;
     }
     
@@ -410,7 +410,7 @@
     }
 </style>
 
-<div class="sign-inner-container">
+<div class="sign-inner-container1">
     <!-- main form -->
     <div class="sign-main">
         <!-- sign up main -->
@@ -420,41 +420,41 @@
                 <p>sign up as a non memeber for free</P>
                 <form action="" class="signin-form front-page">
                     <!-- firstname -->
-                    <div class="field-container">
+                    <div class="field-container1">
                         <input type="text" id="fname" required>
                         <label for="fname">firstname</label>
                     </div>
                     <!-- lastname -->
-                    <div class="field-container">
+                    <div class="field-container1">
                         <input type="text" id="lname" required>
                         <label for="lname">lastname</label>
                     </div>
                     <!-- email -->
-                    <div class="field-container">
+                    <div class="field-container1">
                         <input type="email" id="email" required>
                         <label for="email">email</label>
                     </div>
 
                     <!-- phone number -->
-                    <div class="field-container">
+                    <div class="field-container1">
                         <input type="number" id="phone-number" required>
                         <label for="phone-number">phone number</label>
                     </div>
 
                     <!-- password -->
-                    <div class="field-container">
+                    <div class="field-container1">
                         <input type="password" id="password" required>
                         <label for="password">password</label>
                     </div>
 
                     <!-- confirm password -->
-                    <div class="field-container">
+                    <div class="field-container1">
                         <input type="password" id="confirm-password" required>
                         <label for="confirm-password">confirm password</label>
                     </div>
 
                     <!-- control button -->
-                    <div class="btn-container first">
+                    <div class="btn-container1 first">
                         <button class="btn1" id="signup-button">sign up</button>
                     </div>
                 </form>
@@ -467,12 +467,12 @@
                 <p>log in to gain access</p>
                 <form action="" class="login-form front-page">
                     <!-- firstname -->
-                    <div class="field-container">
+                    <div class="field-container1">
                         <input type="text" id="email-login" required>
                         <label for="email-login">email or user id</label>
                     </div>
                     <!-- password -->
-                    <div class="field-container">
+                    <div class="field-container1">
                         <input type="password" id="password-login" required>
                         <label for="password-login">password</label>
                     </div>

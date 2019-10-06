@@ -178,7 +178,7 @@ a.btn2:hover, .btn2:hover {
 .mb-30 {
     margin-bottom: 30px;
 }
-.img-con {
+/* .img-con {
     position: relative;
 }
 .img-con::after {
@@ -203,13 +203,13 @@ a.btn2:hover, .btn2:hover {
     object-fit: cover;
     height: 100%;
     width: 100%;
-}
-.container {
+} */
+.container1 {
     padding-left: 10%;
     padding-right: 10%;
 }
 @media (max-width: 900px ) {
-    .container {
+    .container1 {
         padding-left: 5%;
         padding-right: 5%;
     }
