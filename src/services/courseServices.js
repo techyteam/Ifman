@@ -63,4 +63,26 @@ export default class CourseServices {
     const CourseDetails = await userCourses.findOne({ where: { userId } });
     return CourseDetails;
   }
+
+  /**
+   * @name TakeCourse
+   * @description Interacts with model to create a new  user Course
+   * @param { string } CourseData the Course's data
+   * @returns {object} return the updated field
+   */
+  static async takeCourse(CourseData) {
+    const { dataValues } = await userCourses.create(CourseData);
+    return dataValues;
+  }
+
+  /**
+   * @name GetCourseByUserId
+   * @description Interacts with model to find a single Users Course
+   * @param { string } id the user id
+   * @returns {object} return the userCourses data
+   */
+  static async getAUserCourseBy(courseId) {
+    const CourseDetails = await userCourses.findOne({ where: { courseId } });
+    return CourseDetails;
+  }
 }

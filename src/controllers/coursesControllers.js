@@ -49,17 +49,22 @@ class CourseController {
     * @returns {object} JSON API Response
     */
   static async takeCourse(req, res) {
-    const { body, params: { id } } = req;
+    const courseId = req.params.id;
+    const userId = req.user.id;
     try {
-      const userCourse = await CourseServices.getCourseById(id);
+      console.log(userId, courseId);
+      const userCourse = await CourseServices.getAUserCourseBy(courseId);
+      
       if (userCourse) {
         return resErr(res, 400, 'You can\'t register for the same course twice');
       }
-      const newCourse = await CourseServices.updateCourseById({ id, user: body.id });
-      const course = await CourseServices.getCourseById(newCourse.userId, newCourse.courseId);
-      return resLong(res, 201, { ...course });
+      const newUserCourse = await CourseServices.takeCourse({ userId, courseId, registeredOn: new Date() });
+      console.log(newUserCourse);
+      // const course = await CourseServices.getCourseById(newCourse.userId, newCourse.courseId);
+      return resLong(res, 201, { ...newUserCourse });
     } catch (error) {
-      return resErr(res, 400, error.message);
+      console.log(error);
+      return resErr(res, 500, error.message);
     }
   }
 
