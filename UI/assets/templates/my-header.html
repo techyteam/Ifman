@@ -1,144 +1,111 @@
 <style>
     @import url(./assets/css/general.css);
-
-    :host {
+     :host {
         position: fixed;
         left: 0;
         top: 0;
         width: 100%;
-        height: 70px;
+        height: 100px;
         z-index: 99;
         transition: all .5s ease;
     }
-
-    :host(.scrolled) {
+    
+     :host(.scrolled) {
         position: fixed;
         left: 0;
-        top: -50px;
+        top: -40px;
         width: 100%;
         background: var(--alt-clr);
         box-shadow: var(--bx-shdw-1);
         animation: drop .5s ease both;
     }
-
-    :host(.rise) {
+    
+     :host(.rise) {
         animation: rise .5s ease both;
     }
-    div.top-info {
-        color: #fff;
-        font: 14px "Open-Sans";
-        margin: 0px 0px 10px;
-    }
-    div.top-info::before {
-        background: #fff;
-        margin: -8px 0px 0px;
-    }
-    div.top-line {
-        color: #8E8D8D;
-        font: 15px "Open-Sans";
-    }
-    div.top-line-left {
-        color: #fff;
-        font: 15px "Open-Sans";
-    }
-    div.top-line-right {
-        color: #8E8D8D;
-        font: 15px "Open-Sans";
-    }
-    div.container {
-        color: #8E8D8D;
-        font: 15px "Open-Sans";
-        margin: 0px 69px;
-        padding: 0px 15px;
-        display: inline-block;
-    }
-    a {
-        color: #fff;
-        font: 15px "Open-Sans";
-    }
-    div.top-social {
-        color: rgb(125, 118, 168);
-        font: 14px "Open-Sans";
-    }
-    div.top-line-inner.clearfix {
-        color: #8E8D8D;
-        font: 15px "Open-Sans";
-        padding: 20px 0px;
-    }
-    div.top-inner.clearfix {
-        color: #8E8D8D;
-        background: #fff;
-        font: 15px "Open-Sans";
-        padding: 8px 0px 10px;
-    }
-    div.top-inner.clearfix::before {
-        background: #fff;
-    }
-    div.top-inner.clearfix::after {
-        background: #fff;
-    }
+    
     nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
+    
     .nav-control {
         display: none;
     }
-
+    
     @keyframes drop {
         0% {
             top: -50px;
         }
-
         100% {
             top: 0;
         }
     }
-
+    
     @keyframes rise {
         0% {
             top: 0
         }
-
         50% {
             top: -50%
         }
-
         100% {
             position: absolute;
             top: 0;
         }
     }
-
-    :host(.scrolled) ul {
+    
+     :host(.scrolled) ul {
         color: var(--pry-text-clr);
     }
-
+    
+    .top-nav {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--alt-clr);
+        margin-bottom: 3px;
+    }
+    
+    .top-nav p,
+    .top-nav a {
+        color: var(--alt-clr);
+        font-size: 12px;
+    }
+    
+     :host(.scrolled) .top-nav {
+        border-bottom: 1px solid var(--pry-clr);
+    }
+    
+     :host(.scrolled) .top-nav p,
+     :host(.scrolled) .top-nav a {
+        color: var(--pry-text-clr);
+    }
+    
     img {
         height: 60px;
         margin: 5px 0;
     }
-
+    
     ul {
         display: flex;
         color: var(--alt-clr);
     }
-
+    
     li {
         margin: 0 2px;
     }
-
+    
     li a {
         position: relative;
         padding: 0 3px;
     }
-
+    
     li a:hover {
         font-weight: bolder;
         color: var(--sc-clr);
     }
-
+    
     li a::after {
         position: absolute;
         top: 0;
@@ -150,96 +117,107 @@
         opacity: 0;
         transition: all .5s ease;
     }
-
+    
     li a:hover::after {
         top: 25px;
         opacity: 1;
     }
-
-    :host(.scrolled) a {
+    
+     :host(.scrolled) a {
         font-weight: bolder;
     }
-
+    
     i {
         margin-right: 5px;
     }
-
+    
     .add {
         background: var(--sc-clr);
         color: var(--alt-clr);
         border-radius: 3px;
         padding: 3px 8px;
     }
-
+    
     a.add {
         color: var(--alt-clr);
     }
-
-    :host(.scrolled) a.add:hover {
+    
+     :host(.scrolled) a.add:hover {
         box-shadow: 0px 0px 5px 5px rgba(243, 240, 240, 0.8);
     }
-
+    
     a.add:hover {
         color: var(--alt-clr);
         box-shadow: 0px 0px 5px 5px rgba(243, 240, 240, 0.8);
     }
-
+    
     .add::after {
         display: none;
     }
-
+    
     .profile {
         display: none;
     }
-
+    
     .left-nav {
         display: flex;
         align-items: center;
     }
-
+    
     .logo {
         margin-right: 30px;
     }
-
+    
     .signup {
         border-right: 1px solid var(--alt-clr);
     }
-
+    
     .signup {
         border-right: 2px solid var(--sc-clr);
     }
-
+    
     .right-nav.signed-in .signup,
     .right-nav.signed-in .signup {
         display: none;
     }
-
+    
     @media (max-width: 1108px) {
-        :host {
+         :host {
             flex-direction: column;
             height: auto;
             text-align: center;
-            background: rgba(0, 0, 0, .9);
+            background: var(--alt-clr);
             /* padding: 10px 0 30px; */
         }
-
-        :host(.show) :host(.scrolled.show) {
+         :host(.show) :host(.scrolled.show) {
             left: 0;
         }
-
-        :host(.show-nav) {
+         :host(.show-nav) {
             padding: 10px 0 30px;
         }
         nav {
             flex-direction: column;
             max-height: 0px;
-            overflow: hidden;            
+            overflow: hidden;
             transition: all .5s ease;
-        } 
-        :host(.show-nav) nav{
+        }
+        .top-nav {
+            border-bottom: 1px solid var(--pry-clr);
+        }
+        .top-nav span {
+            display: none;
+        }
+        .top-nav p,
+        .top-nav a {
+            color: var(--pry-text-clr);
+        }
+        ul {
+            display: flex;
+            color: var(--pry-text-clr);
+        }
+         :host(.show-nav) nav {
             max-height: 400px;
         }
-
         .nav-control {
             display: flex;
             justify-content: flex-end;
@@ -247,11 +225,9 @@
             border: none;
             transition: all .5s ease;
         }
-
-        :host(.show-nav) .nav-control {
+         :host(.show-nav) .nav-control {
             border-bottom: 1px solid var(--sc-clr);
         }
-
         .nav-control i {
             color: var(--sc-clr);
             font-size: 40px;
@@ -260,27 +236,21 @@
             cursor: pointer;
             transition: font-size .2s ease;
         }
-
         .nav-control i:hover {
             font-size: 42px;
         }
-
         ul {
             flex-direction: column;
         }
-
         li {
             margin: 6px 0px;
         }
-
         li a {
             padding: 6px 0px;
         }
-
         .left-nav {
             flex-direction: column;
         }
-
         .logo {
             margin: 0;
         }
@@ -289,30 +259,25 @@
         }
     }
 </style>
-<div class="container">
-    <div class="top-line-inner clearfix">
-        <div class="top-line-left">
-                <div class="top-info">369, Borno Way, Alagomeji, Yaba, LagosLagos State.</div>   
-                <div class="top-info">Call Us Today: <a href="tel:http://(+234)%20818-536-5645%20%20">(+234) 818-536-5645</a></div>
-        </div>
-        <div class="top-line-right">
-            <div class="top-info">
-                <div class="top-social">
-                    <a href="https://www.twitter.com/ifma_nigeria/" target="_blank" class="social-twitter customize-unpreviewable">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a href="https://www.facebook.com/IFMANigeriaChapter/" target="_blank" class="social-facebook customize-unpreviewable">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a href="https://instagram.com/ifmanigeria/" target="_blank" class="social-instagram customize-unpreviewable">
-                        <i class="fa fa-instagram"></i>
-                    </a>
-                    <a href="https://www.mail.yahoo.com/ifmanigeria@yahoo.co.uk/" target="_blank" class="social-email customize-unpreviewable">
-                        <i class="fa fa-email"></i>
-                    </a>
-                </div>
-            </div>
-        </div>     
+
+<div class="top-nav">
+    <div class="top-nav-left">
+        <p><i class="fas fa-map-marker"></i><span>369, Borno Way, Alagomeji, Yaba, LagosLagos State.</span></p>
+    </div>
+    <div class="top-nav-right">
+        <a href="https://www.twitter.com/ifma_nigeria/" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/IFMANigeriaChapter/" target="_blank">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://instagram.com/ifmanigeria/" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.mail.yahoo.com/ifmanigeria@yahoo.co.uk/" target="_blank">
+            <i class="fab fa-email"></i>
+        </a>
+        <a href="tel:http://(+234)%20818-536-5645%20%20"><i class="fas fa-address-book"></i><span>(+234) 818-536-5645</span></a>
     </div>
 </div>
 <div class="nav-control">

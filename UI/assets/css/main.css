@@ -95,8 +95,7 @@ button.see-all {
 .top-section-home {
     position: relative;
     height: 90vh;
-    /* padding: 150px 0; */
-    margin-bottom: 170px;
+    margin-bottom: 370px;
 }
 .carousel-inner > .carousel-item {
 	transition: -webkit-transform 1.2 ease-in-out;
