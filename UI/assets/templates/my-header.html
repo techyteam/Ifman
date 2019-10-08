@@ -59,7 +59,7 @@
      :host(.scrolled) ul {
         color: var(--pry-text-clr);
     }
-
+    
     .top-nav {
         display: flex;
         justify-content: space-between;
@@ -67,18 +67,21 @@
         margin-bottom: 3px;
     }
     
-    .top-nav p, .top-nav a {
+    .top-nav p,
+    .top-nav a {
         color: var(--alt-clr);
         font-size: 12px;
     }
-    :host(.scrolled) .top-nav {
+    
+     :host(.scrolled) .top-nav {
         border-bottom: 1px solid var(--pry-clr);
     }
     
-    :host(.scrolled) .top-nav p, :host(.scrolled) .top-nav a {
+     :host(.scrolled) .top-nav p,
+     :host(.scrolled) .top-nav a {
         color: var(--pry-text-clr);
     }
-
+    
     img {
         height: 60px;
         margin: 5px 0;
@@ -183,7 +186,7 @@
             flex-direction: column;
             height: auto;
             text-align: center;
-            background: rgba(0, 0, 0, .9);
+            background: var(--alt-clr);
             /* padding: 10px 0 30px; */
         }
          :host(.show) :host(.scrolled.show) {
@@ -197,6 +200,20 @@
             max-height: 0px;
             overflow: hidden;
             transition: all .5s ease;
+        }
+        .top-nav {
+            border-bottom: 1px solid var(--pry-clr);
+        }
+        .top-nav span {
+            display: none;
+        }
+        .top-nav p,
+        .top-nav a {
+            color: var(--pry-text-clr);
+        }
+        ul {
+            display: flex;
+            color: var(--pry-text-clr);
         }
          :host(.show-nav) nav {
             max-height: 400px;
@@ -245,7 +262,7 @@
 
 <div class="top-nav">
     <div class="top-nav-left">
-        <p><i class="fas fa-map-marker"></i></p>
+        <p><i class="fas fa-map-marker"></i><span>369, Borno Way, Alagomeji, Yaba, LagosLagos State.</span></p>
     </div>
     <div class="top-nav-right">
         <a href="https://www.twitter.com/ifma_nigeria/" target="_blank">
@@ -260,7 +277,7 @@
         <a href="https://www.mail.yahoo.com/ifmanigeria@yahoo.co.uk/" target="_blank">
             <i class="fab fa-email"></i>
         </a>
-        <a href="tel:http://(+234)%20818-536-5645%20%20"><i class="fas fa-address-book"></i>(+234) 818-536-5645</a>
+        <a href="tel:http://(+234)%20818-536-5645%20%20"><i class="fas fa-address-book"></i><span>(+234) 818-536-5645</span></a>
     </div>
 </div>
 <div class="nav-control">
