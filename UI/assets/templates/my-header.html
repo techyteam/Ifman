@@ -5,7 +5,7 @@
         left: 0;
         top: 0;
         width: 100%;
-        height: 70px;
+        height: 100px;
         z-index: 99;
         transition: all .5s ease;
     }
@@ -13,7 +13,7 @@
      :host(.scrolled) {
         position: fixed;
         left: 0;
-        top: -50px;
+        top: -40px;
         width: 100%;
         background: var(--alt-clr);
         box-shadow: var(--bx-shdw-1);
@@ -59,60 +59,7 @@
      :host(.scrolled) ul {
         color: var(--pry-text-clr);
     }
-    /* div.top-info {
-        color: #fff;
-        font: 14px "Open-Sans";
-        margin: 0px 0px 10px;
-    }
-    div.top-info::before {
-        background: #fff;
-        margin: -8px 0px 0px;
-    }
-    div.top-line {
-        color: #8E8D8D;
-        font: 15px "Open-Sans";
-    }
-    div.top-nav-left {
-        color: #fff;
-        font: 15px "Open-Sans";
-    }
-    div.top-nav-right {
-        color: #8E8D8D;
-        font: 15px "Open-Sans";
-    }
-    div.container {
-        color: #8E8D8D;
-        font: 15px "Open-Sans";
-        margin: 0px 69px;
-        padding: 0px 15px;
-        display: inline-block;
-    }
-    a {
-        color: #fff;
-        font: 15px "Open-Sans";
-    }
-    div.top-social {
-        color: rgb(125, 118, 168);
-        font: 14px "Open-Sans";
-    }
-    div.top-nav.clearfix {
-        color: #8E8D8D;
-        font: 15px "Open-Sans";
-        padding: 20px 0px;
-    }
-    div.top-inner.clearfix {
-        color: #8E8D8D;
-        background: #fff;
-        font: 15px "Open-Sans";
-        padding: 8px 0px 10px;
-    }
-    div.top-inner.clearfix::before {
-        background: #fff;
-    }
-    div.top-inner.clearfix::after {
-        background: #fff;
-    } */
-    
+
     .top-nav {
         display: flex;
         justify-content: space-between;
@@ -124,7 +71,14 @@
         color: var(--alt-clr);
         font-size: 12px;
     }
+    :host(.scrolled) .top-nav {
+        border-bottom: 1px solid var(--pry-clr);
+    }
     
+    :host(.scrolled) .top-nav p, :host(.scrolled) .top-nav a {
+        color: var(--pry-text-clr);
+    }
+
     img {
         height: 60px;
         margin: 5px 0;
@@ -291,7 +245,7 @@
 
 <div class="top-nav">
     <div class="top-nav-left">
-        <p><i class="fas fa-map-marker"></i>369, Borno Way, Alagomeji, Yaba, LagosLagos State.</p>
+        <p><i class="fas fa-map-marker"></i></p>
     </div>
     <div class="top-nav-right">
         <a href="https://www.twitter.com/ifma_nigeria/" target="_blank">
