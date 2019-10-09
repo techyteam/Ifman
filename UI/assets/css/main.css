@@ -381,23 +381,38 @@ button.see-all {
     align-items: center;
     height: 90vh;
     padding: 150px 0;
-    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/slider/training-room-2.jpg') fixed;
-    background-size: cover; 
+    background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .2)), url('../images/slider/top.jpg')no-repeat center/cover fixed; 
     margin-bottom: 170px;
 }
 .top-section h2 {
     color: var(--alt-clr);
+}
+.who {
+    text-align: justify;
+}
+.what {
+    text-align: justify;
 }
 .abt-img-sec {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 50px;
-    height: 500px;
-    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/slider/training-room-4.jpg');
+    height: 400px;
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0.6)), url('../images/slider/member.jpg')no-repeat center/cover;
 }
-.abt-img-sec p {
+.info-img-sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    height: 300px;
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0.4)), url('../images/slider/globe.jpg')no-repeat center/cover;
+}
+.abt-img-sec p,
+.info-img-sec p {
     margin-top: 40px;
+    margin-bottom: 40px;
     padding-left: 10px;
     border-left: 2px solid var(--alt-bg);
     color: var(--alt-clr)
@@ -410,6 +425,12 @@ button.see-all {
     justify-content: space-around;
     grid-template-columns: repeat(3, 150px);
     grid-gap: 30px;
+}
+.team.container1 {
+    background: #f9f9fa;
+    margin: 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 @media (max-width: 600px) {
     .members-all {
@@ -426,6 +447,9 @@ button.see-all {
     width: 150px;
     object-fit: cover;
     border-radius: 50%;
+}
+p {
+    text-align: justify;
 }
 /*
 ================================================
@@ -565,14 +589,14 @@ button.see-all {
 */
 .individual h3, 
 .individual p {
-    text-align: left;
+    text-align: justify;
 }
 .corporate .section-title, .corporate p {
-    text-align: right;
+    text-align: justify;
 }
 .benefits-all {
     padding-left: 15px;
-    border-left: 1px solid var(--sc-clr);
+    border-left: 5px solid var(--sc-clr);
 }
 .benefits-all li {
     display: flex;
@@ -583,6 +607,9 @@ button.see-all {
 }
 .benefits-all li i {
     margin-right: 15px;
+}
+p {
+    text-align: justify;
 }
 
 /*
