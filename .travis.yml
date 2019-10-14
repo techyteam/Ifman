@@ -14,8 +14,7 @@ services:
 before_script:
   - npm i -g sequelize-cli
   - psql -c 'create database ifmanTest;' -U postgres
-  - sequelize db:migrate
-  - sequelize db:seed:all
+  - npm run reset-db
  
 script:
   - npm test
