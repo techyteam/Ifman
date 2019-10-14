@@ -27,7 +27,7 @@ class AuthenticateUser {
     token = token.split(' ')[1];
 
     try {
-      const decoded = Utils.decodeToken(token);
+      const decoded = await Utils.decodeToken(token);
       const user = await UserServices.getUserByEmail(decoded.email);
       if (!user) {
         return resErr(res, 401, 'Invalid Token');

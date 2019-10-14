@@ -50,20 +50,24 @@ class CourseController {
     */
   static async takeCourse(req, res) {
     const courseId = req.params.id;
-    const userId = req.user.id;
+    const UserId = req.user.id;
     try {
-      console.log(userId, courseId);
-      const userCourse = await CourseServices.getAUserCourseBy(courseId);
-      
+      // console.log(userId, courseId);
+      const userCourse = await CourseServices.getAUserCourseBy(courseId, UserId);
+
       if (userCourse) {
         return resErr(res, 400, 'You can\'t register for the same course twice');
       }
-      const newUserCourse = await CourseServices.takeCourse({ userId, courseId, registeredOn: new Date() });
-      console.log(newUserCourse);
+      const newUserCourse = await CourseServices.takeCourse({
+        UserId,
+        courseId,
+        registeredOn: new Date(),
+      });
+
       // const course = await CourseServices.getCourseById(newCourse.userId, newCourse.courseId);
       return resLong(res, 201, { ...newUserCourse });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       return resErr(res, 500, error.message);
     }
   }

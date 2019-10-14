@@ -81,8 +81,8 @@ export default class CourseServices {
    * @param { string } id the user id
    * @returns {object} return the userCourses data
    */
-  static async getAUserCourseBy(courseId) {
-    const CourseDetails = await userCourses.findOne({ where: { courseId } });
+  static async getAUserCourseBy(courseId, UserId) {
+    const CourseDetails = await userCourses.findOne({ where: { courseId, UserId } });
     return CourseDetails;
   }
 }

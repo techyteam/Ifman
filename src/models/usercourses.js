@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    userId: {
+    UserId: {
       allowNull: false,
       type: DataTypes.INTEGER,
     },
@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   userCourses.associate = (models) => {
-    userCourses.belongsTo(models.User, { foreignKey: 'userId', as: 'user' });
+    userCourses.belongsTo(models.User, { foreignKey: 'UserId', as: 'user' });
     userCourses.belongsTo(models.course, { foreignKey: 'courseId', as: 'course' });
   };
   return userCourses;
