@@ -9,7 +9,10 @@ module.exports = {
     logging: false,
   },
   test: {
-    use_env_variable: 'TEST_DATABASE_URL',
+    database: 'ifmanTest',
+    username: 'postgres',
+    password: process.env.DB_PASS,
+    host: 'localhost',
     dialect: 'postgres',
     logging: false,
   },
