@@ -69,7 +69,7 @@ class UserController {
     try {
       const userData = { ...req.body };
       const { user } = req;
-      userData.password = Utils.hashPassword(userData.password);
+      // userData.password = Utils.hashPassword(userData.password);
       const data = await UserServices.updateUserInfoById({ ...userData }, user.email);
       return resLong(res, 201, data);
     } catch (error) {

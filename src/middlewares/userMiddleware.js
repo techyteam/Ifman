@@ -62,7 +62,7 @@ export default class UserMiddlewares {
       const { user } = req;
       const data = await UserServices.getUserByEmail(user.email);
       if (data) return next();
-      return resErr(res, 409, 'Unsuccesful, User does not exist. Please contact Admin');
+      return resErr(res, 409, 'Unsuccessful, User does not exist. Please contact Admin');
     } catch (error) {
       return resErr(res, 500, error.message);
     }

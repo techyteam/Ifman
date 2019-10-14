@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import Joi from '@hapi/joi';
 
+
 /**
  * @class Schema
  * @description Validates user input.
@@ -106,9 +107,10 @@ class Schema {
           });
           return errors;
         }),
-      birthDate: Joi.date().format('YYYY-MM-DD').required(),
-      gender: Joi.string().trim().lowercase().required(),
-      phoneNumber: Joi.string().phoneNumber({ defaultCountry: 'BE', format: 'e164' }).validate('494322456'),
+      birthDate: Joi.date().required(),
+      gender: Joi.string().trim().lowercase().valid('male', 'female')
+        .required(),
+      phoneNumber: Joi.string(),
     };
     return schema;
   }

@@ -1,6 +1,5 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import { log } from 'debug';
 import app from '../app';
 import Utils from '../utils';
 
@@ -56,7 +55,6 @@ describe('Create Courses Tests', () => {
       .send(course)
       .end((err, res) => {
         if (err) done(err);
-        log(res.body);
         res.should.have.status(201);
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -132,7 +130,6 @@ describe('Create Courses', () => {
       .set('Authorization', `Bearer ${token}`)
       .send(course)
       .end((err, res) => {
-        log(res.body);
         res.should.have.status(400);
         res.body.should.be.a('object');
         res.body.should.have.property('error');
@@ -154,7 +151,6 @@ describe('Create Courses', () => {
       .set('Authorization', `Bearer ${token}`)
       .send(course)
       .end((err, res) => {
-        log(res.body);
         res.should.have.status(400);
         res.body.should.be.a('object');
         res.body.should.have.property('error');
@@ -228,25 +224,23 @@ describe('Get requests for both user and admin', () => {
   });
 });
 
-// describe('Register a courses', () => {
-//   it('should return 200 and register a course', (done) => {
-//     chai.request(app)
-//       .post(`${apiEndPoint}courses/:id/register`)
-//       .set('Authorization', `Bearer ${token}`)
-//       .send(token)
-//       .end((err, res) => {
-//         res.should.have.status(200);
-//         res.body.should.be.an('object');
-//         res.body.should.have.property('status');
-//         res.body.should.have.property('data');
-//         res.body.data.should.be.an('array');
-//         res.body.data[0].should.have.property('id');
-//         res.body.data[0].should.have.property('coursetitle');
-//         res.body.data[0].should.have.property('memberfees');
-//         res.body.data[0].should.have.property('nonmemberfee');
-//         res.body.data[0].should.have.property('startdate');
-//         res.body.data[0].should.have.property('enddate');
-//         done();
-//       });
-//   });
-// });
+describe('Register a courses', () => {
+  it('Should register a user for a course', (done) => {
+    chai.request(app)
+      .post(`${apiEndPoint}courses/2/register`)
+      .set('Authorization', `Bearer ${token}`)
+      .send(token)
+      .end((err, res) => {
+        res.should.have.status(201);
+        res.body.should.be.an('object');
+        res.body.should.have.property('status');
+        res.body.should.have.property('data');
+        res.body.data.should.be.an('object');
+        res.body.data.should.have.property('id');
+        res.body.data.should.have.property('UserId');
+        res.body.data.should.have.property('courseId');
+        res.body.data.should.have.property('registeredOn');
+        done();
+      });
+  });
+});
