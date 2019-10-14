@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - "node_modules"
+ 
+install:
+  - npm install
+ 
+services:
+  - postgresql
+ 
+before_script:
+  - npm i -g sequelize-cli
+  - psql -c 'create database ifmanTest;' -U postgres
+  - npm run reset-db
+ 
+script:
+  - npm test
+ 
+after_success:
+  - npm run coverage
+ 
+env:
+  -NODE_ENV=test
+ 

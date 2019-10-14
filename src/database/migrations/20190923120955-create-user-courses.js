@@ -13,7 +13,7 @@ module.exports = {
       type: Sequelize.DATE,
       defaultValue: Sequelize.NOW,
     },
-    userId: {
+    UserId: {
       type: Sequelize.INTEGER,
       allowNull: false,
       references: {
