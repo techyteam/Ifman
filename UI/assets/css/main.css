@@ -947,9 +947,7 @@ p {
         justify-self: center;
     }
 } 
-
 /*
-================================================
 6. Dashboard courses page
 ================================================
 */
@@ -1169,4 +1167,18 @@ textarea {
 }
 .addr-box {
     margin-top: 10px;
-} 
+} */
+/* ======= */
+.navigation {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 30px 0;
+}
+.navigation p {
+    padding: 5px 10px;
+}
+.navigation p:nth-child(1), .navigation p:nth-last-child(1)  {
+    background: var(--sc-clr);
+    color: var(--alt-clr);
+}
