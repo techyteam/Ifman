@@ -116,6 +116,7 @@ button.see-all {
     font-size: 40px;
     font-weight: bolder;
     margin-top: 100px;
+    color: var(--alt-clr);
 }
 @media (max-width: 400px) {
 	.carousel-item, .carousel-item img {
@@ -158,12 +159,14 @@ button.see-all {
 	left: 0;
 	content: '';
 	height: 100%;
-	width: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(43, 78, 74, 0.3), rgba(1, 1, 17, 0.3));
 	z-index: 0;
 }
 .img-con.two::after {
+    background: linear-gradient(rgba(0,0,0, .8), rgba(0, 0, 0, .9));
 	z-index: 0;
-	color: rgba(87, 49, 49, 0.1);
+	color: rgba(87, 49, 49, 0.6);
 }
 .img-con img {
 	position: absolute;
@@ -180,7 +183,6 @@ button.see-all {
 .search {
     text-align: center;
     max-width: 100%;
-    background-color: aliceblue;
     padding: 80px 0px;
 }
 .search{  margin-bottom: -300px;

@@ -125,22 +125,21 @@ a:focus, a:hover {
     transition: all 0.3s ease 0s;
 }
 a.btn1, .btn1 {
-    padding: 10px 35px;
-    margin-top: 20px;
+    padding: 5px 35px;
+    margin-top: 30px;
     border-radius: 5px;
     border: 2px solid var(--sc-clr);
     cursor: pointer;
-    color: var(--alt-clr);
+    color: var(--sc-clr);
     font-weight: bolder;
-    background: var(--sc-clr);
+    background: transparent;
     box-shadow: var(--bx-shdw-1);
 }
 a.btn1:hover, .btn1:hover {
     text-decoration: none;
     color: var(--sc-clr);
-    padding: 12px 45px;
+    padding: 7px 45px;
     border: 1px solid var(--sc-clr);
-    background: transparent;
     box-shadow: var(--bx-shdw-1h);
 }
 a.btn2, .btn2 {
