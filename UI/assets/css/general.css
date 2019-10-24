@@ -125,21 +125,22 @@ a:focus, a:hover {
     transition: all 0.3s ease 0s;
 }
 a.btn1, .btn1 {
-    padding: 5px 35px;
-    margin-top: 30px;
+    padding: 10px 35px;
+    margin-top: 20px;
     border-radius: 5px;
     border: 2px solid var(--sc-clr);
     cursor: pointer;
-    color: var(--sc-clr);
+    color: var(--alt-clr);
     font-weight: bolder;
-    background: transparent;
+    background: var(--sc-clr);
     box-shadow: var(--bx-shdw-1);
 }
 a.btn1:hover, .btn1:hover {
     text-decoration: none;
     color: var(--sc-clr);
-    padding: 7px 45px;
+    padding: 12px 45px;
     border: 1px solid var(--sc-clr);
+    background: transparent;
     box-shadow: var(--bx-shdw-1h);
 }
 a.btn2, .btn2 {
@@ -237,6 +238,10 @@ a.btn2:hover, .btn2:hover {
 }
 .section-title {
     margin-bottom: 30px;
+    text-align: center;
+}
+.section-title p{
+    margin: 10px 0px;
     text-align: center;
 }
 .section-title h2 {
