@@ -239,6 +239,10 @@ a.btn2:hover, .btn2:hover {
     margin-bottom: 30px;
     text-align: center;
 }
+.section-title p{
+    margin: 10px 0px;
+    text-align: center;
+}
 .section-title h2 {
     margin-bottom: 5px;
     border-bottom: 1px solid var(--sc-clr);
