@@ -14,8 +14,8 @@
         margin: 10px 0;
     }
     .top.container1.grid1 {
-        background-color: aliceblue;
-        padding: 30px;
+        background-color: var(--alt-clr);
+        padding: 50px;
         margin-bottom: -10px;
     }
     .bottom.container1{
@@ -50,33 +50,40 @@
         height: 70px;
     }
 
-    .about-us p {
-        text-align: left;
-    }
-
     @media (max-width: 600px) {
         .about-us p {
             text-align: center;
         }
     }
 
-    .quick-links {
-        margin-left: 20px;
+   .quick-links {
+        margin-left: 150px;
+    }
+    .quick-links i {
+        color: #1C7BB6;
+        margin-right: 10px;
     }
 
     .quick-links ul li {
         list-style: none;
     }
 
+    .quick-links a:hover {
+        text-decoration: underline;
+        color: forestgreen;
+    }
+    .description{
+        text-align: justify;
+    }
+
     @media (max-width: 600px) {
-        .quick-links ul {
-            display: flex;
-            flex-direction: column;
-            align-items: justify;
+        .quick-links{
+            display: block;
+            text-align: left;
         }
 
-        .quick-links ul li {
-            width: 100px;
+        .quick-links ul li i{
+            width: 20px;
         }
     }
 
@@ -112,21 +119,28 @@
     <div class="about-us">
         <img src="./assets/images/logo.png" alt="Ifma logo">
         <p class="description">IFMA is the world's largest and most widely recognized association for facility
-            professionals. </p>
-        <p class="contact">ifmanigeria@gmail.com</p>
+            professionals.
+        </p><br>
+        <p class="description">In Nigeria, after over three
+            (3) decades since the attainment of our national
+            independence, some concerned new generation practitioners
+            in facility management got together in Lagos in 1995 and 
+            founded IFMA of Nigeria.</p>
     </div>
 
     <div class="quick-links">
-        <h3>Quick Links</h3>
+        <h3>QUICK LINKS</h3>
         <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">About us</a></li>
-            <li><a href="">Membership</a></li>
-            <li><a href="">Events</a></li>
-            <li><a href="">News</a></li>
-            <li><a href="">T & C</a></li>
-            <li><a href="">Privacy Policy</a></li>
-            <li><a href="">FAQ</a></li>
+            <li><i class="fas fa-arrow-circle-right"></i><a href="">Home</a></li>
+            <li><i class="fas fa-arrow-circle-right"></i><a href="">About us</a></li>
+            <li><i class="fas fa-arrow-circle-right"></i><a href="">Membership</a></li>
+            <li><i class="fas fa-arrow-circle-right"></i><a href="">Community</a></li>
+            <li><i class="fas fa-arrow-circle-right"></i><a href="">Events</a></li>
+            <li><i class="fas fa-arrow-circle-right"></i><a href="">News</a></li>
+            <li><i class="fas fa-arrow-circle-right"></i><a href="">Contact Us</a></li>            
+            <li><i class="fas fa-arrow-circle-right"></i><a href="">T & C</a></li>
+            <li><i class="fas fa-arrow-circle-right"></i><a href="">Privacy Policy</a></li>
+            <li><i class="fas fa-arrow-circle-right"></i><a href="">FAQ</a></li>
         </ul>
     </div>
 

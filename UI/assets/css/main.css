@@ -947,8 +947,30 @@ p {
 6. Dashboard courses page
 ================================================
 */
+.map{
+    padding: 0px 0 10px;
+    margin-bottom: 40px;
+    
+}
 .contact {
-    margin-bottom: 100px;
+    margin-bottom: 60px;
+    margin-top: 40px;
+}
+.iframe-map{
+    height:304px;
+    width:100%;
+}
+.mapouter{
+    position:relative;
+    text-align:right;
+    height:304px;
+    width:100%;
+}
+.gmap_canvas{
+    overflow:hidden;
+    background:none!important;
+    height:304px;
+    width:100%;
 }
 .tt-reply.wth-label {
     padding: 43px 37px;
@@ -1075,11 +1097,49 @@ textarea {
 #align-btn{
     padding-left: 15px;
 }
-/* .address {
-    text-align: right;
-    margin: 20px 0;
-    padding: 100px 20px;
-}  */
+.tt-location-icon{
+    color: var(--sc-clr);
+    border: 1px solid var(--sc-clr);
+    width: 45px;
+    float: left;
+    height: 45px;
+    font-size: 27px;
+    line-height: 42px;
+    text-align: center;
+    border-radius: 100%;
+    margin-bottom: 20px;
+}
+.row p{
+    line-height: 26px;
+    font-size: 15px;
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.social-icon{
+    color:var(--sc-clr);
+    width: 45px;
+    height: 45px;
+    font-size: 27px;
+    line-height: 1.5rem;
+    display: flex;
+    position: absolute;
+}
+.social-icon li{
+    margin-left: 40px;
+    margin-right: 10px;
+}
+.row a:hover,
+.social-icon:hover {
+    text-decoration: underline;
+    color: forestgreen;
+}
+.address {
+    margin: 20px 0px;
+    padding: 50px 20px;
+} 
 @media (max-width: 767px){
     .tt-reply, .tt-reply.wth-label {
         padding: 15px;
@@ -1098,15 +1158,9 @@ textarea {
     }
 }
 
-/* .address p {
-    text-align: right;
-    width: 100%;
-    font-size: 18px;
-    margin-top: 14px;
-}
 .address .addr-box div {
     width: 100%;
 }
 .addr-box {
     margin-top: 10px;
-} */
+} 
