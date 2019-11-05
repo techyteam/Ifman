@@ -1181,3 +1181,17 @@ textarea {
     background: var(--sc-clr);
     color: var(--alt-clr);
 }
+/*
+================================================
+?. Single News page
+================================================
+*/
+.news-content {
+    text-align: center;
+}
+.news-content img {
+    height: 600px;
+}
+.news-content p {
+    margin: 30px 0;
+}
