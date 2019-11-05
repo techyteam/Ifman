@@ -239,6 +239,11 @@ a.btn2:hover, .btn2:hover {
     margin-bottom: 30px;
     text-align: center;
 }
+.testimonials{
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
+}
 .section-title p{
     margin: 10px 0px;
     text-align: center;

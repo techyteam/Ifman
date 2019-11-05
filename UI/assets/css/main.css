@@ -247,26 +247,29 @@ button.see-all {
     }
 } 
 /*---- 2.4 Featured Courses ----*/
-.featured-courses.flex1.container1{
-    background-color: var(--alt-bg-2);
+.courses-cont-bg{
+    background-color: #f7f7f7;
     margin: 0 !important;
 }
+.courses-cont-bg p{
+    margin-bottom: 20px;
+}
 
-/*---- 2.5 How we work ----*/
+/*---- 2.5 testimonials ----*/
 .about-us {
     display: flex;
     align-items: center;
-    height: 650px;
+    height: 450px;
     position: relative;
 }
 .abt-img {
-    width: 60%; height: 650px;
+    width: 50%; height: 450px;
     background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/slider/training-room-3.jpg') fixed;
     background-size: cover;
 }
 .abt-desc {
     position: absolute; right: 100px;
-    height: auto; width: 40%;
+    height: auto; width: 50%;
     text-align: center;
     padding: 40px;
     background: #fff;
@@ -430,11 +433,11 @@ button.see-all {
 .members-all {
     display: grid;
     justify-content: space-around;
-    grid-template-columns: repeat(3, 150px);
+    grid-template-columns: repeat(3, 250px);
     grid-gap: 30px;
 }
 .team.container1 {
-    background: #f9f9fa;
+    background: #f7f7f7;
     margin: 0;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -454,9 +457,13 @@ button.see-all {
     width: 150px;
     object-fit: cover;
     border-radius: 50%;
+    margin-bottom: 10px;
 }
-p {
-    text-align: justify;
+p.position{
+    text-align: center;
+}
+p.name{
+    text-align: center;
 }
 /*
 ================================================
@@ -603,13 +610,13 @@ p {
     content: "\f1c1";
     color: var(--sc-clr);
     font-size: 40px;
-    margin: 0px 80px;
+    margin: 0px 120px;
 }
 .h6 small {
     font-size: 20px;
     line-height: 20px;
     font-weight: inherit;
-    margin-left: 30px;
+    margin-left: 68px;
 }
 .h6 small:hover{
     color: var(--sc-clr);
@@ -618,7 +625,7 @@ p {
 .brochure-desc p {
     font-size: 14px;
     line-height: 18px;
-    margin-left: 65px;
+    margin-left: 105px;
 
 }
 /*---- 2. ----*/
