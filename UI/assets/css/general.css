@@ -227,7 +227,7 @@ a.btn2:hover, .btn2:hover {
 }
 .grid1 {
     display: grid;
-    grid-gap: 20px;
+    grid-gap: -20px;
     grid-template-columns: 1fr 1fr 1fr;
 }
 @media (max-width: 600px) {
@@ -252,9 +252,19 @@ a.btn2:hover, .btn2:hover {
     margin-bottom: 5px;
     border-bottom: 1px solid var(--sc-clr);
 }
+.section-title.mail h2{
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--sc-clr);
+    margin: 0px 160px;
+}
 .standard.top-section {
     padding: 100px 0 0 0;
     margin-bottom: 80px;
+    height: auto;
+}
+.standard.top-section.contact{
+    padding: 100px 0 0 0;
+    margin-bottom: 40px;
     height: auto;
 }
 .standard.top-section h2 {
