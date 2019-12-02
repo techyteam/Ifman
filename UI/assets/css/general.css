@@ -225,13 +225,41 @@ a.btn2:hover, .btn2:hover {
     justify-content: center;
     padding: 80px;
 }
+.flex2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0px -40px;
+}
 .grid1 {
     display: grid;
     grid-gap: -20px;
     grid-template-columns: 1fr 1fr 1fr;
 }
-@media (max-width: 600px) {
+.grid2 {
+    display: grid;
+    grid-gap: -20px;
+    grid-template-columns: 1fr 1fr;
+}
+@media only screen and (min-width: 622px) and (max-width: 1018px){
     .grid1 {
+        display: grid;
+        /* grid-gap: -20px; */
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .grid1{
+        grid-template-columns: 1fr;
+    }
+    .grid2 {
+        grid-template-columns: 1fr;
+    }    
+}
+@media only screen and (min-width: 622px) and (max-width: 1018px) {
+    .grid2 {
         grid-template-columns: 1fr;
     }    
 }
@@ -261,6 +289,17 @@ a.btn2:hover, .btn2:hover {
     padding: 100px 0 0 0;
     margin-bottom: 80px;
     height: auto;
+}
+.standard.news-top-section,
+.standard.member-top-section{
+    padding: 100px 0 0 0;
+    margin-bottom: 80px;
+    height: auto;
+}
+.standard.news-top-section h2,
+.standard.member-top-section h2 {
+    font-size: 40px;
+    margin-bottom: 80px;
 }
 .standard.top-section.contact{
     padding: 100px 0 0 0;

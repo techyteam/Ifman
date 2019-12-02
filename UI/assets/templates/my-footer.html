@@ -50,18 +50,23 @@
         height: 70px;
     }
 
-    @media (max-width: 600px) {
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
         .about-us p {
-            text-align: center;
+            text-align: justify;
+        }
+        .quick-links {
+        margin-left: 80px;
+        margin-top: 20px;
         }
     }
 
    .quick-links {
-        margin-left: 150px;
+        margin-left: 160px;
     }
     .quick-links i {
         color: #1C7BB6;
         margin-right: 10px;
+        margin-bottom: 10px;
     }
 
     .quick-links ul li {
@@ -70,7 +75,7 @@
 
     .quick-links a:hover {
         text-decoration: underline;
-        color: forestgreen;
+        color: var(--sc-clr);
     }
     .description{
         text-align: justify;
