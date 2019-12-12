@@ -95,9 +95,9 @@ button.see-all {
     margin-bottom: 200px;
 }
 .carousel-inner > .carousel-item {
-	transition: -webkit-transform 1.2 ease-in-out;
-	transition: transform 1.2 ease-in-out;
-    transition: transform 1.2s ease-in-out,-webkit-transform 1.2s ease-in-out;
+	transition: -webkit-transform 3.5 ease-in-out;
+	transition: transform 2.5 ease-in-out;
+    transition: transform 2.5s ease-in-out,-webkit-transform 2.5s ease-in-out;
 }
 .carousel-item, .carousel-item img {
 	height: 95vh;
@@ -137,7 +137,7 @@ button.see-all {
 		bottom: 100px;
 	}
 	.carousel-caption h5 {
-        font-size: 18px;
+        font-size: 16px;
     }
     .top-section-home {
         margin-bottom: 420px;
@@ -276,8 +276,12 @@ button.see-all {
 .prof-title2{
     background-color: rgb(54, 53, 53);
 }
-.prof-title1 h2,
-.prof-title2 h2{
+.prof-logo{
+    height: 30vh;
+    background: url('../images/slider/profimage.png')no-repeat center fixed; 
+}
+.prof-title1 h3,
+.prof-title2 h3{
     color: var(--alt-clr);
     padding: 10px 0px;
     text-align: center;
@@ -289,33 +293,8 @@ button.see-all {
     text-align: center;
     /* font-weight: bold; */
     padding-bottom: 20px;
-}
-.prof-bd{
-    padding: 20px 20px 40px 20px;
-    display: block;
-    justify-content: center;
-}
-.prof-bd a{
-    display: block;
-    margin: -10px 200px;
-}
-@media only screen and (min-width: 768px) and (max-width: 991px){
-    .prof-bd a{
-        display: block;
-        margin: -10px 200px;
-    }
-}
-@media only screen and (max-width: 600px) {
-    .prof-bd a{
-        display: block;
-        margin: -10px 250px;
-    }
-}
-@media only screen and (min-width: 480px) and (max-width: 767px){
-    .prof-bd a{
-        display: block;
-        margin: -10px 200px;
-    }
+    padding-right: 10px;
+    padding-left: 10px;
 }
 /*---- 2.4 Featured Courses ----*/
 .courses-cont-bg{
@@ -326,7 +305,7 @@ button.see-all {
     width: 100%;
     margin: 0 auto;
 }
-@media only screen and (min-width: 768px) and (max-width: 991px){
+/* @media only screen and (min-width: 768px) and (max-width: 991px){
 	.owl-slider{
         width: 100%;
     }
@@ -340,7 +319,7 @@ button.see-all {
 	.owl-slider{
         width: 100%;
     }
-}
+} */
 /*---- 2.5 testimonials ----*/
 .about-us {
     display: flex;
@@ -489,9 +468,9 @@ button.see-all {
 } */
 .news-case{
     width: 100%;
-    height: 90vh;
+    height: 80%;
 }
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+/* @media only screen and (min-width: 480px) and (max-width: 767px) {
     .news-case{
         width: 100%;
         height: 210vh;
@@ -509,11 +488,11 @@ button.see-all {
         margin: 15px 0;
     }
 
-}
+} */
 .news-title{
     display: flex;
     justify-content: center;
-    margin-bottom: 120px;
+    margin-bottom: 30px;
     margin-top: 50px;
 }
 .news-title a{
@@ -611,10 +590,21 @@ button.see-all {
     background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .1)), url('../images/slider/network.jpg')no-repeat center/cover fixed; 
     margin-bottom: 170px;
 }
+.sfp-top-section{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    padding: 150px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba( 13, 160, 201, 0.3)), url('../images/slider/profimage.png')no-repeat bottom; 
+    margin-bottom: 170px;
+}
 .top-section h2,
 .news-top-section h2,
 .member-top-section h2,
-.train-top-section h2 {
+.train-top-section h2,
+.sfp-top-section h2{
     color: var(--alt-clr);
 }
 .who {
@@ -1087,13 +1077,13 @@ p {
     grid-gap: 20px;
     margin-bottom: 80px;
 }
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .courses-details .inner {
         grid-template-columns: repeat(1, auto);
         justify-content: center
     }
 }
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
     .courses-details .inner {
         margin-bottom: 100px;
     }
@@ -1119,7 +1109,7 @@ p {
     .courses-details .inner courses-mini {
         margin-left: -27px; 
     }
-}
+} */
 
 .profile-details .profile-image {
     height: 150px;

@@ -181,6 +181,9 @@ a.btn2:hover, .btn2:hover {
 .mb-5 {
     margin-bottom: 5px;
 }
+.mt-30 {
+    margin: 20px 0;
+}
 /* .img-con {
     position: relative;
 }
@@ -243,14 +246,8 @@ a.btn2:hover, .btn2:hover {
     grid-gap: -20px;
     grid-template-columns: 1fr 1fr;
 }
-@media only screen and (min-width: 622px) and (max-width: 1018px){
-    .grid1 {
-        display: grid;
-        /* grid-gap: -20px; */
-        grid-template-columns: 1fr 1fr;
-    }
-}
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+@media (max-width: 600px){
     .grid1{
         grid-template-columns: 1fr;
     }
@@ -258,7 +255,7 @@ a.btn2:hover, .btn2:hover {
         grid-template-columns: 1fr;
     }    
 }
-@media only screen and (min-width: 622px) and (max-width: 1018px) {
+@media (max-width: 600px){
     .grid2 {
         grid-template-columns: 1fr;
     }    
@@ -280,24 +277,21 @@ a.btn2:hover, .btn2:hover {
     margin-bottom: 5px;
     border-bottom: 1px solid var(--sc-clr);
 }
-.section-title.mail h2{
-    margin-bottom: 5px;
-    border-bottom: 1px solid var(--sc-clr);
-    margin: 0px 160px;
-}
 .standard.top-section {
     padding: 100px 0 0 0;
     margin-bottom: 80px;
     height: auto;
 }
 .standard.news-top-section,
-.standard.member-top-section{
+.standard.member-top-section,
+.standard.sfp-top-section{
     padding: 100px 0 0 0;
     margin-bottom: 80px;
     height: auto;
 }
 .standard.news-top-section h2,
-.standard.member-top-section h2 {
+.standard.member-top-section h2,
+.standard.sfp-top-section h2{
     font-size: 40px;
     margin-bottom: 80px;
 }
