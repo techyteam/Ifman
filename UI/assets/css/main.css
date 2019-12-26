@@ -1435,3 +1435,95 @@ textarea {
 .news-content p {
     margin: 30px 0;
 }
+/*
+================================================
+Multiple Steps Form
+================================================
+*/
+/* * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f1f1f1;
+  } */
+  
+  #regForm {
+    margin: 100px auto;
+    padding: 40px;
+    width: 70%;
+    min-width: 300px;
+  }
+  
+  h2 {
+    text-align: center;  
+  }
+  
+  input,
+  #regForm select {
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    border: 1px solid #aaaaaa;
+  }
+  
+  /* Mark input boxes that gets an error on validation: */
+  input.invalid {
+    background-color: #ffdddd;
+  }
+  
+  /* Hide all steps by default: */
+  .tab {
+    display: none;
+  }
+  
+  /* Make circles that indicate the steps of the form: */
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;  
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
+  
+  .step.active {
+    opacity: 1;
+  }
+  
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    background-color: var(--pry-txt-clr);
+  }
+
+.summary-box{
+    border-radius: 0.5rem;
+    padding: 1rem 0rem;
+    border: 0.1px solid rgb(195, 226, 246);
+    height: 70px;
+    width: 90%;
+    align-self: center;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    box-shadow: 0.1px 0.1px 6px 0.2px rgba(224, 235, 238, 0.993), 0.1px 0.2px 0.2px 0.2px rgba(224, 235, 238, 0.993);
+}
+
+.summary-box > p:first-of-type{
+    width: 200px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #535353;
+}
+.summary-box > p:last-of-type{
+    width: fit-content;
+    margin-bottom: 0.3rem;
+    padding: 0.3rem 1rem;
+    text-align: center;
+    color: #b1adad;
+}
