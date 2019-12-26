@@ -131,27 +131,32 @@
         margin-right: 5px;
     }
     
-    .add {
+    .add,
+    .signup {
         background: var(--sc-clr);
         color: var(--alt-clr);
         border-radius: 3px;
         padding: 3px 8px;
     }
     
-    a.add {
+    a.add,
+    a.signup {
         color: var(--alt-clr);
     }
     
-     :host(.scrolled) a.add:hover {
+     :host(.scrolled) a.add:hover,
+     :host(.scrolled) a.signup:hover {
         box-shadow: 0px 0px 5px 5px rgba(243, 240, 240, 0.8);
     }
     
-    a.add:hover {
+    a.add:hover,
+    a.signup:hover {
         color: var(--alt-clr);
         box-shadow: 0px 0px 5px 5px rgba(243, 240, 240, 0.8);
     }
     
-    .add::after {
+    .add::after,
+    .signup::after {
         display: none;
     }
     
@@ -309,7 +314,7 @@
             <!-- <li><a href="" class="signup"><i class="fas fa-user-plus"></i>Sign up</a></li> -->
             <li><a href="" class="signin"><i class="fas fa-sign-in-alt"></i>Sign in</a></li>
             <li><a href="" class="profile add"><i class="fas fa-user"></i>dashboard</a></li>
-            <li><a href="" class="signup add"><i class="fas fa-user-plus"></i>Register</a></li>
+            <li><a href="/UI/registeration.html" class="signup"><i class="fas fa-user-plus"></i>Register</a></li>
         </ul>
     </div>
 </nav>
