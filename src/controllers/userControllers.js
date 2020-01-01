@@ -45,11 +45,12 @@ class UserController {
       const user = await UserServices.getUserByEmail(email);
       const checkPassword = Utils.comparePassword(password, user.password);
       if (checkPassword) {
-        delete user.password;
         const token = Utils.generateToken({ email });
-        return resLong(res, 200, { user, token });
+        delete req.user.password;
+        res.set('Authorization', `Bearer ${token}`);
+        return resLong(res, 200, { user: req.user, token });
       }
-      return resErr(res, 401, 'The email and password you entered does not exist! Please check and try again.');
+      return resErr(res, 401, 'The email or password you entered is incorrect! Please check and try again.');
     } catch (error) {
       if (error.name === 'emailNull') {
         return resErr(res, 404, 'No user found for the provided email');
@@ -69,7 +70,7 @@ class UserController {
     try {
       const userData = { ...req.body };
       const { user } = req;
-      // userData.password = Utils.hashPassword(userData.password);
+      if (userData.password) userData.password = Utils.hashPassword(userData.password);
       const data = await UserServices.updateUserInfoById({ ...userData }, user.email);
       return resLong(res, 201, data);
     } catch (error) {

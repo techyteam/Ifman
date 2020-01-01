@@ -26,6 +26,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
       type: DataTypes.STRING,
     },
+    memberType: {
+      allowNull: true,
+      type: DataTypes.ENUM('non-member', 'corporate-member', 'individual-member'),
+      defaultValue: 'non-member',
+    },
     birthDate: {
       allowNull: true,
       type: DataTypes.DATEONLY,
