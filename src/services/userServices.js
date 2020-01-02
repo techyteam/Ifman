@@ -51,7 +51,7 @@ export default class UserServices {
   static async updateUserInfoById(attribute, email) {
     const {
       firstName, middleName, lastName, birthDate, Address,
-      gender, phoneNumber,
+      gender, phoneNumber, memberType,
     } = attribute;
     const userDetails = await User.update({
       firstName,
@@ -61,6 +61,7 @@ export default class UserServices {
       gender,
       Address,
       phoneNumber,
+      memberType,
     },
     { where: { email }, returning: true, plain: true });
     const result = userDetails[1].dataValues;
