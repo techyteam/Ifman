@@ -38,7 +38,7 @@ module.exports = {
     },
     memberType: {
       allowNull: true,
-      type: Sequelize.ENUM('non-member', 'corporate-member', 'individual-member'),
+      type: Sequelize.ENUM('non-member', 'corporate-member', 'individual-member', 'student'),
       defaultValue: 'non-member',
     },
     isAdmin: {
