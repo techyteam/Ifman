@@ -110,7 +110,7 @@ class Schema {
       birthDate: Joi.date().required(),
       gender: Joi.string().trim().lowercase().valid('male', 'female')
         .required(),
-      memberType: Joi.string().trim().lowercase().valid('non-member', 'corporate-member', 'individual-member')
+      memberType: Joi.string().trim().lowercase().valid('non-member', 'corporate-member', 'individual-member', 'student')
         .required(),
       phoneNumber: Joi.string(),
     };
