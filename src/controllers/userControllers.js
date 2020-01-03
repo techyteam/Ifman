@@ -33,8 +33,10 @@ class UserController {
       `;
       const mailDetails = mailOptions(email, 'Account created successfully', mailHtmlContent);
       transporter.sendMail(mailDetails, (err, info) => {
-        if (err) console.log(err);
-        else console.log(info);
+        if (err) {
+          return (err);
+        }
+        return (info);
       });
       return resLong(res, 201, { ...user, token });
     } catch (error) {

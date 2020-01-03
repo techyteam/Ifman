@@ -71,8 +71,10 @@ class CourseController {
   `;
       const mailDetails = mailOptions(req.user.email, 'Enrolled for a course', mailHtmlContent);
       transporter.sendMail(mailDetails, (err, info) => {
-        if (err) console.log(err);
-        else console.log(info);
+        if (err) {
+          return (err);
+        }
+        return (info);
       });
       // const course = await CourseServices.getCourseById(newCourse.userId, newCourse.courseId);
       return resLong(res, 201, { ...newUserCourse });
