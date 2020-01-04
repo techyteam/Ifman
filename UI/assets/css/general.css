@@ -244,7 +244,7 @@ a.btn2:hover, .btn2:hover {
 .grid2 {
     display: grid;
     grid-gap: -20px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
 }
 
 @media (max-width: 600px){
