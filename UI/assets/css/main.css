@@ -107,7 +107,7 @@ button.see-all {
 	object-fit: cover;
 }
 .carousel-caption {
-    bottom: 180px;
+    bottom: 200px;
     background: rgba(0,0,0,.3);
     padding: 20px 0px;
 }
@@ -129,13 +129,24 @@ button.see-all {
     font-weight: bold;
     color: var(--alt-clr);
 }
+
 @media (max-width: 400px) {
 	.carousel-item, .carousel-item img {
 		height: 80vh;
 	}
 	.carousel-caption {
 		bottom: 100px;
-	}
+    }
+    .carousel-caption h2 {
+        font-size: 28px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .carousel-caption h3 {
+        font-size: 18px;
+        font-weight: bold;
+        color: var(--alt-clr);
+    }
     .top-section-home {
         margin-bottom: 420px;
     }
@@ -146,13 +157,15 @@ button.see-all {
         height: 80vh;
     }
     .carousel-caption {
-		padding-bottom: 10px;
+        bottom: 150px;
+		padding-bottom: 20px;
     }
     .carousel-caption h2{
-		font-size: 25px;
+        font-size: 30px;
+        margin-bottom: 10px;
     }
     .carousel-caption h3{
-		font-size: 18px;
+		font-size: 22px;
     }
     .carousel-caption p a{
 		padding: 5px 10px;
@@ -167,7 +180,12 @@ button.see-all {
         margin-bottom: 420px;
     }
 }
-@media (min-width: 768px) and (max-width: 1024px){
+@media (min-width: 950px) and (max-width: 1024px){
+    .carousel-caption {
+        bottom: 390px;
+        background: rgba(0,0,0,.3);
+        padding: 20px 0px;
+    }
 	.carousel-item, .carousel-item img {
 		height: 90vh;
     }
@@ -221,7 +239,7 @@ button.see-all {
 }
 .popular-categories {
     position: absolute;
-    top: 80vh;
+    top: 83vh;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -265,9 +283,6 @@ button.see-all {
     }
     .intro{
         padding-bottom: 200px;
-    }
-    .popular-categories {
-        top: 450px;
     }
     .popular-categories ul{
         grid-template-columns: 200px;
@@ -314,7 +329,7 @@ button.see-all {
     margin: 10px 0;
 }
 .owl-slider{
-    width: 1200px;
+    width: 85%;
     margin: 0px auto;
 }
 .item{
@@ -412,7 +427,7 @@ button.see-all {
     margin-top: 40px;
 }
 .wrapper {
-    width: 1170px;
+    width: 85%;
     margin: 0 auto;
 }
 .section-padding {
@@ -456,28 +471,18 @@ button.see-all {
 .img-text hr{
     background-color: #fff;
 }
-@media only screen and (min-width: 768px) and (max-width: 991px){
+/* @media only screen and (min-width: 768px) and (max-width: 1024px){
     .owl-slider,
     .wrapper{
         width: 100%;
     }
 }
-@media only screen and (max-width: 767px){
+@media (min-width: 384px) and (max-width: 640px) {
     .owl-slider,
     .wrapper{
-        width: 100%;
+        width: 150px;
     }
-}
-@media only screen and (min-width: 480px) and (max-width: 767px){
-    .owl-slider,
-    .wrapper{
-        width: 100%;
-    }
-    .item{
-        padding: 15%;
-        text-align: center;
-    }
-}
+} */
 /*
 ================================================
 3. ABOUT US
