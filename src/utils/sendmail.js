@@ -1,15 +1,10 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 
 export const transporter = nodemailer.createTransport({
-  host: 'smtp.ifmanigeria.org',
-  port: 465,
-  secure: true,
+  service: 'gmail',
   auth: {
     user: process.env.SERVER_MAIL,
     pass: process.env.MAIL_PASSWORD,
-  },
-  tls: {
-    rejectUnauthorized: false,
   },
 });
 

@@ -44,6 +44,25 @@ class UserController {
     }
   }
 
+
+  /**
+  * @method forgotPassword
+  * @description reset user password
+  * @param {object} req - The Request Object
+  * @param {object} res - The Response Object
+  * @returns {object} JSON API Response
+  */
+  static async forgotPassword(req, res) {
+    try {
+      const { email, password } = req.body;
+      const hashedPassword = Utils.hashPassword(password);
+      const user = await UserServices.updatePasswordByEmail(email, hashedPassword);
+      return resLong(res, 200, { ...user });
+    } catch (error) {
+      return resErr(res, 500, error.message);
+    }
+  }
+
   /**
   * @method signIn
   * @description Logs in a user
