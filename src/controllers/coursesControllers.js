@@ -1,5 +1,6 @@
 import CourseServices from '../services/courseServices';
 import ResponseMsg from '../utils/response';
+import { transporter, mailOptions } from '../utils/sendmail';
 
 const { resLong, resErr } = ResponseMsg;
 
@@ -64,6 +65,17 @@ class CourseController {
         registeredOn: new Date(),
       });
 
+      const mailHtmlContent = `
+      <h2>You have successfully enrolled for the course</h2>
+      <p>You can now start taking this amazing course</p>
+  `;
+      const mailDetails = mailOptions(req.user.email, 'Enrolled for a course', mailHtmlContent);
+      transporter.sendMail(mailDetails, (err, info) => {
+        if (err) {
+          return (err);
+        }
+        return (info);
+      });
       // const course = await CourseServices.getCourseById(newCourse.userId, newCourse.courseId);
       return resLong(res, 201, { ...newUserCourse });
     } catch (error) {
