@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>IFMA NIGERIA | Course Registeration </title>
+    <title>IFMA NIGERIA | Create Payment </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="assets/images/favicon.png">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -27,57 +27,40 @@
                 
                 <!-- search -->
                 <div class="title">
-                    <h2>Take A Course</h2>
+                    <h2>Make a Payment</h2>
                 </div>
             </section>
         </main>
         <div class="section-title">
-            <h2>Course Registeration</h2>
-            <p>Click On this button to Download Training Calender</p>
-            <a href="" class="btn1 tcalendar" id="next">Download Training Calender</a>
+            <h2>Create A Payment</h2>
+            <p>Please enter your payment details in the form below to create payment</p>
+            <a href="" class="btn1 tcalendar" id="next">See 2020 Training Calender</a>
         </div>
         <form id="regForm">
             <!-- One "tab" for each step in the form: -->
             <div class="tab">
                 <div class="form-row">
-                    <label for="ctitle">Course Title</label>
-                    <input type="text" placeholder="Course Title..." oninput="this.className = ''" name="ctitle">
+                    <label for="amount">Bank Name</label>
+                    <input type="text" class="" value="" placeholder="Bank Name..." oninput="this.className = ''" name="camount">
+                </div>
+                <div class="form-row">
+                    <label for="location">Account Name</label>
+                    <input type="text" class="" value="" placeholder="Account Name..." oninput="this.className = ''" name="cperiod">
                 </div>
                 <div class="form-row">
                     <label for="amount">Amount</label>
-                    <input type="text" class="" value="" placeholder="Course Amount..." oninput="this.className = ''" name="camount">
+                    <input type="text" class="" value="" placeholder="Amount..." oninput="this.className = ''" name="camount">
                 </div>
                 <div class="form-row">
-                    <label for="location">Period</label>
-                    <input type="text" class="" value="" placeholder="Course Period..." oninput="this.className = ''" name="cperiod">
-                </div>
-                <div class="form-row">
-                    <label for="appointment-sta">Method of Payment</label>
-                    <select class="select-row" oninput="this.className = ''" name="cselect">
-                        <option>Select Method</option>
-                        <option value="Direct-Transfer" >Direct Transfer</option>
-                        <option value="Bank-Payment">Visit A Bank</option>
-                    </select>
-                </div>
-            </div><br>
-            <div class="tab" id="second-page">
-                <h2>You are Almost Done!</h2><br>
-                <P>Complete your Registeration for this course by Paying the specified amount to the bank details below.</P><br>
-                <div class="form-row">
-                    <div class="summary-box">
-                        <p>Amount</p>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="center">
-                    <h2>Bank Details</h2><br>
-                    <u>
-                        <li>Bank:   Zenith Bank</li><br>
-                        <li>Account Number:   2012564790</li><br>
-                        <li>Account Name:   IFMA Nigeria</li>
-                    </u>
+                    <label for="location">Email</label>
+                    <input type="text" class="" value="" placeholder="Email..." oninput="this.className = ''" name="cperiod">
                 </div>
             </div>
+            <div class="tab" id="second-page">
+                <h2>Congratulations!</h2>
+                <p>Thanks for Creating this payment, A confirmation mail will be sent to you. Click submit to complete your payment.</p>
+            </div>
+            
             <div style="overflow:auto;">
               <div style="float:right;">
                 <button type="button" id="prevBtn" class="btn1" onclick="nextPrev(-1)">Previous</button>
