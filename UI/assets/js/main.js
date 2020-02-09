@@ -1,7 +1,3 @@
-let signModal = document.querySelector('.sign-modal');
-let pageWrap = document.querySelector('.page-wrap');
-let closeBtn = document.querySelector('.close-btn');
-
 // show ad hide the header
 window.addEventListener('scroll', () => {
     if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
@@ -128,4 +124,5 @@ function checkchanges() {
     document.getElementById('myTxts').style.display='none';
   }
 };
+
 /**Client Side JS */
