@@ -72,8 +72,9 @@ fetch("assets/templates/my-header.html")
 
                 this.signUpBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    body.setAttribute('class', 'show-modal');
-                    signModal.setAttribute('class', 'show-signup');
+                    window.location.href = './registeration.html'
+                    // body.setAttribute('class', 'show-modal');
+                    // signModal.setAttribute('class', 'show-signup');
                 });
             }
         })
@@ -138,13 +139,16 @@ fetch("assets/templates/sign-modal.html")
 
                 this.signUpBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    signModal.setAttribute('class', 'show-signup');
+                    window.location.href = './registeration.html'
+                    // signModal.setAttribute('class', 'show-signup');
                 });
 
+                // controls what happens when the submit button on the sign up form is clicked
                 this.signUpFormBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = 'profile.html';
                 });
+                // controls what happens when the submit button on the sign in form is clicked
                 this.logInFormBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     console.log('a')

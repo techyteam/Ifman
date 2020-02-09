@@ -2811,3 +2811,71 @@ Multiple Steps Form
 	transition:all 300ms ease;
 }
 
+=======
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 4px;
+}
+tr {
+    cursor: pointer;
+    padding: 4px;
+}
+tr:nth-child(even) {
+    background-color: rgb(149, 193, 211);
+}
+
+.btn {
+    border: none;
+    color: black;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 8px 4px;
+    cursor: pointer;
+    border-radius: 32px;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+  .btn:hover {
+    border: 3px solid rgb(107, 156, 247);
+    background-color: white;
+    color: rgb(107, 156, 247);
+  }
+  .btn-small {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    transition: 0.3s;
+  }
+  .btn-small:hover {
+    border: 2px solid rgb(107, 156, 247);
+    background-color: white;
+    color: rgb(107, 156, 247);
+  }
+  .btn-primary {
+    background-color: rgb(107, 156, 247);
+  }
+
+  .to-right {
+    float: right !important;
+  }
+  #cr-button {
+   position: relative;
+   left: 400px;
+   top: 15px;
+  }
