@@ -257,15 +257,15 @@ a.btn2:hover, .btn2:hover {
     .grid1{
         grid-template-columns: 1fr;
     }
+    /* .grid2 {
+        grid-template-columns: 1fr;
+    }     */
+}
+/* @media (max-width: 600px){
     .grid2 {
         grid-template-columns: 1fr;
     }    
-}
-@media (max-width: 600px){
-    .grid2 {
-        grid-template-columns: 1fr;
-    }    
-}
+} */
 .section-title {
     margin-bottom: 30px;
     text-align: center;
