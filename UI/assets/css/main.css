@@ -588,7 +588,7 @@ button.see-all {
 .testimonial-section{
 	position:relative;
     padding:90px 0px 120px;
-    background-image: linear-gradient(rgba(0,0,0, 0.3), rgba(0, 0, 0, 0.3)), url("/UI/assets/images/team/testimg.jpg");
+    background-image: linear-gradient(rgba(0,0,0, 0.3), rgba(0, 0, 0, 0.3)), url("/UI/assets/images/team/background.jpg");
 	background-position:center center;
 	background-repeat:no-repeat;
 	background-size:cover;
@@ -2810,8 +2810,6 @@ Multiple Steps Form
 	-moz-transition:all 300ms ease;
 	transition:all 300ms ease;
 }
-
-=======
 
 table {
     font-family: arial, sans-serif;
