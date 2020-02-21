@@ -35,6 +35,17 @@ class AuthenticateUser {
       req.user = user;
       return next();
     } catch (error) {
+      if (error.message === 'jwt expired') {
+        const refreshToken = req.cookies.RefreshToken;
+        if (!refreshToken) return resErr(res, 400, 'Login to your account');
+        const decoded = await Utils.decodeRefreshToken(refreshToken);
+        const user = await UserServices.getUserByEmail(decoded.email);
+        if (!user) {
+          return resErr(res, 401, 'Invalid Token');
+        }
+        req.user = user;
+        return next();
+      }
       return resErr(res, 500, error.message);
     }
   }
@@ -49,7 +60,7 @@ class AuthenticateUser {
    */
   static verifyAdmin(req, res, next) {
     if (!req.user.isAdmin) {
-      return resErr(res, 403, 'Forbiden');
+      return resErr(res, 403, 'Forbidden');
     }
     return next();
   }

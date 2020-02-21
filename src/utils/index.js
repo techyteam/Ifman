@@ -33,7 +33,17 @@ class Utils {
    * @returns { String } token
    */
   static generateToken(payload) {
-    return jwt.sign(payload, process.env.SECRET, { expiresIn: '2h' });
+    return jwt.sign(payload, process.env.SECRET, { expiresIn: '1m' });
+  }
+
+  /**
+   * generateRefreshToken
+   * @description generates authentication token
+   * @param { Object } payload - { id, email }
+   * @returns { String } token
+   */
+  static generateRefreshToken(payload) {
+    return jwt.sign(payload, process.env.RSH_SECRET);
   }
 
   /**
@@ -45,6 +55,17 @@ class Utils {
    */
   static decodeToken(token) {
     return jwt.verify(token, process.env.SECRET);
+  }
+
+  /**
+   * decodeRefreshToken
+   * @description decodes the token and returns the corresponding payload
+   * @param { String } token
+   * @returns { Object } payload - { id, email, isAdmin }
+   * @memberof Utils
+   */
+  static decodeRefreshToken(token) {
+    return jwt.verify(token, process.env.RSH_SECRET);
   }
 }
 export default Utils;

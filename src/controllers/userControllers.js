@@ -26,10 +26,15 @@ class UserController {
       password = hashedPassword;
       const user = await UserServices.createUser({ email, password });
       const token = Utils.generateToken({ email });
+      const refreshToken = Utils.generateRefreshToken({ email });
+
+      const tokens = { token, refreshToken };
       res.set('Authorization', `Bearer ${token}`);
+      res.cookie('Token', token, 2592000000);
+      res.cookie('RefreshToken', refreshToken, 2592000000);
       const mailHtmlContent = `
-          <h2>Your account has been created succesfully</h2>
-          <p>You can now login and start watching our amazing courses</p>
+          <h2>Your account has been created successfully</h2>
+          <p>You can now login and start taking our amazing courses</p>
       `;
       const mailDetails = mailOptions(email, 'Account created successfully', mailHtmlContent);
       transporter.sendMail(mailDetails, (err, info) => {
@@ -38,7 +43,7 @@ class UserController {
         }
         return (info);
       });
-      return resLong(res, 201, { ...user, token });
+      return resLong(res, 201, { ...user, tokens });
     } catch (error) {
       return resErr(res, 500, error.message);
     }
@@ -77,15 +82,36 @@ class UserController {
       const checkPassword = Utils.comparePassword(password, user.password);
       if (checkPassword) {
         const token = Utils.generateToken({ email });
+        const refreshToken = Utils.generateRefreshToken({ email });
+
+        const tokens = { token, refreshToken };
         delete req.user.password;
         res.set('Authorization', `Bearer ${token}`);
-        return resLong(res, 200, { user: req.user, token });
+        res.cookie('Token', token, 2592000000);
+        res.cookie('RefreshToken', refreshToken, 2592000000);
+        return resLong(res, 200, { user: req.user, tokens });
       }
       return resErr(res, 401, 'The email or password you entered is incorrect! Please check and try again.');
     } catch (error) {
       if (error.name === 'emailNull') {
         return resErr(res, 404, 'No user found for the provided email');
       }
+      return resErr(res, 500, error.message);
+    }
+  }
+
+  /**
+  * @method signOut
+  * @description Logs out a user
+  * @param {object} req - The Request Object
+  * @param {object} res - The Response Object
+  * @returns {object} JSON API Response
+  */
+  static async signOut(req, res) {
+    try {
+      res.clearCookie('RefreshToken');
+      return resLong(res, 200, { message: 'You\'ve signed out. You can login again' });
+    } catch (error) {
       return resErr(res, 500, error.message);
     }
   }
