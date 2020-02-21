@@ -10,7 +10,7 @@ const apiEndPoint = '/api/v1/';
 const userEndPoint = `${apiEndPoint}auth/`;
 
 describe('Signup Error', () => {
-  it('Should return 400 if password is ommited', (done) => {
+  it('Should return 400 if password is omitted', (done) => {
     const user = {
       email: 'temi@testmail.com',
     };
@@ -27,7 +27,7 @@ describe('Signup Error', () => {
 });
 
 describe('Signup Error', () => {
-  it('Should return 400 if email is ommited', (done) => {
+  it('Should return 400 if email is omitted', (done) => {
     const user = {
       password: 'password',
     };
@@ -77,7 +77,7 @@ describe(`POST ${userEndPoint}signup`, () => {
         res.body.should.be.a('object');
         res.body.should.have.property('data');
         res.body.data.should.be.a('object');
-        res.body.data.should.have.property('token');
+        res.body.data.should.have.property('tokens');
         res.body.data.should.have.property('id');
         res.body.data.should.have.property('email');
         done();
@@ -188,7 +188,7 @@ describe('User Login tests', () => {
         res.body.should.be.a('object');
         res.body.should.have.property('data');
         res.body.data.should.be.a('object');
-        res.body.data.should.have.property('token');
+        res.body.data.should.have.property('tokens');
         done();
       });
   });
