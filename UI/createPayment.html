@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IFMA NIGERIA | Create Payment </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
+    <script defer src="assets/js/webcomponents/webcomponents.js"></script>
+    <script defer src="assets/js/main.js"></script>
+</head>
+
+<body class="body about">
+    <!-- signin/signup modal -->
+    <sign-modal class=""></sign-modal>
+    
+    <!-- header -->
+    <my-header class="container1"></my-header>
+    
+    <!-- page wrap -->
+    <div class="page-wrap two">
+        <!-- main page content -->
+        <main>
+            <!-- Top section -->
+            <section class="standard top-section">
+                
+                <!-- search -->
+                <div class="title">
+                    <h2>Make a Payment</h2>
+                </div>
+            </section>
+        </main>
+        <div class="section-title">
+            <h2>Create A Payment</h2>
+            <p>Please enter your payment details in the form below to create payment</p>
+            <a href="assets/images/slider/IFMA_2020 Courses & Training Calendar.pdf" class="btn1 tcalendar" id="next">See 2020 Training Calender</a>
+        </div>
+        <form id="regForm">
+            <!-- One "tab" for each step in the form: -->
+            <div class="tab">
+                <div class="form-row">
+                    <label for="amount">Bank Name</label>
+                    <input type="text" class="" value="" placeholder="Bank Name..." oninput="this.className = ''" name="camount">
+                </div>
+                <div class="form-row">
+                    <label for="location">Account Name</label>
+                    <input type="text" class="" value="" placeholder="Account Name..." oninput="this.className = ''" name="cperiod">
+                </div>
+                <div class="form-row">
+                    <label for="amount">Amount</label>
+                    <input type="text" class="" value="" placeholder="Amount..." oninput="this.className = ''" name="camount">
+                </div>
+                <div class="form-row">
+                    <label for="location">Email</label>
+                    <input type="text" class="" value="" placeholder="Email..." oninput="this.className = ''" name="cperiod">
+                </div>
+            </div>
+            <div class="tab" id="second-page">
+                <h2>Congratulations!</h2>
+                <p>Thanks for Creating this payment, A confirmation mail will be sent to you. Click submit to complete your payment.</p>
+            </div>
+            
+            <div style="overflow:auto;">
+              <div style="float:right;">
+                <button type="button" id="prevBtn" class="btn1" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" class="btn2" onclick="nextPrev(1)">Next</button>
+              </div>
+            </div>
+            <!-- Circles which indicates the steps of the form: -->
+            <div style="text-align:center;margin-top:40px;">
+              <span class="step"></span>
+              <span class="step"></span>
+            </div>
+        </form>
+    </div>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

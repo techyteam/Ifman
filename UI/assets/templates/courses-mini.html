@@ -21,6 +21,16 @@
         box-shadow: var(--bx-shdw-1h);
     }
 
+    @media (max-width: 500px) {
+        :host {
+        transform: scale(.8);
+        }
+        :host(:hover) {
+        transform: scale(.81);
+        box-shadow: var(--bx-shdw-1h);
+    }
+    }
+
     slot {
         display: block;
         width: 100%;
@@ -38,7 +48,7 @@
         content: '';
         height: 100%;
         width: 100%;
-        background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .9));
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .5));
         z-index: 0;
     }
 
@@ -50,7 +60,7 @@
     }
 
     ::slotted(img) {
-        z-index: -9;
+        z-index: 0;
         object-fit: cover;
         width: 100%;
         height: 200px;
@@ -109,7 +119,9 @@
     }
 
     .bottom {
-        padding: 10px;
+        padding: 10px 20px 30px 20px ;
+        /* border: 2px solid var(--sc-clr);
+        box-shadow: 0 0 3px 1px var(--sc-clr); */
     }
 
     .address {
@@ -123,7 +135,7 @@
 
     i {
         margin-right: 3px;
-        /* color: var(--sc-clr); */
+        color: var(--sc-clr);
     }
 
     [name="address"] {
@@ -161,7 +173,7 @@
     .reg-btn a.btn2 {
         margin-top: 10px;
     }
-</style>
+</style> 
 
 
 <!-- top section -->
@@ -183,21 +195,6 @@
     </div>
     <slot name="price">N 150,000</slot>
     <div class="reg-btn">
-        <a href="" class="btn2">Register</a>
+        <a href="coursereg.html" class="btn2">Register</a>
     </div>
-    <!-- <div class="line"></div> -->
-    <!-- <div class="features">
-        <div>
-            <p><i class="fas fa-bed"></i>Rooms</p>
-            <slot name="rooms">1</slot>
-        </div>
-        <div>
-            <p><i class="fas fa-toilet"></i>Toilets</p>
-            <slot name="toilets">2</slot>
-        </div>
-        <div>
-            <p><i class="fas fa-bath"></i>Bath</p>
-            <slot name="bath">2</slot>
-        </div>
-    </div> -->
 </div>
