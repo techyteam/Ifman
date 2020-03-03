@@ -1312,6 +1312,7 @@ p {
     grid-gap: 20px;
     margin-bottom: 80px;
 }
+
 @media (max-width: 600px) {
     .courses-details .inner {
         grid-template-columns: repeat(1, auto);
