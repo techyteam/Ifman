@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IFMA NIGERIA | MY-COURSES </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
+    <script defer src="assets/js/webcomponents/webcomponents.js"></script>
+    <script defer src="assets/js/main.js"></script>
+</head>
+
+<body class="body about">
+    <!-- signin/signup modal -->
+    <sign-modal class=""></sign-modal>
+
+    <!-- header -->
+    <my-header class="container1"></my-header>
+
+    <!-- page wrap -->
+    <div class="page-wrap two">
+
+        <!-- main page content -->
+        <main>
+            <!-- Top section -->
+            <section class="standard top-section mb-0">
+
+                <!-- search -->
+                <div class="title">
+                    <h2>BECOME A MEMBER</h2>
+                </div>
+
+            </section>
+
+            <div class="dash-main container1">
+                <nav>
+                    <div>
+                        <div class="toggle-bar">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                        <div class="profile-img">
+                            <img src="" alt="">
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="profile.html">
+                                    <span class="icon"><i class="fas fa-user"></i></span>
+                                    <span class="text">Profile</span>
+
+                                </a>
+                            </li>
+                            <li>
+                                <a class="active" href="my-courses.html">
+                                    <span class="icon"><i class="fas fa-book"></i></span>
+                                    <span class="text">My Courses</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="payments.html">
+                                    <span class="icon"><i class="fas fa-money-bill"></i></span>
+                                    <span class="text">Payments</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="register.html">
+                                    <span class="icon"><i class="fas fa-user-plus"></i></span>    
+                                    <span class="text">Become a Member</span>                                                                        
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="dash-body">
+                    <div class="inner">
+                        <section>
+                            <div class="form-title">
+                                <div class="section-title">
+                                    <h2>Become An Idividual Financial Member</h2>
+                                    <p>OR</p>
+                                    <a href="cop-reg.html" class="btn1 tcalendar" id="next">Become a Coperate Member</a>
+                                </div>
+                            </div>
+                            <p>Please kindly enter your details on this form.</p><br>
+                                <form id="regForm">
+                                    <!-- One "tab" for each step in the form: -->
+                                    <div class="tab">
+                                        <h3>Personal Information</h3><br><br>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="title">Select Title</label>
+                                                <select class="form-control" id="">
+                                                    <option value="options">Mr</option>
+                                                    <option value="options">Mrs</option>
+                                                    <option value="options">Miss</option>
+                                                    <option value="options">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="position">Position/Title</label>
+                                                <input type="text" placeholder="position..." oninput="this.className = ''" name="ctitle">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault01">First Name</label>
+                                                <input type="text" placeholder="first name..." oninput="this.className = ''" name="ctitle">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault02">Middle Name</label>
+                                                <input type="text" placeholder="middle name..." name="ctitle">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefaultUsername">Last Name</label>
+                                                <input type="text" placeholder="lastname..." oninput="this.className = ''" name="ctitle">
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationDefaultUsername">Company/Organization</label>
+                                                <input type="text" placeholder="company name..." oninput="this.className = ''" name="ctitle">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationDefaultUsername">Business Phone</label>
+                                                <input type="text" placeholder="business phone..." oninput="this.className = ''" name="ctitle">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationDefaultUsername">WhatsApp Pnone</label>
+                                                <input type="text" placeholder="mobile phone..." oninput="this.className = ''" name="ctitle">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationDefaultUsername">Email</label>
+                                                <input type="text" placeholder="Course email..." oninput="this.className = ''" name="ctitle">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationDefaultUsername">Date of Birth</label>
+                                                <input type="date" type="text" placeholder="MM/DD/YY" oninput="this.className = ''" name="ctitle">
+                                            </div>              
+                                        </div>
+                                    </div>
+                                    <div class="tab">
+                                        <h3>Preferred Mailing Address</h3><br><br>
+                                        <div class="form-row">
+                                            <label for="inputAddress2">Address 2</label>
+                                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="inputCity">City</label>
+                                                <input type="text" class="form-control" id="inputCity">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="inputState">State</label>
+                                                <select id="inputState" class="select-row" >
+                                                    <option selected>Choose...</option>
+                                                    <option value="options">Abia</option>
+                                                    <option value="options">Adamawa</option>
+                                                    <option value="options">Akwa Ibom</option>
+                                                    <option value="options">Anambra</option>
+                                                    <option value="options">Bauchi</option>
+                                                    <option value="options">Bayelsa</option>
+                                                    <option value="options">Benue</option>
+                                                    <option value="options">Borno</option>
+                                                    <option value="options">Cross River</option>
+                                                    <option value="options">Delta</option>
+                                                    <option value="options">Ebonyi</option>
+                                                    <option value="options">Enugu</option>
+                                                    <option value="options">Edo</option>
+                                                    <option value="options">Ekiti</option>
+                                                    <option value="options">Gombe</option>
+                                                    <option value="options">Imo</option>
+                                                    <option value="options">Jigawa</option>
+                                                    <option value="options">Kaduna</option>
+                                                    <option value="options">Kano</option>
+                                                    <option value="options">Katsina</option>
+                                                    <option value="options">Kebbi</option>
+                                                    <option value="options">Kogi</option>
+                                                    <option value="options">Kwara</option>
+                                                    <option value="options">Lagos</option>
+                                                    <option value="options">Nasarawa</option>
+                                                    <option value="options">Niger</option>
+                                                    <option value="options">Ogun</option>
+                                                    <option value="options">Ondo</option>
+                                                    <option value="options">Osun</option>
+                                                    <option value="options">Oyo</option>
+                                                    <option value="options">Plateau</option>
+                                                    <option value="options">Rivers</option>
+                                                    <option value="options">Sokoto</option>
+                                                    <option value="options">Taraba</option>
+                                                    <option value="options">Yobe</option>
+                                                    <option value="options">Zamfara</option>
+                                                    <option value="options">Territory</option>
+                                                    <option value="options">Abuja (FCT)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab">
+                                        <h3>Professional Information</h3><br><br>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label for="selectFacility">Select Type of Organisation/Facility</label>
+                                                <select class="form-control" id="select-me" onChange='checkchange()'>
+                                                    <option value="options">Academic Facilities</option>
+                                                    <option value="options">Airport/Transportation Facilities</option>
+                                                    <option value="options">Association/ Membership/ Non-profit Facilities</option>
+                                                    <option value="options">Banking Institution/ Credit Union Facilities</option value="options">
+                                                    <option value="options">Call Center Facilities</option>
+                                                    <option value="options">Consulting Service (Architectural, Engineering, Facility Management, Interior Design)</option>
+                                                    <option value="options">Convention Center/Arena/Stadium/Auditorium Facilities</option>
+                                                    <option value="options">Corporate Headquarters Facilities</option>
+                                                    <option value="options">Financial/Information Services/ Insurance/ Real Estate Facilities</option>
+                                                    <option value="options">Health Care Facilities</option>
+                                                    <option value="options">Hospitality/Entertainment Facilities</option>
+                                                    <option value="options">Legal Industry Facilities</option>
+                                                    <option value="options">Retail facilities</option>
+                                                    <option value="options">Utilities facilities</option>
+                                                    <option value="options">Utilities facilities</option>
+                                                    <option value="other">Other (please specify)</option> 
+                                                </select>
+                                                <div id='myTxt' style="display: none">
+                                                    <textarea cols="40" placeholder="please specify" rows="1"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label for="selectFmArea">Select Your Area of FM</label>
+                                                <select class="form-control" id="select-mes" onChange='checkchanges()'>
+                                                    <option value="options">Full-time Facility Manager</option>
+                                                    <option value="options">Sales, Marketing and / or Business Development</option>
+                                                    <option value="options">Consultant (Providing FM guidance only)</option>
+                                                    <option value="others">Other</option> 
+                                                </select>
+                                                <div id='myTxts' style="display: none">
+                                                    <textarea cols="40" placeholder="please specify" rows="1"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12 mb-3">
+                                            <p class="font-weight-bold">WHAT ARE YOUR PRIMARY RESPONSIBILITIES?</p>
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="check1" name="interest" value="check1">
+                                              <label for="check1" class="custom-control-label">Communications technology, integration, knowledge management</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="check2" name="interest" value="check2">
+                                              <label for="check2" class="custom-control-label">Finance (with regard to real estate and facilities: Analyzing,
+                                                  accounting, forecasting, budgeting, tax, auditing and controlling)</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="check3" name="interest" value="check3">
+                                              <label for="check3" class="custom-control-label">Human and environmental factors (environmental, health and safety,
+                                                  workplace dynamics, teamwork, interpersonal behaviours, ergonomics)</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="check4" name="interest" value="check4">
+                                              <label for="check4" class="custom-control-label">Leadership and Management (code compliance, telecommunications, purchasing, security, food services,
+                                                  transportation, furnishings and equipment inventory, maintenance, and outsourcing management)</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="check5" name="interest" value="check5">
+                                              <label for="check5" class="custom-control-label">Operations and Maintenance (physical plant, preventive maintenance,
+                                                  conservation, energy management systems).</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="check6" name="interest" value="check6">
+                                              <label for="check6" class="custom-control-label">Planning and Project Management (strategic, tactical and annual facility planning; new construction and/or
+                                                  renovation projects; interior space planning and design, workplace specifications, installation
+                                                  and space-management; architecture and / or engineering projects).</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="check7" name="interest" value="check7">
+                                              <label for="check7" class="custom-control-label">Quality Assessment and Innovation (International standards organization,
+                                                  Standards, facility suits, total quality management).</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="check8" name="interest" value="check8">
+                                              <label for="check8" class="custom-control-label">Real Estate (real estate acquisition, financials, negotiations and/or disposal).</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="check9" name="interest" value="check9">
+                                              <label for="check9" class="custom-control-label">Sales, Marketing and/or business development.</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="check10" name="interest" value="check10">
+                                              <label for="check10" class="custom-control-label">Technology (development, of information technology (IT) system developmentnly).</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6 mb-3">
+                                                <p class="font-weight-bold">WHAT IS YOUR HIGHEST LEVEL OF EDUCATION?</p>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="checks1" value="checks1">
+                                                    <label class="custom-control-label" for="checks1">University Degree</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="checks2" value="checks2">
+                                                    <label class="custom-control-label" for="checks2">NCE</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="checks3" value="checks3">
+                                                    <label class="custom-control-label" for="checks3">Post Graduate Degree</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="other" value="other">
+                                                    <label class="custom-control-label" for="other">Others Please Specify</label>
+                                                    <div id='otherValue'>
+                                                        <textarea cols="40" placeholder="please specify" rows="1"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6 mb-3">
+                                                <p class="font-weight-bold">HOW DID YOU HEAR ABOUT IFMA?</p>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="checks5" value="checks6">
+                                                    <label class="custom-control-label" for="checks5">IFMA Member</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="checks7" value="checks6">
+                                                    <label class="custom-control-label" for="checks7">Serminar/Conference</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="checks8" value="checks6">
+                                                    <label class="custom-control-label" for="checks8">Advertisment or Direct Mail</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="checks9" value="checks6">
+                                                    <label class="custom-control-label" for="checks9">School/College</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="others" value="others">
+                                                    <label class="custom-control-label" for="others">Others Please Specify</label>
+                                                   <div id='otherValues'>
+                                                        <textarea cols="40" placeholder="please specify" rows="1"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                    <div class="tab">
+                                        <h3>Credentials and Payments</h3><br><br>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="fupload">Upload Your Educational Credentials/CV</label>
+                                                <input type="file" name="fupload" multiple>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="usubmit">After uploading multiple files, click Upload.</label>
+                                                <input class="btn1" type="submit" value="Upload" name="usbmit">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="exampleFormControlSelect1">Select Member Category</label>
+                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                    <option>Select</option>
+                                                    <option value="Member">Member</option>
+                                                    <option value="Student">Student</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="rdues">Registeration Fees</label>
+                                                <input type="text" placeholder="Registeration Fees..." oninput="this.className = ''" name="rdues">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="adues">Anual Dues</label>
+                                                <input type="text" placeholder="Anual Dues..." oninput="this.className = ''" name="adues">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="appointment-sta">Method of Payment</label>
+                                                <select class="select-row" oninput="this.className = ''" name="select">
+                                                    <option>Select Method</option>
+                                                    <option value="Direct-Transfer" >Direct Transfer</option>
+                                                    <option value="Bank-Payment">Visit A Bank</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab">
+                                        <h2>You are Almost Done!</h2><br>
+                                        <P>Complete your Registeration for this course by Paying the specified amount to the bank details below.</P><br>
+                                        <div class="form-row">
+                                            <div class="summary-box">
+                                                <p>Amount</p>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                        <div class="center">
+                                            <h2>Bank Details</h2><br>
+                                            <u>
+                                                <li>Bank:   Zenith Bank</li>
+                                                <li>Account Number:  1010112318</li>
+                                                <li>Account Name:   International Facility Management Association</li>
+                                            </u>
+                                        </div>
+                                    </div>
+                                    <div style="overflow:auto;">
+                                    <div style="float:right;">
+                                        <button type="button" id="prevBtn" class="btn1" onclick="nextPrev(-1)">Previous</button>
+                                        <button type="button" id="nextBtn" class="btn2" onclick="nextPrev(1)">Next</button>
+                                    </div>
+                                    </div>
+                                    <!-- Circles which indicates the steps of the form: -->
+                                    <div style="text-align:center;margin-top:40px;">
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                    </div>
+                                </form>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- footer -->
+        <my-footer></my-footer>
+    </div>
+</body>
+
+</html>
