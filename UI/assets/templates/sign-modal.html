@@ -421,17 +421,17 @@
                 <form action="" class="signin-form front-page">
                     <!-- email -->
                     <div class="field-container1">
-                        <input type="email" id="email" required>
+                        <input type="email" id="email-signup" required>
                         <label for="email">email</label>
                     </div>
 
                     <!-- password -->
                     <div class="field-container1">
-                        <input type="password" id="password" required>
+                        <input type="password" id="password-signup" required>
                         <label for="password">password</label>
                     </div>
                     <div class="field-container1">
-                        <input type="password" id="password" required>
+                        <input type="password" id="chk_password" required>
                         <label for="password">confirm password</label>
                     </div>
 
@@ -446,12 +446,12 @@
         <div class="login-main form">
             <div>
                 <h1>LOG IN</h1>
-                <p>log in to gain access</p>
+                <p id="authErrorMSg">log in to gain access</p>
                 <form action="" class="login-form front-page">
                     <!-- firstname -->
                     <div class="field-container1">
                         <input type="text" id="email-login" required>
-                        <label for="email-login">email or user id</label>
+                        <label for="email-login">email</label>
                     </div>
                     <!-- password -->
                     <div class="field-container1">
@@ -496,3 +496,11 @@
     </div>
 
 </div>
+
+<script>
+    // const chk_password = document.querySelector('#chk_password');
+
+    // chk_password.addEventListener('keyup', (event) => {
+    //     console.log('pressing')
+    // })
+</script>

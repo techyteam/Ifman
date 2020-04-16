@@ -33,7 +33,7 @@ class Schema {
     const schema = {
       email: Joi.string().trim().lowercase().email({ minDomainSegments: 2 })
         .required(),
-      password: Joi.string().min(8).required(),
+      password: Joi.string().required().empty(),
     };
     return schema;
   }
