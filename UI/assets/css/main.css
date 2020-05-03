@@ -2879,3 +2879,18 @@ tr:nth-child(even) {
    left: 400px;
    top: 15px;
   }
+.forgot-form{
+    width: 50%;
+    display: block;
+    margin: auto;
+}
+.forgot-form p{
+  margin-bottom: 30px;
+} 
+.forgot-form button{
+    margin-bottom: 20px;
+}
+.forgot-form a:hover{
+    text-decoration: underline;
+    color: var(--sc-clr);
+  }  
