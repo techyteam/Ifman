@@ -522,12 +522,12 @@ button.see-all {
 }
 .news-img {
     width: 60%; height: 350px;
-    background: url('../images/slider/blog.jpeg') top;
+    background: url('../images/slider/world\ fm.jpeg') top fixed;
     background-size: cover;
 }
 .event-img {
     width: 60%; height: 350px;
-    background: url('../images/slider/advocacy.jpeg') center;
+    background: url('../images/slider/world\ fm.jpeg') center fixed;
     background-size: cover;
 }
 .event-desc {
