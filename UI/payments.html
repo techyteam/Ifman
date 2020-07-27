@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IFMA NIGERIA | MY-COURSES </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
+    <script defer src="assets/js/webcomponents/webcomponents.js"></script>
+    <script defer src="assets/js/main.js"></script>
+</head>
+<style>
+    .list ul:nth-child(odd) {
+  background-color:#eee;
+}
+
+.list ul:nth-child(even) {
+  background-color:#fff;
+}
+.list {
+    display:table;
+    margin:1em auto;
+    width: 100%;
+    padding: 1em;
+    list-style: none;
+  
+  }
+ 
+  .list ul {
+    display:table-row;
+    list-style: none;
+  }
+  .list ul:first-child li {
+    background-color:#203f7d;
+    color: #fff;
+  }
+  
+  .list ul > li {
+    display:table-cell;
+    padding:.5em 1em;
+    list-style: none;
+  }
+</style>
+
+<body class="body about">
+    <!-- signin/signup modal -->
+    <sign-modal class=""></sign-modal>
+
+    <!-- header -->
+    <my-header class="container1"></my-header>
+
+    <!-- page wrap -->
+    <div class="page-wrap two">
+
+        <!-- main page content -->
+        <main>
+            <!-- Top section -->
+            <section class="standard top-section mb-0">
+
+                <!-- search -->
+                <div class="title">
+                    <h2>PAYMENTS</h2>
+                </div>
+
+            </section>
+
+            <div class="dash-main container1">
+                <nav>
+                    <div>
+                        <div class="toggle-bar">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                        <div class="profile-img">
+                            <img src="" alt="">
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="profile.html">
+                                    <span class="icon"><i class="fas fa-user"></i></span>
+                                    <span class="text">Profile</span>
+
+                                </a>
+                            </li>
+                            <li>
+                                <a class="active" href="my-courses.html">
+                                    <span class="icon"><i class="fas fa-book"></i></span>
+                                    <span class="text">My Courses</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="payments.html">
+                                    <span class="icon"><i class="fas fa-money-bill"></i></span>
+                                    <span class="text">Payments</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="register.html">
+                                    <span class="icon"><i class="fas fa-user-plus"></i></span>    
+                                    <span class="text">Become a Member</span>                                                                        
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="dash-body">
+                    <div class="inner">
+                        <section class="center">
+                            <div class="card-title">
+                                <h3>PAYMENT HISTORY</h3>
+                            </div>
+                            <div class="tab">
+                                <h1>Recent Payments</h1> 
+                                <div class="list">
+                                    <ul>
+                                        <li>S/N</li>
+                                        <li>Date</li>
+                                        <li>Type</li>
+                                        <li>Amount</li>
+                                        <li>Status</li>
+                                    </ul>
+                                    <ul>
+                                        <li data-label="S/N">1</li>
+                                        <li data-label="date">dd/mm/yy</li>
+                                        <li data-label="type">Training</li>
+                                        <li data-label="amount">#155,000.00</li>
+                                        <li data-label="status">Confirmed</li>
+                                    </ul>
+    
+                                    <ul>
+                                        <li data-label="S/N">2</li>
+                                        <li data-label="date">dd/mm/yy</li>
+                                        <li data-label="type">Dues</li>
+                                        <li data-label="amount">#20,000</li> 
+                                        <li data-label="status">Pending</li> 
+                                    </ul>
+    
+                                    <ul>
+                                        <li data-label="S/N">3</li>
+                                        <li data-label="date">dd/mm/yy</li>
+                                        <li data-label="type">Sms charge for March 2019</li>
+                                        <li id="debit" data-label="amount">#52,00</li>
+                                        <li data-label="status">Rejected</li>
+                                    </ul>
+                                </div><br> 
+                                <a href="#" class="btn1" id="next">Load More</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- footer -->
+        <my-footer></my-footer>
+    </div>
+</body>
+
+</html>

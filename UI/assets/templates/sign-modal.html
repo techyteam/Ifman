@@ -408,6 +408,13 @@
     #login-button {
         margin-top: 0;
     }
+    .password-link{
+        margin-bottom: 20px;
+    }
+    .password-link:hover{
+        text-decoration: underline;
+        color: var(--pry-txt-clr)
+    }
 </style>
 
 <div class="sign-inner-container1">
@@ -457,6 +464,10 @@
                     <div class="field-container1">
                         <input type="password" id="password-login" required>
                         <label for="password-login">password</label>
+                    </div>
+                    <!-- Forgot Password -->
+                    <div class="field-container password-link">
+                        <a href="/UI/forgot.html">Forgot Password?</a>
                     </div>
                     <!-- submit -->
                     <button class="btn1" id="login-button">sign in</button>
