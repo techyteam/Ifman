@@ -88,7 +88,7 @@ function fixStepIndicator(n) {
 }
 
 var otherCheckbox = document.querySelector('input[value="other"]');
-var otherText = document.querySelector("#otherValue");
+var otherText = document.querySelector('input[id="otherValue"]');
 otherText.style.visibility = 'hidden';
 
 otherCheckbox.onchange = function() {
@@ -100,7 +100,7 @@ otherCheckbox.onchange = function() {
   }
 };
 var otherCheckboxs = document.querySelector('input[value="others"]');
-var otherTexts = document.querySelector("#otherValues");
+var otherTexts = document.querySelector('input[id="otherValues"]');
 otherTexts.style.visibility = 'hidden';
 
 otherCheckboxs.onchange = function() {
