@@ -1,9 +1,23 @@
 import express from 'express';
+import swaggerDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+import { swaggerDefinition } from '../utils/swagger-definition';
 import userRoutes from './users';
 import courseRoutes from './courses';
 import PaymentRoutes from './payments';
 
 const router = express.Router();
+
+const options = {
+  swaggerDefinition,
+  apis: ['**/docs/*.yml'],
+};
+
+router.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc(options)));
+router.get('/swagger.json', (_req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerDoc(options));
+});
 
 // Home
 router.get('/', (req, res) => res.status(301).redirect('api/v1'));

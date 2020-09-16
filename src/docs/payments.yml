@@ -1,0 +1,121 @@
+/payment:
+    post:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Make a Payment
+      description: Makes a payment on the platform
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 201
+                  data:
+                    $ref: '#/components/schemas/payment'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'
+/payment/:id:
+    post:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Get payment by user ID
+      description: fetches user payment by ID on the platform
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    $ref: '#/components/schemas/payment'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'  
+/payments:
+    get:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Get all payments
+      description: This endpoint fetches all payments made by the user on the platform
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    $ref: '#/components/schemas/payments'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'
+/payments/:id:
+    get:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Approves payment
+      description: Approves user payment on the platform
+      parameters:
+        - in: path
+          name: userId
+          schema:
+            type: integer
+          required: true
+          description: The ID of the user to be retrieved
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    $ref: '#/components/schemas/payments'
+        '400':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequest'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'
