@@ -12,7 +12,7 @@ const {
 const courseRoutes = express.Router();
 
 courseRoutes.post('/courses', verifyToken, verifyAdmin, validateCourse, CreateCourse);
-courseRoutes.get('/courses', GetCourses);
+courseRoutes.get('/course', GetCourses);
 courseRoutes.get('/courses/:id', verifyToken, getUserCourses);
 courseRoutes.post('/courses/:id/register', verifyToken, takeCourse);
 

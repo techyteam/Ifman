@@ -14,7 +14,7 @@ const PaymentRoutes = express.Router();
 
 PaymentRoutes.post('/payment', verifyToken, makePayment);
 PaymentRoutes.get('/payments', verifyToken, getPayments);
-PaymentRoutes.get('/payments/:id', verifyToken, getAPayment);
+PaymentRoutes.get('/payment/:id', verifyToken, getAPayment);
 PaymentRoutes.post('/payments/:id', verifyToken, verifyAdmin, approvePayment);
 
 

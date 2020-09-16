@@ -1,0 +1,139 @@
+/courses:
+    post:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Creates a course
+      description: Sign's up a user on the platform
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 201
+                  data:
+                    $ref: '#/components/schemas/courses'
+        '409':
+          description: Unsuccessful this Course already exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/conflict'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'
+/courses/:id/register:
+    post:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Register a course
+      description: Sign's up a user on the platform
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 201
+                  data:
+                    $ref: '#/components/schemas/courses'
+        '400':
+          description: You can't register for the same course twice.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequest'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'  
+/course:
+    get:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Get all courses
+      description: This endpoint fetches all courses request made by the user on the platform
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    $ref: '#/components/schemas/courses'
+        '400':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequest'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'
+/courses/:id:
+    get:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Get user course by ID
+      description: Gets a specific user course by their ID
+      parameters:
+        - in: path
+          name: userId
+          schema:
+            type: integer
+          required: true
+          description: The ID of the user to be retrieved
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    $ref: '#/components/schemas/courseReg'
+        '400':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequest'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'

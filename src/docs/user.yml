@@ -1,457 +1,617 @@
-/users:
-  get:
-    tags:
-      - user
-    security:
-      - bearerAuth: []
-    summary: Get All Users
-    description: Get all users on the platform
-    responses:
-      '200':
-        description: Success
+  /auth/signup:
+    post:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Creates a course
+      description: Creates a new course on the platform
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 201
+                  data:
+                    $ref: '#/components/schemas/user'
+        '409':
+          description: Unsuccessful User already exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/conflict'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'
+  /auth/signin:
+    post:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Logs in  User
+      description: Log's in a user on the platform
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    $ref: '#/components/schemas/user'
+        '401':
+          description: The email or password you entered is incorrect! Please check and try again.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'
+  /auth/logout:
+    post:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Logs out  User
+      description: You've signed out. You can login again
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    $ref: '#/components/schemas/user'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'  
+  /auth/user/update-profile:
+    patch:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Edit a user's profile
+      description: This endpoint enables a user to edit his profile details.
+      requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
               properties:
-                status:
-                  type: integer
-                  example: 200
-                data:
-                  $ref: '#/components/schemas/arrayOfUsers'
-      '401':
-        description: Authentication error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/authError'
-      '500':
-        description: Server error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/serverError'
-/users/{user_id}:
-  get:
-    tags:
-      - user
-    security:
-      - bearerAuth: []
-    summary: Get user by ID
-    description: Gets a specific user by their ID
-    parameters:
-      - in: path
-        name: user_id
-        schema:
-          type: integer
+                firstName:
+                  type: string
+                  example: 'james'
+                  required: false
+                middleName:
+                  type: string
+                  example: 'james'
+                  required: false
+                lastname:
+                  type: string
+                  example: 'bond'
+                  required: false
+                phoneNumber:
+                  type: string
+                  example: '07001234567'
+                  required: false
+                birthDate:
+                  type: DATEONLY
+                  example: '22-05-20'
+                  required: false
+                gender:
+                  type: string
+                  example: 'female'
+                  required: false
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    $ref: '#/components/schemas/user'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'
+  /auth/user/forgot-password:
+    patch:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      summary: Reset User password
+      description: This endpoint enables a user to reset password.
+      requestBody:
         required: true
-        description: The ID of the user to be retrieved
-    responses:
-      '200':
-        description: Success
         content:
           application/json:
             schema:
               type: object
               properties:
-                status:
-                  type: integer
-                  example: 200
-                data:
-                  $ref: '#/components/schemas/user'
-      '401':
-        description: Authentication error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/authError'
-      '500':
-        description: Server error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/serverError'
-  patch:
-    tags:
-      - admin user
-    security:
-      - bearerAuth: []
-    summary: Activate or deactivate a user
-    description: This endpoint enables TD super_admin users to change users active status
-    parameters:
-      - in: path
-        name: user_id
-        schema:
-          type: integer
-        required: true
-        description: The ID of the user to (de)activate
-    requestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: string
-                example: 'activate | deactivate'
-                required: true
-    responses:
-      '200':
-        description: Success
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                status:
-                  type: integer
-                  example: 200
-                data:
-                  $ref: '#/components/schemas/user'
-      '401':
-        description: Authentication error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/authError'
-      '500':
-        description: Server error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/serverError'
-/users/{user_id}/banks/{bank_id}:
-  get:
-    tags:
-      - user
-    security:
-      - bearerAuth: []
-    summary: Get user bank details
-    description: Gets the specified bank details of the specified user
-    parameters:
-      - in: path
-        name: user_id
-        schema:
-          type: integer
-        required: true
-        description: The ID of the user to be retrieved
-      - in: path
-        name: bank_id
-        schema:
-          type: integer
-        required: true
-        description: The ID of the bank in the bank details to retrive
-    responses:
-      '200':
-        description: Success
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                status:
-                  type: integer
-                  example: 200
-                data:
-                  $ref: '#/components/schemas/bankDetails'
-      '401':
-        description: Authentication error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/authError'
-      '404':
-        description: Resource not found
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/notFound'
-      '500':
-        description: Server error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/serverError'
+                email:
+                  type: string
+                  example: 'newpassword@gmail.com'
+                  required: false
+                password:
+                  type: string
+                  example: 'Password@12'
+                  required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    $ref: '#/components/schemas/user'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverError'
+  # /users/{user_id}:
+  #   get:
+  #     tags:
+  #       - user
+  #     security:
+  #       - bearerAuth: []
+  #     summary: Get user by ID
+  #     description: Gets a specific user by their ID
+  #     parameters:
+  #       - in: path
+  #         name: user_id
+  #         schema:
+  #           type: integer
+  #         required: true
+  #         description: The ID of the user to be retrieved
+  #     responses:
+  #       '200':
+  #         description: Success
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 status:
+  #                   type: integer
+  #                   example: 200
+  #                 data:
+  #                   $ref: '#/components/schemas/user'
+  #       '401':
+  #         description: Authentication error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/authError'
+  #       '500':
+  #         description: Server error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/serverError'
+  #   patch:
+  #     tags:
+  #       - admin user
+  #     security:
+  #       - bearerAuth: []
+  #     summary: Activate or deactivate a user
+  #     description: This endpoint enables TD super_admin users to change users active status
+  #     parameters:
+  #       - in: path
+  #         name: user_id
+  #         schema:
+  #           type: integer
+  #         required: true
+  #         description: The ID of the user to (de)activate
+  #     requestBody:
+  #       required: true
+  #       content:
+  #         application/json:
+  #           schema:
+  #             type: object
+  #             properties:
+  #               status:
+  #                 type: string
+  #                 example: 'activate | deactivate'
+  #                 required: true
+  #     responses:
+  #       '200':
+  #         description: Success
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 status:
+  #                   type: integer
+  #                   example: 200
+  #                 data:
+  #                   $ref: '#/components/schemas/user'
+  #       '401':
+  #         description: Authentication error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/authError'
+  #       '500':
+  #         description: Server error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/serverError'
+  # /users/{user_id}/banks/{bank_id}:
+  #   get:
+  #     tags:
+  #       - user
+  #     security:
+  #       - bearerAuth: []
+  #     summary: Get user bank details
+  #     description: Gets the specified bank details of the specified user
+  #     parameters:
+  #       - in: path
+  #         name: user_id
+  #         schema:
+  #           type: integer
+  #         required: true
+  #         description: The ID of the user to be retrieved
+  #       - in: path
+  #         name: bank_id
+  #         schema:
+  #           type: integer
+  #         required: true
+  #         description: The ID of the bank in the bank details to retrive
+  #     responses:
+  #       '200':
+  #         description: Success
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 status:
+  #                   type: integer
+  #                   example: 200
+  #                 data:
+  #                   $ref: '#/components/schemas/bankDetails'
+  #       '401':
+  #         description: Authentication error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/authError'
+  #       '404':
+  #         description: Resource not found
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/notFound'
+  #       '500':
+  #         description: Server error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/serverError'
 
-/users/{user_id}/requests:
-  get:
-    tags:
-      - user
-    security:
-      - bearerAuth: []
-    summary: Get all user's requests
-    description: This endpoint fetches all requests made by the user on the platform
-    parameters:
-      - in: path
-        name: user_id
-        schema:
-          type: integer
-        required: true
-        description: The ID of the user whose requests are to be retrieved
-    responses:
-      '200':
-        description: Success
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                status:
-                  type: integer
-                  example: 200
-                data:
-                  $ref: '#/components/schemas/request'
-      '401':
-        description: Authentication error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/authError'
-      '404':
-        description: Resource not found
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/notFound'
-      '500':
-        description: Server error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/serverError'
+  # /users/{user_id}/requests:
+  #   get:
+  #     tags:
+  #       - user
+  #     security:
+  #       - bearerAuth: []
+  #     summary: Get all user's requests
+  #     description: This endpoint fetches all requests made by the user on the platform
+  #     parameters:
+  #       - in: path
+  #         name: user_id
+  #         schema:
+  #           type: integer
+  #         required: true
+  #         description: The ID of the user whose requests are to be retrieved
+  #     responses:
+  #       '200':
+  #         description: Success
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 status:
+  #                   type: integer
+  #                   example: 200
+  #                 data:
+  #                   $ref: '#/components/schemas/request'
+  #       '401':
+  #         description: Authentication error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/authError'
+  #       '404':
+  #         description: Resource not found
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/notFound'
+  #       '500':
+  #         description: Server error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/serverError'
 
-/users/{user_id}/bank-details:
-  post:
-    tags:
-      - user
-    security:
-      - bearerAuth: []
-    summary: Add bank details
-    description: This endpoint enables a user to add his bank details to the platform
-    parameters:
-      - in: path
-        name: user_id
-        schema:
-          type: integer
-        required: true
-        description: The ID of the user whose details are to be added
-    requestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              bankId:
-                type: integer
-                example: 1
-                description: The ID of the bank which the details belong to
-              accountNumber:
-                type: string
-                example: '0004154979'
-              BVN:
-                type: string
-                example: '984675849763548'
-    responses:
-      '201':
-        description: Success
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                status:
-                  type: integer
-                  example: 201
-                data:
-                  $ref: '#/components/schemas/bankDetails'
-      '401':
-        description: Authentication error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/authError'
-      '404':
-        description: Resource not found
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/notFound'
-      '500':
-        description: Server error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/serverError'
+  # /users/{user_id}/bank-details:
+  #   post:
+  #     tags:
+  #       - user
+  #     security:
+  #       - bearerAuth: []
+  #     summary: Add bank details
+  #     description: This endpoint enables a user to add his bank details to the platform
+  #     parameters:
+  #       - in: path
+  #         name: user_id
+  #         schema:
+  #           type: integer
+  #         required: true
+  #         description: The ID of the user whose details are to be added
+  #     requestBody:
+  #       required: true
+  #       content:
+  #         application/json:
+  #           schema:
+  #             type: object
+  #             properties:
+  #               bankId:
+  #                 type: integer
+  #                 example: 1
+  #                 description: The ID of the bank which the details belong to
+  #               accountNumber:
+  #                 type: string
+  #                 example: '0004154979'
+  #               BVN:
+  #                 type: string
+  #                 example: '984675849763548'
+  #     responses:
+  #       '201':
+  #         description: Success
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 status:
+  #                   type: integer
+  #                   example: 201
+  #                 data:
+  #                   $ref: '#/components/schemas/bankDetails'
+  #       '401':
+  #         description: Authentication error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/authError'
+  #       '404':
+  #         description: Resource not found
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/notFound'
+  #       '500':
+  #         description: Server error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/serverError'
 
-/users/user-profile:
-  get:
-    tags:
-      - user
-    security:
-      - bearerAuth: []
-    summary: Get a user's profile
-    description: This endpoint enables a user to fetch his profile details.
-    responses:
-      '200':
-        description: Success
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                status:
-                  type: integer
-                  example: 200
-                data:
-                  $ref: '#/components/schemas/user'
-      '401':
-        description: Authentication error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/authError'
-      '403':
-        description: Forbidden
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/forbidden'
-      '404':
-        description: Resource not found
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/notFound'
-      '500':
-        description: Server error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/serverError'
-  patch:
-    tags:
-      - user
-    security:
-      - bearerAuth: []
-    summary: Edit a user's profile
-    description: This endpoint enables a user to edit his profile details.
-    requestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              firstname:
-                type: string
-                example: 'james'
-                required: false
-              lastname:
-                type: string
-                example: 'bond'
-                required: false
-              phoneNumber:
-                type: string
-                example: '07001234567'
-                required: false
-              locationId:
-                type: integer
-                example: 2
-                required: false
-    responses:
-      '200':
-        description: Success
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                status:
-                  type: integer
-                  example: 200
-                data:
-                  $ref: '#/components/schemas/user'
-      '401':
-        description: Authentication error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/authError'
-      '403':
-        description: Forbidden
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/forbidden'
-      '404':
-        description: Resource not found
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/notFound'
-      '500':
-        description: Server error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/serverError'
-/banks/{bank_id}/users:
-  post:
-    tags:
-      - admin user
-    security:
-      - bearerAuth: []
-    summary: Create a bank super admin user
-    description: This endpoint enables regular super_admin users to create bank super_admin users
-    requestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              firstname:
-                type: string
-                example: 'tunde'
-              lastname:
-                type: string
-                example: 'bakare'
-              email:
-                type: string
-                example: 't.bakare@diamond.com'
-              phoneNumber:
-                type: string
-                example: '07001234567'
-    responses:
-      '201':
-        description: Success
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                status:
-                  type: integer
-                  example: 200
-                data:
-                  $ref: '#/components/schemas/user'
-      '400':
-        description: Bad request
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/badRequest'
-      '401':
-        description: Authentication error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/authError'
-      '500':
-        description: Server error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/serverError'
+  # /users/update-profile:
+  #   get:
+  #     tags:
+  #       - user
+  #     security:
+  #       - bearerAuth: []
+  #     summary: Get a user's profile
+  #     description: This endpoint enables a user to fetch his profile details.
+  #     responses:
+  #       '200':
+  #         description: Success
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 status:
+  #                   type: integer
+  #                   example: 200
+  #                 data:
+  #                   $ref: '#/components/schemas/user'
+  #       '401':
+  #         description: Authentication error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/authError'
+  #       '403':
+  #         description: Forbidden
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/forbidden'
+  #       '404':
+  #         description: Resource not found
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/notFound'
+  #       '500':
+  #         description: Server error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/serverError'
+  #   patch:
+  #     tags:
+  #       - user
+  #     security:
+  #       - bearerAuth: []
+  #     summary: Edit a user's profile
+  #     description: This endpoint enables a user to edit his profile details.
+  #     requestBody:
+  #       required: true
+  #       content:
+  #         application/json:
+  #           schema:
+  #             type: object
+  #             properties:
+  #               firstname:
+  #                 type: string
+  #                 example: 'james'
+  #                 required: false
+  #               lastname:
+  #                 type: string
+  #                 example: 'bond'
+  #                 required: false
+  #               phoneNumber:
+  #                 type: string
+  #                 example: '07001234567'
+  #                 required: false
+  #               locationId:
+  #                 type: integer
+  #                 example: 2
+  #                 required: false
+  #     responses:
+  #       '200':
+  #         description: Success
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 status:
+  #                   type: integer
+  #                   example: 200
+  #                 data:
+  #                   $ref: '#/components/schemas/user'
+  #       '401':
+  #         description: Authentication error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/authError'
+  #       '403':
+  #         description: Forbidden
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/forbidden'
+  #       '404':
+  #         description: Resource not found
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/notFound'
+  #       '500':
+  #         description: Server error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/serverError'
+  # /banks/{bank_id}/users:
+  #   post:
+  #     tags:
+  #       - admin user
+  #     security:
+  #       - bearerAuth: []
+  #     summary: Create a bank super admin user
+  #     description: This endpoint enables regular super_admin users to create bank super_admin users
+  #     requestBody:
+  #       required: true
+  #       content:
+  #         application/json:
+  #           schema:
+  #             type: object
+  #             properties:
+  #               firstname:
+  #                 type: string
+  #                 example: 'tunde'
+  #               lastname:
+  #                 type: string
+  #                 example: 'bakare'
+  #               email:
+  #                 type: string
+  #                 example: 't.bakare@diamond.com'
+  #               phoneNumber:
+  #                 type: string
+  #                 example: '07001234567'
+  #     responses:
+  #       '201':
+  #         description: Success
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 status:
+  #                   type: integer
+  #                   example: 200
+  #                 data:
+  #                   $ref: '#/components/schemas/user'
+  #       '400':
+  #         description: Bad request
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/badRequest'
+  #       '401':
+  #         description: Authentication error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/authError'
+  #       '500':
+  #         description: Server error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/serverError'
