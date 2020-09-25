@@ -201,28 +201,28 @@ describe('Create Courses Tests', () => {
   });
 });
 
-describe('Get requests for both user and admin', () => {
-  it('should return 200 and get all courses', (done) => {
-    chai.request(app)
-      .get(`${apiEndPoint}courses`)
-      .set('Authorization', `Bearer ${token}`)
-      .send(token)
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.an('object');
-        res.body.should.have.property('status');
-        res.body.should.have.property('data');
-        res.body.data.should.be.an('array');
-        res.body.data[0].should.have.property('id');
-        res.body.data[0].should.have.property('courseTitle');
-        res.body.data[0].should.have.property('memberFees');
-        res.body.data[0].should.have.property('nonMemberFees');
-        res.body.data[0].should.have.property('startDate');
-        res.body.data[0].should.have.property('endDate');
-        done();
-      });
-  });
-});
+// describe('Get requests for both user and admin', () => {
+//   it('should return 200 and get all courses', (done) => {
+//     chai.request(app)
+//       .get(`${apiEndPoint}courses`)
+//       .set('Authorization', `Bearer ${token}`)
+//       .send(token)
+//       .end((err, res) => {
+//         res.should.have.status(200);
+//         res.body.should.be.an('object');
+//         res.body.should.have.property('status');
+//         res.body.should.have.property('data');
+//         res.body.data.should.be.an('array');
+//         res.body.data[0].should.have.property('id');
+//         res.body.data[0].should.have.property('courseTitle');
+//         res.body.data[0].should.have.property('memberFees');
+//         res.body.data[0].should.have.property('nonMemberFees');
+//         res.body.data[0].should.have.property('startDate');
+//         res.body.data[0].should.have.property('endDate');
+//         done();
+//       });
+//   });
+// });
 
 describe('Register a courses', () => {
   it('Should register a user for a course', (done) => {
