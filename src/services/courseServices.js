@@ -1,4 +1,4 @@
-import { names } from 'debug';
+// import { names } from 'debug';
 import { Op } from 'sequelize';
 import { course, userCourses } from '../models';
 
@@ -97,7 +97,6 @@ export default class CourseServices {
   static async Pagination(req) {
     const page = parseInt(req.query.page || 1, 10);
     const nameSearch = req.query.title;
-    console.log({nameSearch});
     const limit = 6;
 
     const offset = (page > 1) ? (page - 1) * limit : 0;
