@@ -55,6 +55,7 @@
     "dotenv": "^7.0.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
+    "faker": "5.1.0",
     "jsonwebtoken": "^8.5.1",
     "mocha": "^8.1.1",
     "moment": "^2.27.0",
