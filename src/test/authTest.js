@@ -1,14 +1,14 @@
-import chai from 'chai';
-import chaiHttp from 'chai-http';
+// import chai from 'chai';
+// import chaiHttp from 'chai-http';
 // import faker from 'faker';
 
 // import app from '../app';
 
 // const expect = chai.expect;
 
-chai.should();
+// chai.should();
 
-chai.use(chaiHttp);
+// chai.use(chaiHttp);
 
 // const apiEndPoint = '/api/v1/';
 // const userEndPoint = `${apiEndPoint}auth/`;
@@ -37,7 +37,7 @@ chai.use(chaiHttp);
 //   lastName: 'wale',
 // };
 
-describe('Signup User', () => {
+// describe('Signup User', () => {
   // it('Should create a new user', (done) => {
   //   chai.request(app)
   //     .post(`${userEndPoint}signup`)
@@ -176,4 +176,4 @@ describe('Signup User', () => {
 //         done();
 //       });
 //   });
-});
+// });
