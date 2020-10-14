@@ -7,7 +7,7 @@
     "start": "node ./src/bin/www",
     "devstart": "set DEBUG=dev && babel-watch ./src/bin/dev",
     "build": "rm -rf dist && mkdir dist && babel src -s -d dist",
-    "test": " set NODE_ENV=test && npm run reset-db && nyc mocha -r @babel/register --recursive src/test/ --exit -timeout 1000000",
+    "test": " set NODE_ENV=test && npm run reset-db && nyc mocha -r @babel/register --recursive src/test/ --exit -timeout 10000",
     "migrate": "./node_modules/.bin/sequelize db:migrate",
     "drop-db": "./node_modules/.bin/sequelize db:migrate:undo:all",
     "seeders": "./node_modules/.bin/sequelize db:seed:all",
@@ -64,6 +64,8 @@
     "pg": "^7.18.2",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.22.3",
+    "sinon": "9.2.0",
+    "sinon-chai": "3.5.0",
     "swagger-jsdoc": "^4.0.0",
     "swagger-ui-express": "^4.1.4"
   },
