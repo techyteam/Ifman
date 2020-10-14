@@ -37,21 +37,22 @@ describe('AUTH', () => {
 
   describe('SignUp a user', () => {
     it('should sign up user', async () => {
+
       const response = await request.post(`${userEndPoint}signup`).send(userData);
       expect(response.status).to.equal(201);
       expect(response.body).to.be.a('object');
-    }).timeout(0);
+    });
   });
   describe('Bad Request', () => {
     it('Should return 400 Bad Request', async () => {
       const response = await request.post(`${userEndPoint}signup`).send(userWithNoPassword);
       expect(response.status).to.equal(400);
-    }).timeout(0);
+    });
   });
   describe('User already exist', () => {
     it('should throw USER already exist error', async () => {
       const response = await request.post(`${userEndPoint}signup`).send(userData);
       expect(response.status).to.equal(409);
-    }).timeout(0);
+    })
   });
 });
