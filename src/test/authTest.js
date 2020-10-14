@@ -43,7 +43,7 @@ describe('Signup User', () => {
       .post(`${userEndPoint}signup`)
       .send(user)
       .end((err, res) => {
-        console.log(res.body, 'RESPONSE');
+        console.log(err, 'ERROR RESPONSE');
         res.should.have.status(201);
         res.body.should.be.a('object');
         res.body.should.have.property('data');
