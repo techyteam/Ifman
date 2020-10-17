@@ -7,7 +7,7 @@
     "start": "node ./src/bin/www",
     "devstart": "set DEBUG=dev && babel-watch ./src/bin/dev",
     "build": "rm -rf dist && mkdir dist && babel src -s -d dist",
-    "test": " set NODE_ENV=test && npm run reset-db && nyc mocha -r @babel/register --recursive src/test/ --exit -timeout 10000",
+    "test": " set NODE_ENV=test&& npm run reset-db&& nyc mocha -r @babel/register --recursive src/test/ --exit -timeout 10000",
     "migrate": "./node_modules/.bin/sequelize db:migrate",
     "drop-db": "./node_modules/.bin/sequelize db:migrate:undo:all",
     "seeders": "./node_modules/.bin/sequelize db:seed:all",

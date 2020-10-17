@@ -38,21 +38,21 @@
 // };
 
 // describe('Signup User', () => {
-  // it('Should create a new user', (done) => {
-  //   chai.request(app)
-  //     .post(`${userEndPoint}signup`)
-  //     .send(user)
-  //     .end((err, res) => {
-  //       res.should.have.status(201);
-  //       res.body.should.be.a('object');
-  //       res.body.should.have.property('data');
-  //       res.body.data.should.be.a('object');
-  //       res.body.data.should.have.property('tokens');
-  //       res.body.data.should.have.property('id');
-  //       res.body.data.should.have.property('email');
-  //       done();
-  //     });
-  // });
+// it('Should create a new user', (done) => {
+//   chai.request(app)
+//     .post(`${userEndPoint}signup`)
+//     .send(user)
+//     .end((err, res) => {
+//       res.should.have.status(201);
+//       res.body.should.be.a('object');
+//       res.body.should.have.property('data');
+//       res.body.data.should.be.a('object');
+//       res.body.data.should.have.property('tokens');
+//       res.body.data.should.have.property('id');
+//       res.body.data.should.have.property('email');
+//       done();
+//     });
+// });
 //   it('Should return 409 if email already exists', (done) => {
 //     chai.request(app)
 //       .post(`${userEndPoint}signup`)

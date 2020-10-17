@@ -155,44 +155,44 @@ describe('Create Courses Tests', () => {
         done();
       });
   });
-  // it('Should register a user for a course', (done) => {
-  //   chai.request(app)
-  //     .post(`${apiEndPoint}courses/2/register`)
-  //     .set('Authorization', `Bearer ${token}`)
-  //     .send(token)
-  //     .end((err, res) => {
-  //       res.should.have.status(201);
-  //       res.body.should.be.an('object');
-  //       res.body.should.have.property('status');
-  //       res.body.should.have.property('data');
-  //       res.body.data.should.be.an('object');
-  //       res.body.data.should.have.property('id');
-  //       res.body.data.should.have.property('UserId');
-  //       res.body.data.should.have.property('courseId');
-  //       res.body.data.should.have.property('registeredOn');
-  //       done();
-  //     });
-  // });
-  // it('should return 200 and get all courses', (done) => {
-  //   chai.request(app)
-  //     .get(`${apiEndPoint}courses`)
-  //     .set('Authorization', `Bearer ${token}`)
-  //     .send(token)
-  //     .end((err, res) => {
-  //       res.should.have.status(200);
-  //       res.body.should.be.an('object');
-  //       res.body.should.have.property('status');
-  //       res.body.should.have.property('data');
-  //       res.body.data.should.be.an('array');
-  //       res.body.data[0].should.have.property('id');
-  //       res.body.data[0].should.have.property('courseTitle');
-  //       res.body.data[0].should.have.property('memberFees');
-  //       res.body.data[0].should.have.property('nonMemberFees');
-  //       res.body.data[0].should.have.property('startDate');
-  //       res.body.data[0].should.have.property('endDate');
-  //       done();
-  //     });
-  // });
+  it('Should register a user for a course', (done) => {
+    chai.request(app)
+      .post(`${apiEndPoint}courses/2/register`)
+      .set('Authorization', `Bearer ${token}`)
+      .send(token)
+      .end((err, res) => {
+        res.should.have.status(201);
+        res.body.should.be.an('object');
+        res.body.should.have.property('status');
+        res.body.should.have.property('data');
+        res.body.data.should.be.an('object');
+        res.body.data.should.have.property('id');
+        res.body.data.should.have.property('UserId');
+        res.body.data.should.have.property('courseId');
+        res.body.data.should.have.property('registeredOn');
+        done();
+      });
+  });
+  it('should return 200 and get all courses', (done) => {
+    chai.request(app)
+      .get(`${apiEndPoint}course`)
+      .set('Authorization', `Bearer ${token}`)
+      .send(token)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.an('object');
+        res.body.should.have.property('status');
+        res.body.should.have.property('data');
+        res.body.data.should.be.an('array');
+        res.body.data[0].should.have.property('id');
+        res.body.data[0].should.have.property('courseTitle');
+        res.body.data[0].should.have.property('memberFees');
+        res.body.data[0].should.have.property('nonMemberFees');
+        res.body.data[0].should.have.property('startDate');
+        res.body.data[0].should.have.property('endDate');
+        done();
+      });
+  });
 });
 
 // describe('Create Courses Tests', () => {

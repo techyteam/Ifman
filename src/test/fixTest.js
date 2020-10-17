@@ -37,7 +37,6 @@ describe('AUTH', () => {
 
   describe('SignUp a user', () => {
     it('should sign up user', async () => {
-
       const response = await request.post(`${userEndPoint}signup`).send(userData);
       expect(response.status).to.equal(201);
       expect(response.body).to.be.a('object');
@@ -53,6 +52,6 @@ describe('AUTH', () => {
     it('should throw USER already exist error', async () => {
       const response = await request.post(`${userEndPoint}signup`).send(userData);
       expect(response.status).to.equal(409);
-    })
+    });
   });
 });
