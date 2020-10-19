@@ -45,6 +45,8 @@ describe('Create Courses Tests', () => {
         done();
       });
   });
+});
+describe('Title One', () => {
   it('Should return 401 if token is not provided', (done) => {
     const course = {
       courseTitle: 'Facility Management',
@@ -64,6 +66,8 @@ describe('Create Courses Tests', () => {
         done();
       });
   });
+});
+describe('Title 2', () => {
   it('Should return 400 if courseTitle isn\'t specified', (done) => {
     const course = {
       memberFees: 105000,
@@ -83,6 +87,8 @@ describe('Create Courses Tests', () => {
         done();
       });
   });
+});
+describe('Create Courses Tests', () => {
   it('Should return 400 if memberFees isn\'t specified', (done) => {
     const course = {
       CourseTitle: 'Facility Management',
@@ -101,6 +107,8 @@ describe('Create Courses Tests', () => {
         done();
       });
   });
+});
+describe('Create Courses Tests', () => {
   it('Should return 400 if nonmemberFee isn\'t specified', (done) => {
     const course = {
       CourseTitle: 'Facility Management',
@@ -119,6 +127,8 @@ describe('Create Courses Tests', () => {
         done();
       });
   });
+});
+describe('Create Courses Tests', () => {
   it('Should return 400 if endDate isn\'t specified', (done) => {
     const course = {
       CourseTitle: 'Facility Management',
@@ -137,6 +147,8 @@ describe('Create Courses Tests', () => {
         done();
       });
   });
+});
+describe('Create Courses Tests', () => {
   it('Should return 400 if startDate isn\'t specified', (done) => {
     const course = {
       CourseTitle: 'Facility Management',
@@ -155,6 +167,8 @@ describe('Create Courses Tests', () => {
         done();
       });
   });
+});
+describe('Create Courses Tests', () => {
   it('Should register a user for a course', (done) => {
     chai.request(app)
       .post(`${apiEndPoint}courses/2/register`)
@@ -173,6 +187,8 @@ describe('Create Courses Tests', () => {
         done();
       });
   });
+});
+describe('Create Courses Tests', () => {
   it('should return 200 and get all courses', (done) => {
     chai.request(app)
       .get(`${apiEndPoint}course`)
@@ -194,6 +210,7 @@ describe('Create Courses Tests', () => {
       });
   });
 });
+
 
 // describe('Create Courses Tests', () => {
 
