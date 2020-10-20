@@ -24,7 +24,7 @@ describe('Signup Error', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Signup Error', () => {
@@ -42,7 +42,7 @@ describe('Signup Error', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Signup Error', () => {
@@ -63,7 +63,7 @@ describe('Signup Error', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe(`POST ${userEndPoint}signup`, () => {
@@ -85,7 +85,7 @@ describe(`POST ${userEndPoint}signup`, () => {
         res.body.data.should.have.property('email');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Signup Error', () => {
@@ -103,7 +103,7 @@ describe('Signup Error', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Signin Error', () => {
@@ -121,7 +121,7 @@ describe('Signin Error', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Signin Error', () => {
@@ -139,7 +139,7 @@ describe('Signin Error', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Signin Errror', () => {
@@ -156,7 +156,7 @@ describe('Signin Errror', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Signin Error', () => {
@@ -173,7 +173,7 @@ describe('Signin Error', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('User Login tests', () => {
@@ -193,5 +193,5 @@ describe('User Login tests', () => {
         res.body.data.should.have.property('tokens');
         done();
       });
-  });
+  }).timeout(15000);
 });

@@ -34,7 +34,7 @@ describe('Create Courses Tests', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Create Courses Tests', () => {
@@ -69,7 +69,7 @@ describe('Create Courses Tests', () => {
         res.body.data.should.have.property('endDate');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Create Courses Tests', () => {
@@ -91,7 +91,7 @@ describe('Create Courses Tests', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Create Courses Tests', () => {
@@ -113,7 +113,7 @@ describe('Create Courses Tests', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Create Courses', () => {
@@ -134,7 +134,7 @@ describe('Create Courses', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Create Courses', () => {
@@ -155,7 +155,7 @@ describe('Create Courses', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Ceate Courses', () => {
@@ -176,7 +176,7 @@ describe('Ceate Courses', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Create Courses Tests', () => {
@@ -197,7 +197,7 @@ describe('Create Courses Tests', () => {
         res.body.should.have.property('error');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Get requests for both user and admin', () => {
@@ -220,7 +220,7 @@ describe('Get requests for both user and admin', () => {
         res.body.data[0].should.have.property('endDate');
         done();
       });
-  });
+  }).timeout(15000);
 });
 
 describe('Register a courses', () => {
@@ -241,5 +241,5 @@ describe('Register a courses', () => {
         res.body.data.should.have.property('registeredOn');
         done();
       });
-  });
+  }).timeout(15000);
 });
