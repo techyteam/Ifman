@@ -66,81 +66,81 @@ describe('Signup Error', () => {
   }).timeout(15000);
 });
 
-describe(`POST ${userEndPoint}signup`, () => {
-  it('Should create a new user', (done) => {
-    const user = {
-      email: 'temi@testmail.com',
-      password: 'password',
-    };
-    chai.request(app)
-      .post(`${userEndPoint}signup`)
-      .send(user)
-      .end((err, res) => {
-        res.should.have.status(201);
-        res.body.should.be.a('object');
-        res.body.should.have.property('data');
-        res.body.data.should.be.a('object');
-        res.body.data.should.have.property('tokens');
-        res.body.data.should.have.property('id');
-        res.body.data.should.have.property('email');
-        done();
-      });
-  }).timeout(15000);
-});
+// describe(`POST ${userEndPoint}signup`, () => {
+//   it('Should create a new user', (done) => {
+//     const user = {
+//       email: 'temi@testmail.com',
+//       password: 'password',
+//     };
+//     chai.request(app)
+//       .post(`${userEndPoint}signup`)
+//       .send(user)
+//       .end((err, res) => {
+//         res.should.have.status(201);
+//         res.body.should.be.a('object');
+//         res.body.should.have.property('data');
+//         res.body.data.should.be.a('object');
+//         res.body.data.should.have.property('tokens');
+//         res.body.data.should.have.property('id');
+//         res.body.data.should.have.property('email');
+//         done();
+//       });
+//   }).timeout(15000);
+// });
 
-describe('Signup Error', () => {
-  it('Should return 409 if email already exists', (done) => {
-    const user = {
-      email: 'temi@testmail.com',
-      password: 'password',
-    };
-    chai.request(app)
-      .post(`${userEndPoint}signup`)
-      .send(user)
-      .end((err, res) => {
-        res.should.have.status(409);
-        res.body.should.be.a('object');
-        res.body.should.have.property('error');
-        done();
-      });
-  }).timeout(15000);
-});
+// describe('Signup Error', () => {
+//   it('Should return 409 if email already exists', (done) => {
+//     const user = {
+//       email: 'temi@testmail.com',
+//       password: 'password',
+//     };
+//     chai.request(app)
+//       .post(`${userEndPoint}signup`)
+//       .send(user)
+//       .end((err, res) => {
+//         res.should.have.status(409);
+//         res.body.should.be.a('object');
+//         res.body.should.have.property('error');
+//         done();
+//       });
+//   }).timeout(15000);
+// });
 
-describe('Signin Error', () => {
-  it('Should deny access if wrong email is provided', (done) => {
-    const login = {
-      email: 'kcmykirl@gmail.com',
-      password: 'pA55w0rd',
-    };
-    chai.request(app)
-      .post(`${userEndPoint}signin`)
-      .send(login)
-      .end((err, res) => {
-        res.should.have.status(404);
-        res.body.should.be.a('object');
-        res.body.should.have.property('error');
-        done();
-      });
-  }).timeout(15000);
-});
+// describe('Signin Error', () => {
+//   it('Should deny access if wrong email is provided', (done) => {
+//     const login = {
+//       email: 'kcmykirl@gmail.com',
+//       password: 'pA55w0rd',
+//     };
+//     chai.request(app)
+//       .post(`${userEndPoint}signin`)
+//       .send(login)
+//       .end((err, res) => {
+//         res.should.have.status(404);
+//         res.body.should.be.a('object');
+//         res.body.should.have.property('error');
+//         done();
+//       });
+//   }).timeout(15000);
+// });
 
-describe('Signin Error', () => {
-  it('Should deny access if wrong password is provided', (done) => {
-    const login = {
-      email: 'temi@testmail.com',
-      password: 'passweod',
-    };
-    chai.request(app)
-      .post(`${userEndPoint}signin`)
-      .send(login)
-      .end((err, res) => {
-        res.should.have.status(401);
-        res.body.should.be.a('object');
-        res.body.should.have.property('error');
-        done();
-      });
-  }).timeout(15000);
-});
+// describe('Signin Error', () => {
+//   it('Should deny access if wrong password is provided', (done) => {
+//     const login = {
+//       email: 'temi@testmail.com',
+//       password: 'passweod',
+//     };
+//     chai.request(app)
+//       .post(`${userEndPoint}signin`)
+//       .send(login)
+//       .end((err, res) => {
+//         res.should.have.status(401);
+//         res.body.should.be.a('object');
+//         res.body.should.have.property('error');
+//         done();
+//       });
+//   }).timeout(15000);
+// });
 
 describe('Signin Errror', () => {
   it('Should return 400 if email is not provided', (done) => {
@@ -176,22 +176,22 @@ describe('Signin Error', () => {
   }).timeout(15000);
 });
 
-describe('User Login tests', () => {
-  it('Should login a user successfully', (done) => {
-    const login = {
-      email: 'temi@testmail.com',
-      password: 'password',
-    };
-    chai.request(app)
-      .post(`${userEndPoint}signin`)
-      .send(login)
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a('object');
-        res.body.should.have.property('data');
-        res.body.data.should.be.a('object');
-        res.body.data.should.have.property('tokens');
-        done();
-      });
-  }).timeout(15000);
-});
+// describe('User Login tests', () => {
+//   it('Should login a user successfully', (done) => {
+//     const login = {
+//       email: 'temi@testmail.com',
+//       password: 'password',
+//     };
+//     chai.request(app)
+//       .post(`${userEndPoint}signin`)
+//       .send(login)
+//       .end((err, res) => {
+//         res.should.have.status(200);
+//         res.body.should.be.a('object');
+//         res.body.should.have.property('data');
+//         res.body.data.should.be.a('object');
+//         res.body.data.should.have.property('tokens');
+//         done();
+//       });
+//   }).timeout(15000);
+// });
