@@ -1,16 +1,16 @@
-import chai from 'chai';
-import chaiHttp from 'chai-http';
-import app from '../app';
-import Utils from '../utils';
+// import chai from 'chai';
+// import chaiHttp from 'chai-http';
+// import app from '../app';
+// import Utils from '../utils';
 
-chai.should();
+// chai.should();
 
-chai.use(chaiHttp);
+// chai.use(chaiHttp);
 
-const apiEndPoint = '/api/v1/';
-const adminEmail = 'victorawotidebe@gmail.com';
+// const apiEndPoint = '/api/v1/';
+// const adminEmail = 'victorawotidebe@gmail.com';
 // const notAdminEmail = 'rmissen0@adobe.com';
-const token = Utils.generateToken({ email: adminEmail });
+// const token = Utils.generateToken({ email: adminEmail });
 // const nonAdminToken = Utils.generateToken({ email: notAdminEmail });
 
 // describe('Create Courses Tests', () => {
@@ -72,133 +72,133 @@ const token = Utils.generateToken({ email: adminEmail });
 //   }).timeout(15000);
 // });
 
-describe('Create Courses Tests', () => {
-  it('Should return 401 if token is not provided', (done) => {
-    const course = {
-      courseTitle: 'Facility Management',
-      memberFees: 105000,
-      nonMemberFees: 115000,
-      startDate: 10,
-      endDate: 13,
-    };
-    chai
-      .request(app)
-      .post(`${apiEndPoint}courses`)
-      .send(course)
-      .end((err, res) => {
-        res.should.have.status(401);
-        res.body.should.be.a('object');
-        res.body.should.have.property('error');
-        done();
-      });
-  }).timeout(15000);
-});
+// describe('Create Courses Tests', () => {
+//   it('Should return 401 if token is not provided', (done) => {
+//     const course = {
+//       courseTitle: 'Facility Management',
+//       memberFees: 105000,
+//       nonMemberFees: 115000,
+//       startDate: 10,
+//       endDate: 13,
+//     };
+//     chai
+//       .request(app)
+//       .post(`${apiEndPoint}courses`)
+//       .send(course)
+//       .end((err, res) => {
+//         res.should.have.status(401);
+//         res.body.should.be.a('object');
+//         res.body.should.have.property('error');
+//         done();
+//       });
+//   }).timeout(15000);
+// });
 
-describe('Create Courses Tests', () => {
-  it('Should return 400 if courseTitle isn\'t specified', (done) => {
-    const course = {
-      memberFees: 105000,
-      nonmemberFee: 115000,
-      startDate: 10,
-      endDate: 13,
-    };
+// describe('Create Courses Tests', () => {
+//   it('Should return 400 if courseTitle isn\'t specified', (done) => {
+//     const course = {
+//       memberFees: 105000,
+//       nonmemberFee: 115000,
+//       startDate: 10,
+//       endDate: 13,
+//     };
 
-    chai.request(app)
-      .post(`${apiEndPoint}courses`)
-      .set('Authorization', `Bearer ${token}`)
-      .send(course)
-      .end((err, res) => {
-        res.should.have.status(400);
-        res.body.should.be.a('object');
-        res.body.should.have.property('error');
-        done();
-      });
-  }).timeout(15000);
-});
+//     chai.request(app)
+//       .post(`${apiEndPoint}courses`)
+//       .set('Authorization', `Bearer ${token}`)
+//       .send(course)
+//       .end((err, res) => {
+//         res.should.have.status(400);
+//         res.body.should.be.a('object');
+//         res.body.should.have.property('error');
+//         done();
+//       });
+//   }).timeout(15000);
+// });
 
-describe('Create Courses', () => {
-  it('Should return 400 if memberFees isn\'t specified', (done) => {
-    const course = {
-      CourseTitle: 'Facility Management',
-      nonmemberFee: 115000,
-      startDate: 10,
-      endDate: 13,
-    };
-    chai.request(app)
-      .post(`${apiEndPoint}courses`)
-      .set('Authorization', `Bearer ${token}`)
-      .send(course)
-      .end((err, res) => {
-        res.should.have.status(400);
-        res.body.should.be.a('object');
-        res.body.should.have.property('error');
-        done();
-      });
-  }).timeout(15000);
-});
+// describe('Create Courses', () => {
+//   it('Should return 400 if memberFees isn\'t specified', (done) => {
+//     const course = {
+//       CourseTitle: 'Facility Management',
+//       nonmemberFee: 115000,
+//       startDate: 10,
+//       endDate: 13,
+//     };
+//     chai.request(app)
+//       .post(`${apiEndPoint}courses`)
+//       .set('Authorization', `Bearer ${token}`)
+//       .send(course)
+//       .end((err, res) => {
+//         res.should.have.status(400);
+//         res.body.should.be.a('object');
+//         res.body.should.have.property('error');
+//         done();
+//       });
+//   }).timeout(15000);
+// });
 
-describe('Create Courses', () => {
-  it('Should return 400 if nonmemberFee isn\'t specified', (done) => {
-    const course = {
-      CourseTitle: 'Facility Management',
-      memberFees: 105000,
-      startDate: 10,
-      endDate: 13,
-    };
-    chai.request(app)
-      .post(`${apiEndPoint}courses`)
-      .set('Authorization', `Bearer ${token}`)
-      .send(course)
-      .end((err, res) => {
-        res.should.have.status(400);
-        res.body.should.be.a('object');
-        res.body.should.have.property('error');
-        done();
-      });
-  }).timeout(15000);
-});
+// describe('Create Courses', () => {
+//   it('Should return 400 if nonmemberFee isn\'t specified', (done) => {
+//     const course = {
+//       CourseTitle: 'Facility Management',
+//       memberFees: 105000,
+//       startDate: 10,
+//       endDate: 13,
+//     };
+//     chai.request(app)
+//       .post(`${apiEndPoint}courses`)
+//       .set('Authorization', `Bearer ${token}`)
+//       .send(course)
+//       .end((err, res) => {
+//         res.should.have.status(400);
+//         res.body.should.be.a('object');
+//         res.body.should.have.property('error');
+//         done();
+//       });
+//   }).timeout(15000);
+// });
 
-describe('Ceate Courses', () => {
-  it('Should return 400 if endDate isn\'t specified', (done) => {
-    const course = {
-      CourseTitle: 'Facility Management',
-      memberFees: 105000,
-      nonmemberFee: 115000,
-      startDate: 10,
-    };
-    chai.request(app)
-      .post(`${apiEndPoint}courses`)
-      .set('Authorization', `Bearer ${token}`)
-      .send(course)
-      .end((err, res) => {
-        res.should.have.status(400);
-        res.body.should.be.a('object');
-        res.body.should.have.property('error');
-        done();
-      });
-  }).timeout(15000);
-});
+// describe('Ceate Courses', () => {
+//   it('Should return 400 if endDate isn\'t specified', (done) => {
+//     const course = {
+//       CourseTitle: 'Facility Management',
+//       memberFees: 105000,
+//       nonmemberFee: 115000,
+//       startDate: 10,
+//     };
+//     chai.request(app)
+//       .post(`${apiEndPoint}courses`)
+//       .set('Authorization', `Bearer ${token}`)
+//       .send(course)
+//       .end((err, res) => {
+//         res.should.have.status(400);
+//         res.body.should.be.a('object');
+//         res.body.should.have.property('error');
+//         done();
+//       });
+//   }).timeout(15000);
+// });
 
-describe('Create Courses Tests', () => {
-  it('Should return 400 if startDate isn\'t specified', (done) => {
-    const course = {
-      CourseTitle: 'Facility Management',
-      memberFees: 105000,
-      nonmemberFee: 115000,
-      endDate: 13,
-    };
-    chai.request(app)
-      .post(`${apiEndPoint}courses`)
-      .set('Authorization', `Bearer ${token}`)
-      .send(course)
-      .end((err, res) => {
-        res.should.have.status(400);
-        res.body.should.be.a('object');
-        res.body.should.have.property('error');
-        done();
-      });
-  }).timeout(15000);
-});
+// describe('Create Courses Tests', () => {
+//   it('Should return 400 if startDate isn\'t specified', (done) => {
+//     const course = {
+//       CourseTitle: 'Facility Management',
+//       memberFees: 105000,
+//       nonmemberFee: 115000,
+//       endDate: 13,
+//     };
+//     chai.request(app)
+//       .post(`${apiEndPoint}courses`)
+//       .set('Authorization', `Bearer ${token}`)
+//       .send(course)
+//       .end((err, res) => {
+//         res.should.have.status(400);
+//         res.body.should.be.a('object');
+//         res.body.should.have.property('error');
+//         done();
+//       });
+//   }).timeout(15000);
+// });
 
 // describe('Get requests for both user and admin', () => {
 //   it('should return 200 and get all courses', (done) => {
