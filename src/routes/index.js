@@ -5,6 +5,7 @@ import { swaggerDefinition } from '../utils/swagger-definition';
 import userRoutes from './users';
 import courseRoutes from './courses';
 import PaymentRoutes from './payments';
+import EventRoutes from './events';
 
 const router = express.Router();
 
@@ -34,5 +35,6 @@ router.get('/', (req, res) => {
 router.use('/v1/auth', userRoutes);
 router.use('/v1', courseRoutes);
 router.use('/v1', PaymentRoutes);
+router.use('/v1', EventRoutes);
 
 export default router;
