@@ -17,7 +17,7 @@
     <sign-modal class=""></sign-modal>
 
     <!-- header -->
-    <my-header class="container1"></my-header>
+    <!-- <my-header class="container1"></my-header> -->
 
     <!-- page wrap -->
     <div class="page-wrap two">
@@ -95,13 +95,13 @@
                                 </div>
                                 <div class="details">
                                     <p>FIRST NAME :</p>
-                                    <p>MYEMAKA</p>
+                                    <p id="user_1st_name">MYEMAKA</p>
                                     <p>LAST NAME :</p>
-                                    <p>MESUT</p>
+                                    <p id="user_last_name">MESUT</p>
                                     <p>EMAIL:</p>
-                                    <p>viheanacho@gmail.com</p>
+                                    <p id="user_email">viheanacho@gmail.com</p>
                                     <p>ACCOUNT-TYPE:</p>
-                                    <p>non-member</p>
+                                    <p id="acct_type">non-member</p>
                                     <p>ADDRESS :</p>
                                     <p>12 OLE STREET, BROADWAY EMIRATES</p>
                                 </div>
@@ -119,6 +119,17 @@
         <!-- footer -->
         <my-footer></my-footer>
     </div>
+    <script>
+        console.log("document.cookie")
+        // console.log("cookies__  ", document.cookie)
+        const user = JSON.parse(localStorage.getItem('user'));
+        const token = JSON.parse(localStorage.getItem('tokens'));
+
+        console.log(user, token)
+        document.querySelector('#user_1st_name').innerHTML = user.firstName;
+        document.querySelector('#user_last_name').innerHTML = user.lastName;
+        document.querySelector('#acct_type').innerHTML = user.memberType;
+    </script>
 </body>
 
 </html>
