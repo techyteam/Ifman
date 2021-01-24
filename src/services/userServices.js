@@ -1,4 +1,4 @@
-import { User } from "../models";
+import { User } from '../models';
 
 /**
  * User service Class
@@ -39,7 +39,7 @@ export default class UserServices {
     const userDetails = await User.update(
       { [name]: value },
       { where: { id } },
-      { returning: true }
+      { returning: true },
     );
     return userDetails;
   }
@@ -74,7 +74,7 @@ export default class UserServices {
       Address,
       gender,
       phoneNumber,
-      memberType
+      memberType,
     } = attribute;
     const userDetails = await User.update(
       {
@@ -85,9 +85,9 @@ export default class UserServices {
         gender,
         Address,
         phoneNumber,
-        memberType
+        memberType,
       },
-      { where: { email }, returning: true, plain: true }
+      { where: { email }, returning: true, plain: true },
     );
     const result = userDetails[1].dataValues;
     delete result.password;
